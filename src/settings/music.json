@@ -9376,7 +9376,7 @@
     "status": "unreleased",
     "note": "A variation of the original Kingdom Hearts arrangement that replaces the choir with strings. It plays in Symphony of Sorcery and was excluded from the album.",
     "wiki": "https://www.khwiki.com/Dearly_Beloved",
-    "daily": true
+    "daily": false
   },
   {
     "title": "Dearly Beloved",
@@ -15637,7 +15637,7 @@
     "status": "unnamed",
     "note": "A cutscene track for the intro scene with young Eraqus and Xehanort playing chess.",
     "wiki": "https://www.khwiki.com/List_of_unnamed_tracks_(KHIII)#Gambit",
-    "daily": false
+    "daily": true
   },
   {
     "title": "Unnamed (Prelude to Adventure) [Magical Mystery]",
@@ -15775,7 +15775,7 @@
     "status": "unnamed",
     "note": "A cutscene track preceding the fight in the collapsing building in Olympus.",
     "wiki": "https://www.khwiki.com/List_of_unnamed_tracks_(KHIII)#The_Collapsing_Building",
-    "daily": false
+    "daily": true
   },
   {
     "title": "Unnamed (Xigbar's Admonition) [No Time to Think; Olympus Coliseum]",
@@ -15968,7 +15968,7 @@
     "status": "unnamed",
     "note": "A cutscene track for Chip and Dale's first call on the Gummi Phone.",
     "wiki": "https://www.khwiki.com/List_of_unnamed_tracks_(KHIII)#Heart_Within_a_Heart",
-    "daily": false
+    "daily": true
   },
   {
     "title": "Unnamed (Heart Within a Heart) [Sora]",
@@ -16192,7 +16192,7 @@
     "status": "unnamed",
     "note": "A cutscene track for Sora's arrival in Mosntropolis.",
     "wiki": "https://www.khwiki.com/List_of_unnamed_tracks_(KHIII)#Doesn't_Sound_Very_Caring",
-    "daily": false
+    "daily": true
   },
   {
     "title": "Unnamed (Doesn't Sound Very Caring) [Laughter and Merriment]",
@@ -16399,7 +16399,7 @@
     "status": "unnamed",
     "note": "A cutscene track for Ansem's battle with Aqua in the Realm of Darkness.",
     "wiki": "https://www.khwiki.com/List_of_unnamed_tracks_(KHIII)#An_Unexpected_Encounter",
-    "daily": false
+    "daily": true
   },
   {
     "title": "Unnamed (The Organization's Origins) [Organization XIII]",
@@ -16502,7 +16502,7 @@
     "status": "unnamed",
     "note": "A cutscene track for Hayner, Pence, and Olette's run-in with Ansem at the Old Mansion.",
     "wiki": "https://www.khwiki.com/List_of_unnamed_tracks_(KHIII)#Atonement",
-    "daily": false
+    "daily": true
   },
   {
     "title": "Unnamed (Finding an Edge) [Sora]",
@@ -16536,7 +16536,7 @@
     "status": "unnamed",
     "note": "A cutscene track for the post-shugyo level-up of Big Hero 6.",
     "wiki": "https://www.khwiki.com/List_of_unnamed_tracks_(KHIII)#Upgraded",
-    "daily": false
+    "daily": true
   },
   {
     "title": "Unnamed (Upgraded) [Strange Whispers]",
@@ -16621,7 +16621,7 @@
     "status": "unnamed",
     "note": "A cutscene track for Sora entering the Realm of Darkness and cutting the Demon Tower with Riku.",
     "wiki": "https://www.khwiki.com/List_of_unnamed_tracks_(KHIII)#Braving_the_Darkness",
-    "daily": false
+    "daily": true
   },
   {
     "title": "Unnamed (An End to Slumber) [Ventus]",
@@ -16655,7 +16655,7 @@
     "status": "unnamed",
     "note": "A cutscene track for Chirithy's introduction in The Final World.",
     "wiki": "https://www.khwiki.com/List_of_unnamed_tracks_(KHIII)#A_World_of_Only_Hearts",
-    "daily": false
+    "daily": true
   },
   {
     "title": "Unnamed (A Corridor of Light) [Magical Mystery; Hand in Hand]",
@@ -16762,7 +16762,7 @@
     "status": "unnamed",
     "note": "A cutscene track for Terra-Xehanort attacking Aqua and Ventus.",
     "wiki": "https://www.khwiki.com/List_of_unnamed_tracks_(KHIII)#From_Chains_to_Bonds",
-    "daily": false
+    "daily": true
   },
   {
     "title": "Unnamed (From Chains to Bonds) [Terra]",
@@ -16779,7 +16779,7 @@
     "status": "unnamed",
     "note": "A cutscene track for the Dark Figure betraying Terra-Xehanort.",
     "wiki": "https://www.khwiki.com/List_of_unnamed_tracks_(KHIII)#From_Chains_to_Bonds",
-    "daily": false
+    "daily": true
   },
   {
     "title": "Unnamed (The Last Light) [Organization XIII; Darkness of the Unknown]",
@@ -16881,7 +16881,7 @@
     "status": "unnamed",
     "note": "A cutscene track for Master Xehanort summoning Kingdom Hearts and striking down Kairi. It was added in the 1.07 update, replacing \"Missing You\" from the initial release.",
     "wiki": "https://www.khwiki.com/List_of_unnamed_tracks_(KHIII)#Kingdom_Hearts",
-    "daily": false
+    "daily": true
   },
   {
     "title": "Unnamed (Kingdom Hearts) [The Key of Darkness]",
@@ -17054,7 +17054,7 @@
     "status": "unnamed",
     "note": "A cutscene track for the Replica Xehanorts emerging to fight the Guardians of Light.",
     "wiki": "https://www.khwiki.com/List_of_unnamed_tracks_(KHIII)#Battle_of_the_Guardians",
-    "daily": false
+    "daily": true
   },
   {
     "title": "Unnamed (Sora and Kairi) [Destati]",
@@ -17122,7 +17122,7 @@
     "status": "unnamed",
     "note": "A cutscene track for Sora's meeting with Yozora in The Final World.",
     "wiki": "https://www.khwiki.com/List_of_unnamed_tracks_(KHIII)#Sora_and_Yozora",
-    "daily": false
+    "daily": true
   },
   {
     "title": "Unnamed (Festival Dance Summary) [Unused]",

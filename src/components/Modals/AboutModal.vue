@@ -14,7 +14,7 @@ onMounted(()=>{
   <div class="hint-container">
     <div class="hint-item">
       <div class="label">Title: </div>
-      <div class="text">Compares the base track with no number or subtitle. Reprises and orchestral Utada songs keep subtitles.</div>
+      <div class="text">Compares the base track with no number or subtitle.</div>
     </div>
     <div class="hint-item">
       <div class="label">Game: </div>
