@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import {onMounted, ref} from "vue";
+import {onMounted, onBeforeUnmount, ref} from "vue";
 import settings from "@/settings/settings.json"
 import IconInfinite from "@/components/icons/IconInfinite.vue";
 import InfiniteButton from "@/components/InfiniteButton.vue";
@@ -74,9 +74,21 @@ function applySettings() {
   window.location.reload();
 }
 
+function handleKeydown(e: KeyboardEvent) {
+  if (e.key === "Enter") {
+    applySettings();
+  }
+}
+
 onMounted(()=>{
   document.getElementById("modal-title").innerHTML = "Settings";
+  window.addEventListener("keydown", handleKeydown);
 })
+
+
+onBeforeUnmount(() => {
+  window.removeEventListener("keydown", handleKeydown);
+});
 </script>
 
 <template>
@@ -92,8 +104,8 @@ onMounted(()=>{
           <div style="display:flex;flex-direction:column;gap:0.5rem;">
             <div class="difficulty-container">
               <!-- <label><input type="checkbox" v-model="allowOst" /> {{ settings.phrases["allow-ost"] }}</label> -->
-              <label><input type="checkbox" v-model="allowIngame" /> {{ settings.phrases["allow-ingame"] }}</label>
               <label><input type="checkbox" v-model="allowUnreleased" /> {{ settings.phrases["allow-unreleased"] }}</label>
+              <label><input type="checkbox" v-model="allowIngame" /> {{ settings.phrases["allow-ingame"] }}</label>
               <label><input type="checkbox" v-model="allowUnnamed" /> {{ settings.phrases["allow-unnamed"] }}</label>
               <label><input type="checkbox" v-model="allowUnused" /> {{ settings.phrases["allow-unused"] }}</label>
             </div> 
@@ -148,7 +160,7 @@ onMounted(()=>{
       <div class="settings-content">
         <div class="setting-item">
           <strong>Settings are disabled for the Daily Challenge.</strong>
-          <p><br></br>The Daily Challenge plays from the 13 second mark. It uses a curated list of tracks that includes every game and concert but excludes the HD ReMIX albums and most unreleased or unnamed arrangements.</p>
+          <p><br></br>The Daily Challenge plays from the 13 second mark. It uses a curated list of tracks.</p>
           <p><br></br>In Infinite Mode, you can change the start time and filter by game and release status.</p>
         </div>
       </div>

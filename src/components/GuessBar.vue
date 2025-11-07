@@ -111,6 +111,7 @@ function OnSkip(){
       }
   )
 
+
   const inputEl = document.getElementById("autoComplete") as HTMLInputElement;
   if (inputEl) inputEl.value = ""
 
@@ -129,6 +130,20 @@ function Verify(){
     }
   }
 }
+
+function ClearText(){
+  const inputEl = document.getElementById("autoComplete") as HTMLInputElement;
+  const autoCompleteList = document.getElementById("autoComplete_list");
+
+  if (inputEl) {
+    inputEl.value = "";
+    inputEl.focus();
+  }
+
+  if (autoCompleteList) {
+    autoCompleteList.setAttribute("hidden", "");
+  }
+}
 </script>
 
 <template>
@@ -143,14 +158,14 @@ function Verify(){
                  @input="GetAutocomplete"
                  @keydown.enter="OnSubmit">
           <ul id="autoComplete_list" role="listbox" hidden=""></ul>
-          <div class="close">
+          <div class="close" @click="ClearText">
             <IconCancel/>
           </div>
         </div>
         <div class="button-container">
           <button class="skip" @click="OnSkip">
             {{ ParseStringWithVariable(settings["phrases"]["skip-button"]) }} <span class="tracking-normal lowercase" v-if="currentGameState.guess < settings['guess-number']-1">(+{{ settings["times"][currentGameState.guess+1] - settings["times"][currentGameState.guess] }}s)</span>
-          </button>
+          </button> 
           <button class="submit" @click="OnSubmit">
             {{ ParseStringWithVariable(settings["phrases"]["submit-button"]) }}
           </button>
@@ -201,6 +216,7 @@ function Verify(){
   position: absolute;
   right: 0.75rem;
   top: 1rem;
+  cursor: pointer;
 }
 
 .glass {

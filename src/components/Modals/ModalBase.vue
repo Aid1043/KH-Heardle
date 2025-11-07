@@ -1,10 +1,25 @@
 <script setup lang="ts">
+import { onMounted, onBeforeUnmount } from "vue";
 import IconX from "@/components/icons/IconX.vue";
 
 const emit = defineEmits(['close']);
 const props = defineProps<{
   wide?: boolean
 }>();
+
+function handleKeydown(e: KeyboardEvent) {
+  if (e.key === "Escape") {
+    emit("close");
+  }
+}
+
+onMounted(() => {
+  window.addEventListener("keydown", handleKeydown);
+});
+
+onBeforeUnmount(() => {
+  window.removeEventListener("keydown", handleKeydown);
+});
 </script>
 
 <template>

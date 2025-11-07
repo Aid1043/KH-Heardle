@@ -72,7 +72,9 @@ const emit = defineEmits(['create-modal']);
   }
 
   .logo-image {
-    height: 8rem;
+    max-height: 8rem;
+    max-width: 50%;
+    height: auto;
     object-fit: contain;
   }
 
