@@ -6,7 +6,7 @@ import settings from "@/settings/settings.json"
 import {ParseStringWithVariable} from "@/main";
 
 function goToInfinite() {
-  localStorage.setItem('infinite', true.toString());
+  sessionStorage.setItem('infinite', true.toString());
 
   // Reload so the new settings take effect across the app
   window.location.reload();

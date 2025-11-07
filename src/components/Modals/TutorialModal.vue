@@ -12,7 +12,7 @@ onMounted(()=>{
 })
 
 function goToInfinite() {
-  localStorage.setItem('infinite', true.toString());
+  sessionStorage.setItem('infinite', true.toString());
   window.location.reload();
 }
 
