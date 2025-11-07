@@ -67,7 +67,12 @@ function GetAutocomplete(){
     li.onclick = ()=>{
       autoCompleteList.setAttribute("hidden", "");
       const inputEl = document.getElementById("autoComplete") as HTMLInputElement;
-      if (inputEl) inputEl.value = item.title + " | " + item.media;
+      if (inputEl) {
+        inputEl.value = item.title + " | " + item.media;
+        // Keep cursor in box, move to end
+        inputEl.focus();
+        inputEl.setSelectionRange(inputEl.value.length, inputEl.value.length);
+      }
     }
 
     autoCompleteList.appendChild(li);
@@ -132,10 +137,11 @@ function Verify(){
       <div>
         <div id="autocomplete-wrapper">
           <IconMagnifyingGlass class="glass"/>
-          <input class="font-input" id="autoComplete" type="search" dir="ltr" spellcheck="false" autocorrect="off" autocomplete="off" autocapitalize="none"
+          <input ref="searchinput" class="font-input" id="autoComplete" type="search" dir="ltr" spellcheck="false" autocorrect="off" autocomplete="off" autocapitalize="none"
                  aria-controls="autoComplete_list_1" aria-autocomplete="both" placeholder="Search for the title or game"
                  role="combobox" aria-owns="autoComplete_list" aria-haspopup="true" aria-expanded="false"
-                 @input="GetAutocomplete">
+                 @input="GetAutocomplete"
+                 @keydown.enter="OnSubmit">
           <ul id="autoComplete_list" role="listbox" hidden=""></ul>
           <div class="close">
             <IconCancel/>
