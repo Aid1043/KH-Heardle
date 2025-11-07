@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import IconInfo from "@/components/icons/IconInfo.vue"
-import IconHeart from "@/components/icons/IconHeart.vue";
+import IconSettings from "@/components/icons/IconSettings.vue";
 import IconStats from "@/components/icons/IconStats.vue";
 import IconAbout from "@/components/icons/IconAbout.vue";
 
@@ -23,10 +23,11 @@ const emit = defineEmits(['create-modal']);
             <IconInfo/>
           </button>
           <button @click="emit('create-modal', SupportModal)">
-            <IconHeart/>
+            <IconSettings/>
           </button>
         </div>
-        <h1 class="font-title">{{ settings["heardle-name"] }} Heardle</h1>
+        <img src="@/assets/images/kh-http-logo.png" alt="Kingdom Hearts Heed to the Pulse" class="logo-image"/>
+        <!-- <h1 class="font-title">Kingdom Hearts</h1> -->
         <div class="button-container justify-end">
           <button @click="emit('create-modal', StatsModal)">
             <IconStats/>
@@ -51,7 +52,7 @@ const emit = defineEmits(['create-modal']);
     display: flex;
     justify-content: space-evenly;
     color: var(--color-fg);
-    padding: 0.75rem;
+    // padding: 0.75rem;
     align-items: center;
   }
 
@@ -68,6 +69,11 @@ const emit = defineEmits(['create-modal']);
     font-weight: 10;
     text-align: center;
     flex: 1 1 0%;
+  }
+
+  .logo-image {
+    height: 8rem;
+    object-fit: contain;
   }
 
   .justify-end {

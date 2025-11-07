@@ -8,7 +8,7 @@ import settings from "@/settings/settings.json"
 import {SoundcloudPlayer} from "@/players/SoundcloudPlayer";
 import {YoutubeMusicPlayer} from "@/players/YoutubePlayer";
 
-import {currentGameState, SelectedMusic} from "@/main"
+import {currentGameState, SelectedMusic, StartTime, StartTimeFull} from "@/main"
 import {Player} from "@/players/PlayerBase";
 
 const isPlaying = ref(false);
@@ -28,24 +28,25 @@ let seekBarInterval = setInterval(() => {
   if(isPlaying.value){
     let percentage = 0;
     if(isFinished.value){
-      player.GetCurrentMusicLength((n: number)=>{
-        let duration = n;
-
+      // player.GetCurrentMusicLength((n: number)=>{
+      //   let duration = n;
+        
         player.GetCurrentMusicTime((n2: number)=>{
-          percentage = n2 / duration;
+          n2 -= StartTimeFull*1000;
+          percentage = n2 / (SelectedMusic.duration*1000);
 
           sb.style.width = (percentage*100) + "%";
 
           item1.innerHTML = Math.floor((n2/1000)/60).toString() + ':' + Math.round(Math.floor(n2/1000)%60).toString().padStart(2, "0");
         })
-      });
+      // });
     } else {
       player.GetCurrentMusicTime((n2: number)=>{
-        percentage = n2 / (settings["times"][currentGameState.value.guess]*1000);
+        percentage = (n2 - StartTime*1000)  / (settings["times"][currentGameState.value.guess]*1000);
 
         sb.style.width = (percentage*100) + "%";
 
-        item1.innerHTML = Math.floor((n2/1000)/60).toString() + ':' + Math.round(Math.floor(n2/1000)%60).toString().padStart(2, "0");
+        item1.innerHTML = Math.floor((n2/1000 - StartTime)/60).toString() + ':' + Math.round(Math.floor(n2/1000 - StartTime)%60).toString().padStart(2, "0");
       });
     }
 
@@ -92,8 +93,12 @@ onMounted(()=>{
       el.style.setProperty("left", settings["separator"][i] + "%");
       bar.appendChild(el);
     }
+    
 
     bar.appendChild(lastChild);
+  }
+  else {
+    ButtonClick();
   }
 
   player.GetCurrentMusicLength((n: number)=>{
@@ -104,6 +109,8 @@ onMounted(()=>{
 onUnmounted(()=>{
   clearInterval(seekBarInterval);
   clearInterval(sepSelectInterval);
+  Stop();
+  player.Destroy();
 })
 
 function ButtonClick(){
@@ -120,9 +127,14 @@ function Play(){
   isPlaying.value = true;
 
   if(currentGameState.value.isFinished){
-    player.PlayMusicUntilEnd(null, null);
+    // player.PlayMusicUntilEnd(null, null);
+
+    player.PlayMusic(StartTimeFull, SelectedMusic.duration, null, ()=>{
+      Stop();
+    });
+
   } else {
-    player.PlayMusic(settings["times"][currentGameState.value.guess], null, ()=>{
+    player.PlayMusic(StartTime, settings["times"][currentGameState.value.guess], null, ()=>{
       Stop();
     });
   }
@@ -137,7 +149,7 @@ function Stop(){
 
   isPlaying.value = false;
 
-  player.StopMusic();
+  player.StopMusic(StartTime);
 
   icon.classList.remove("playing");
 }
@@ -211,7 +223,8 @@ function mute(){
             </button>
           </div>
           <div class="item4" v-if="!isFinished">{{ Math.floor(settings["times"][settings["guess-number"]-1]/60).toString() + ':' + (settings["times"][settings["guess-number"]-1]%60).toString().padStart(2, "0") }}</div>
-          <div class="item4" v-else>{{ Math.floor(lengthInSecond / 60).toString()  + ':' + (lengthInSecond%60).toString().padStart(2, "0") }}</div>
+          <!-- <div class="item4" v-else>{{ Math.floor(lengthInSecond / 60).toString()  + ':' + (lengthInSecond%60).toString().padStart(2, "0") }}</div> -->
+          <div class="item4" v-else>{{ Math.floor(SelectedMusic.duration / 60).toString()  + ':' + (SelectedMusic.duration%60).toString().padStart(2, "0") }}</div>
         </div>
       </div>
     </div>

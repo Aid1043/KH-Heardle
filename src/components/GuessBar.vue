@@ -7,11 +7,12 @@ import FuzzySearch from "fuzzy-search";
 import music from "@/settings/music.json"
 import settings from "@/settings/settings.json"
 
-import { currentGameState, SelectedMusic, ParseStringWithVariable } from "@/main";
+import { currentGameState, SelectedMusic, ParseStringWithVariable, infiniteEnabled, saveInfinite } from "@/main";
 import {onMounted} from "vue";
+import TransportBar from "./TransportBar.vue";
 
 const searcher = new FuzzySearch(music, ["title", "media"], {
-  sort: true
+  sort: false
 });
 
 onMounted(() => {
@@ -23,20 +24,50 @@ onMounted(() => {
 })
 
 function GetAutocomplete(){
-  document.getElementById('autoComplete_list').removeAttribute('hidden');
+  const autoCompleteList = document.getElementById('autoComplete_list');
+  const inputEl = document.getElementById("autoComplete") as HTMLInputElement;
+  if (!autoCompleteList || !inputEl) return;
+  
+  autoCompleteList.removeAttribute('hidden');
 
-  const result = searcher.search(document.getElementById("autoComplete").value);
+  // Get allowed filters when in infinite mode
+  let allowedStatuses = [];
+  let allowedGames = [];
+  if (infiniteEnabled.value) {
+    try {
+      const savedStatuses = localStorage.getItem('allowed-statuses');
+      const savedGames = localStorage.getItem('allowed-games');
+      allowedStatuses = savedStatuses !== null ? JSON.parse(savedStatuses) : (settings.defaults && settings.defaults["allowed-statuses"]) || [];
+      allowedGames = savedGames !== null ? JSON.parse(savedGames) : (settings.defaults && settings.defaults["allowed-games:"]) || [];
+    } catch (e) {
+      allowedStatuses = (settings.defaults && settings.defaults["allowed-statuses"]) || [];
+      allowedGames = (settings.defaults && settings.defaults["allowed-games:"]) || [];
+    }
+  }
 
-  const autoCompleteList = document.getElementById("autoComplete_list");
+  const result = searcher.search(inputEl.value);
+  // Filter by fuzzy search results and both allowed statuses and games in infinite mode
+  const ordered = music.filter(m => {
+    const matchesSearch = result.includes(m);
+    if (!infiniteEnabled.value) {
+      const dailyOk = m && m.daily;
+      return matchesSearch && dailyOk;
+    }
+    const statusOk = m && m.status && allowedStatuses.includes(m.status);
+    const gameOk = m && m.tags && m.tags.game && allowedGames.includes(m.tags.game);
+    return matchesSearch && statusOk && gameOk;
+  });
+
   autoCompleteList.innerHTML = "";
 
-  for(const item of result){
+  for(const item of ordered){
     const li = document.createElement("li");
-    li.innerHTML = item.title + " - " + item.media;
+    li.innerHTML = item.title + " | " + item.media;
 
     li.onclick = ()=>{
       autoCompleteList.setAttribute("hidden", "");
-      document.getElementById("autoComplete").value = item.title + " - " + item.media;
+      const inputEl = document.getElementById("autoComplete") as HTMLInputElement;
+      if (inputEl) inputEl.value = item.title + " | " + item.media;
     }
 
     autoCompleteList.appendChild(li);
@@ -44,23 +75,24 @@ function GetAutocomplete(){
 }
 
 function OnSubmit(){
-  if(document.getElementById("autoComplete").value === undefined || document.getElementById("autoComplete").value === "") {
+  const inputEl = document.getElementById("autoComplete") as HTMLInputElement;
+  if (!inputEl || inputEl.value === undefined || inputEl.value === "") {
     return;
   }
 
   let equalto = music.find((el)=>{
-    return (el.title + " - " + el.media) == document.getElementById("autoComplete").value;
+    return (el.title + " | " + el.media) == inputEl.value;
   })
 
   currentGameState.value.guessed.push(
       {
-        "name": document.getElementById("autoComplete").value,
+        "name": inputEl.value,
         "equal-to": equalto,
         "isCorrect": equalto === (SelectedMusic)
       }
   )
 
-  document.getElementById("autoComplete").value = ""
+  inputEl.value = ""
 
   Verify();
 }
@@ -74,7 +106,8 @@ function OnSkip(){
       }
   )
 
-  document.getElementById("autoComplete").value = ""
+  const inputEl = document.getElementById("autoComplete") as HTMLInputElement;
+  if (inputEl) inputEl.value = ""
 
   Verify();
 }
@@ -82,10 +115,12 @@ function OnSkip(){
 function Verify(){
   if(currentGameState.value.guessed[currentGameState.value.guessed.length - 1].isCorrect){
     currentGameState.value.isFinished = true;
+    saveInfinite(true);
   } else {
     currentGameState.value.guess += 1;
     if(currentGameState.value.guess >= settings["guess-number"]){
       currentGameState.value.isFinished = true;
+      saveInfinite(false);
     }
   }
 }
@@ -98,7 +133,7 @@ function Verify(){
         <div id="autocomplete-wrapper">
           <IconMagnifyingGlass class="glass"/>
           <input class="font-input" id="autoComplete" type="search" dir="ltr" spellcheck="false" autocorrect="off" autocomplete="off" autocapitalize="none"
-                 aria-controls="autoComplete_list_1" aria-autocomplete="both" placeholder="Know it? Search for the game / title"
+                 aria-controls="autoComplete_list_1" aria-autocomplete="both" placeholder="Search for the title or game"
                  role="combobox" aria-owns="autoComplete_list" aria-haspopup="true" aria-expanded="false"
                  @input="GetAutocomplete">
           <ul id="autoComplete_list" role="listbox" hidden=""></ul>
@@ -205,7 +240,7 @@ function Verify(){
   top: auto !important;
   bottom: 100% !important;
   z-index: 100;
-  font-size: 1.20rem;
+  font-size: 1.15rem;
   position: absolute;
   background: var(--color-bg);
   width: 100%;
@@ -226,6 +261,6 @@ function Verify(){
   width: 100%;
   border-bottom: 1px solid var(--color-mg);
   letter-spacing: 1px;
-  line-height: 0.75;
+  line-height: 1;
 }
 </style>

@@ -1,50 +1,6 @@
-# Heardle Base
+# Kingdom Hearts Heed to the Pulse
 
-A "glitch.me" heardle clone. Based on the [Mario Heardle](https://ninjigalaxy.github.io/mario-heardle/).
-
-## Why?
-
-The answer is simple, extendability. I wanted to make custom heardle with quality of life features, 
-like Mario Heardle's tag feature, but, I didn't wanna deal with the obfuscated compiled source code of the 
-recommanded Heardle templates.
-
-The Heardle clone, made in Vue.js is made to have a nice readable source code, to add every feature needed. 
-and easy to use to modify simple aspect easily. One feature is using .json file to put informations, like themes, settings and musics.
-This allows easier updatability even if you are not a developer.
-
-## Roadmap
-- [x] Feature Clone of the Mario Heardle.
-- [x] Easily expandable architecture.
-- [x] Easy theme manager
-- [x] Fix "end of playlist" bug of the original Heardle.
-- [ ] Difficulty Settings.
-- [ ] Documentation
-
-## Project Setup
-
-```sh
-npm install
-```
-
-### Compile and Hot-Reload for Development
-
-```sh
-npm run dev
-```
-
-### Compile and Minify for Production
-
-```sh
-npm run build
-```
-
-## Contribution
-I am no web developer, so I know some of my code may be bad. If you see any possible fix, or cleanup to my code, 
-feel free to make a PR, and explain why you did these changes! For now, there are no code style guideline.
-
-For new feature, though, please open an issue first, and I will personally approve or not. 
-Remember this is a base for custom "Heardle" game. 
-So if your new feature idea might only be useful to your heardle specifically, 
-I might unfortunately refuse to add it to this repository. 
-But please, do feel free to share your approach with other people as inspiration,
-I would love to see my passion project being tinkered with by other peoples!
+<p><i>Kingdom Hearts Heed to the Pulse</i> is a music guessing game based on the web game Heardle and the community game Melody of Madness.</p>
+<p>Created by <a href="https://bsky.app/profile/aid1043.bsky.social/">Aid1043</a>. Core functionality forked from s4pph1r3's <a href="https://github.com/s4pph1r3-dev/Heardle-Base/">Heardle Base</a>.</p>
+<p>The game supports over 1000 arrangements! The full list of songs is available <a href="https://docs.google.com/spreadsheets/d/1vv1SczYhINmpU6yi6cfgfJ7NmMAyLy9UvaU_z4rINb0">here.</a> </p>
+<p><br></br>Reading the hints:</p>

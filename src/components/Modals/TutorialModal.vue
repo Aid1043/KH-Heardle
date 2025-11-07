@@ -2,8 +2,7 @@
 
 import IconMusicNote from "@/components/icons/iconMusicNote.vue";
 import IconSpeaker from "@/components/icons/IconSpeaker.vue";
-import IconThumbUp from "@/components/icons/IconThumbUp.vue";
-
+import IconHeart from "@/components/icons/IconHeart.vue";
 import {onMounted} from "vue";
 
 import settings from "@/settings/settings.json"
@@ -11,6 +10,16 @@ import settings from "@/settings/settings.json"
 onMounted(()=>{
   document.getElementById("modal-title").innerHTML = "How to play";
 })
+
+function goToInfinite() {
+  localStorage.setItem('infinite', true.toString());
+  window.location.reload();
+}
+
+function goToDaily() {
+  localStorage.setItem('infinite', false.toString());
+  window.location.reload();
+}
 
 </script>
 
@@ -21,7 +30,7 @@ onMounted(()=>{
         <IconMusicNote/>
       </div>
       <div>
-        <p>Listen to the intro, then find the correct {{ settings["heardle-name"] }} song in the list.</p>
+        <p>Listen to a short clip of a Kingdom Hearts song, then choose the title and game from the list.</p>
       </div>
     </div>
     <div class="info">
@@ -29,19 +38,24 @@ onMounted(()=>{
         <IconSpeaker/>
       </div>
       <div>
-        <p>Skipped or incorrect attempts unlock more of the intro</p>
+        <p>Skipped or incorrect attempts unlock more of the song.</p>
       </div>
     </div>
     <div class="info">
       <div class="icon">
-        <IconThumbUp/>
+        <div style="width: 100%; height: 100%; display: flex; align-items: center; justify-content: center;">
+          <IconHeart/>
+        </div>
       </div>
       <div>
-        <p>Answer in as few tries  as possible and share your score!</p>
+        <p>Test yourself with the Daily Challenge, or customize the song list in Infinite Mode!</p>
       </div>
     </div>
     <div class="button-container font-medium">
-      <button @click="$parent.$emit('close');">Play</button>
+      <div class="button-columns"> 
+        <button @click="goToDaily">Daily</button>
+        <button @click="goToInfinite" style="background: var(--color-button-highlight);">Infinite</button>
+      </div>
     </div>
   </div>
 </template>
@@ -57,7 +71,9 @@ onMounted(()=>{
 .info .icon {
   color: var(--color-line);
   width: 2rem;
+  height: 2rem;
   margin-right: 1rem;
+  flex-shrink: 0;
 }
 
 .button-container {
@@ -68,6 +84,11 @@ onMounted(()=>{
   padding-bottom: 0.5rem;
 
   margin-top: 0.5rem;
+}
+
+.button-columns {
+  display: flex;
+  gap: 3rem;
 }
 
 .button-container button {

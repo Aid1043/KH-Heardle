@@ -1,14 +1,33 @@
 {
-  "heardle-name": "Kirby Air Ride",
+  "tab-title": "KH Heed to the Pulse",
+  "heardle-name": "Kingdom Hearts",
   "guess-number": 6,
   "times": [
-    1, 2, 4, 8, 16, 32
+    1, 2, 4, 7, 13, 20
   ],
   "separator": [
-    8, 16, 28, 44, 64, 100
+    5, 10, 20, 35, 65, 100
   ],
   "tag-list": [
     {
+      "name": "title",
+      "display-name": "Title",
+      "type": "equal",
+      "word": {
+        "=": "{guess} - correct",
+        "!=": "{guess} - incorrect"
+      }
+    },
+    {
+      "name": "game",
+      "display-name": "Game",
+      "type": "equal",
+      "word": {
+        "=": "{guess} - correct",
+        "!=": "{guess} - incorrect"
+      }
+    },
+        {
       "name": "year",
       "display-name": "Year",
       "type": "plus-minus",
@@ -19,43 +38,40 @@
       }
     },
     {
-      "name": "console",
-      "display-name": "Console",
+      "name": "arranger",
+      "display-name": "Arranger",
       "type": "equal",
       "word": {
-        "=": "{guess} is correct",
-        "!=": "{guess} is incorrect"
-      }
-    },
-    {
-      "name": "series",
-      "display-name": "Series",
-      "type": "equal",
-      "word": {
-        "=": "{guess} is correct",
-        "!=": "{guess} is incorrect"
-      }
-    },
-    {
-      "name": "game",
-      "display-name": "Game",
-      "type": "equal",
-      "word": {
-        "=": "{guess} is correct",
-        "!=": "{guess} is incorrect"
-      }
-    },
-    {
-      "name": "game-genre",
-      "display-name": "Genre",
-      "type": "equal",
-      "word": {
-        "=": "{guess} is correct",
-        "!=": "{guess} is incorrect"
+        "=": "{guess} - correct",
+        "!=": "{guess} - incorrect"
       }
     }
   ],
-  "infinite": false,
+
+  "defaults": {
+    "infinite": false,
+    "random-start": false,
+    "allowed-games:": [
+      "KH",
+      "KHRECOM",
+      "KHII",
+      "KHD",
+      "KHREC",
+      "KHBBS",
+      "KH3D",
+      "KHX",
+      "KHUX",
+      "KHXBC",
+      "KH0.2",
+      "KHIII",
+      "KHMOM",
+      "KHIV",
+      "KHML"
+    ],
+    "allowed-statuses": [
+      "ost"
+    ]
+  },
 
   "phrases": {
     "song-list": "Click Here for the full list of {heardle-name} Heardle songs.",
@@ -66,13 +82,20 @@
     "next-button": "Next",
     "share-button": "Share",
 
-    "infinite-win-text": "Poyoo!! You got the {heardle-name} song within {unlocked-time} seconds.",
-    "default-win-text": "You got today's {heardle-name} Heardle within {unlocked-time} seconds.",
+    "infinite-win-text": "Good job! You got the {heardle-name} song within {unlocked-time} seconds.",
+    "default-win-text": "You got today's {heardle-name} song within {unlocked-time} seconds.",
 
-    "infinite-lose-text": "You didn't get the {heardle-name} song. Too bad, you can always try again!",
-    "default-lose-text": "You didn't get today's {heardle-name} Heardle. Better luck tomorrow! \uD83D\uDC8E",
+    "infinite-lose-text": "You didn't get the {heardle-name} song. Try another one!",
+    "default-lose-text": "You didn't get today's {heardle-name} song. Better luck tomorrow! \uD83D\uDC8E",
 
-    "timer-text": "The next {heardle-name} song starts in:"
+    "timer-text": "The next {heardle-name} song starts in:",
+
+    "random-start": "Randomize start time (if unchecked, it defaults to the beginning of the track)",
+    "allow-ost": "Include tracks on official albums",
+    "allow-ingame": "Include in-game versions that differ from the album version",
+    "allow-unreleased": "Include unreleased arrangements (e.g. GBA/DS versions)",
+    "allow-unnamed": "Include unnamed arrangements (e.g. KH3 cutscene tracks)",
+    "allow-unused": "Include unused tracks"
   },
 
   "!COMMENT!": "Variant link is  \"infinite\" when infinite is false, or \"base game\" when infinite is true",

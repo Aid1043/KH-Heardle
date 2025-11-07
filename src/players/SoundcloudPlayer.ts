@@ -40,8 +40,9 @@ export class SoundcloudPlayer extends Player {
         this.Widget.play();
     }
 
-    override PlayMusic(timer: number, started_callback: () => void | null, finished_callback: () => void | null): void
+    override PlayMusic(start: number, timer: number, started_callback: () => void | null, finished_callback: () => void | null): void
     {
+        this.Widget.seekTo(start*1000);
         this.Widget.play();
 
         let onPlay = ()=>{
@@ -50,7 +51,7 @@ export class SoundcloudPlayer extends Player {
             window.setTimeout(()=>{
                 this.Widget.isPaused((paused: boolean)=>{
                     if(!paused){
-                        this.StopMusic();
+                        this.StopMusic(start);
                         if(finished_callback != null)finished_callback();
                     }
                 });
@@ -62,10 +63,10 @@ export class SoundcloudPlayer extends Player {
         this.Widget.bind(SC.Widget.Events.PLAY, onPlay);
     }
 
-    override StopMusic(): void
+    override StopMusic(start: number): void
     {
         this.Widget.pause();
-        this.Widget.seekTo(0);
+        this.Widget.seekTo(start*1000);
     }
 
     override async GetCurrentMusicTime(callback: (percentage: number)=>void)
@@ -91,5 +92,12 @@ export class SoundcloudPlayer extends Player {
     override SetVolume(volume: number): void {
         this.Volume = volume;
         this.Widget.setVolume(volume)
+    }
+
+    override Destroy(): void {
+        const iframe = document.getElementById("soundcloud-iframe");
+        if(iframe && iframe.parentNode){
+            iframe.parentNode.removeChild(iframe);
+        }
     }
 }

@@ -54,7 +54,7 @@ onMounted(() => {
     window.localStorage.setItem('firstPlay', 'false');
   }
 
-  document.title = settings["heardle-name"] + " Heardle"
+  document.title = settings["tab-title"]
 });
 
 onBeforeUnmount(() => {
@@ -65,7 +65,7 @@ onBeforeUnmount(() => {
 
 <template>
   <main id='main' :style="style">
-    <ModalBase v-if="showModal" @close="closeModal">
+    <ModalBase v-if="showModal" @close="closeModal" :wide="currentModal?.__name === 'SupportModal'">
       <component :is="currentModal" />
     </ModalBase>
     <div class="no-flex">

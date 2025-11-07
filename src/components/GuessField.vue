@@ -3,6 +3,9 @@ import IconFailedCross from "@/components/icons/IconFailedCross.vue";
 import settings from "@/settings/settings.json"
 import { SelectedMusic, ParseStringWithVariable } from "@/main";
 import IconEmptyBox from "@/components/icons/IconEmptyBox.vue";
+import IconSmallSuccessCheck from "@/components/icons/IconSmallSuccessCheck.vue";
+import IconSmallFailedCross from "@/components/icons/IconSmallFailedCross.vue";
+import IconSmallUpArrow from "@/components/icons/IconSmallUpArrow.vue";
 
 const props = defineProps<{
   active?: boolean;
@@ -28,10 +31,13 @@ console.log("")
     <div style="max-width: 60%;" v-if="music != undefined && music['equal-to'] != undefined">
       <div>
         <div v-for="tag in settings['tag-list']">
-          {{ tag["display-name"] }}:
-
           <span v-if="tag.type == 'equal'">
-              {{ ((music['equal-to'].tags[tag.name] === SelectedMusic.tags[tag.name]) ? tag.word['='] : tag.word['!=']).replace("{guess}", music['equal-to'].tags[tag.name]) }}
+              <span v-if="music['equal-to'].tags[tag.name] === SelectedMusic.tags[tag.name]">
+                <IconSmallSuccessCheck></IconSmallSuccessCheck>
+              </span>
+              <span v-else>
+                <IconSmallFailedCross></IconSmallFailedCross>
+              </span>
             </span>
 
           <span v-if="tag.type == 'tag-value'">
@@ -39,12 +45,20 @@ console.log("")
             </span>
 
           <span v-if="tag.type == 'plus-minus' && (music['equal-to'].tags[tag.name] === SelectedMusic.tags[tag.name]) ">
-              {{ tag.word['='].replace("{guess}", music['equal-to'].tags[tag.name]) }}
+              <IconSmallSuccessCheck></IconSmallSuccessCheck>
             </span>
 
           <span v-else-if="tag.type == 'plus-minus' && (music['equal-to'].tags[tag.name] !== SelectedMusic.tags[tag.name])">
-              {{ ((music['equal-to'].tags[tag.name] > SelectedMusic.tags[tag.name]) ? tag.word['+'] : tag.word['-']).replace("{guess}", music['equal-to'].tags[tag.name]) }} }}
+            <span v-if="music['equal-to'].tags[tag.name] > SelectedMusic.tags[tag.name]">
+                <span style="transform: rotate(180deg); display: inline-block;"><IconSmallUpArrow></IconSmallUpArrow></span>
+
+              </span>
+              <span v-else>
+                <IconSmallUpArrow></IconSmallUpArrow>
+
+              </span>
             </span>
+            {{ tag["display-name"] }}: {{music['equal-to'].tags[tag.name]}}
         </div>
       </div>
     </div>

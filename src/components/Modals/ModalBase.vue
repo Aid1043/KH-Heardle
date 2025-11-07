@@ -1,14 +1,15 @@
 <script setup lang="ts">
-
 import IconX from "@/components/icons/IconX.vue";
 
 const emit = defineEmits(['close']);
-
+const props = defineProps<{
+  wide?: boolean
+}>();
 </script>
 
 <template>
   <div id="modal-background" class="modal-background">
-    <div class="modal max-w-screen-xs mx-auto">
+    <div class="modal max-w-screen-xs mx-auto" :class="{ 'modal-wide': wide }">
       <div class="title">
         <div class="subtitle">
           <h2 id="modal-title">about</h2>
@@ -65,11 +66,13 @@ const emit = defineEmits(['close']);
   font-size: 1.75rem;
   line-height: 1.15rem;
   text-align: center;
+  font-family: mediumfont;
 }
 
 .modal{
   border-radius: 0.125rem;
   width: 100%;
+  max-width: 600px;
   top: 5rem;
   position: relative;
   pointer-events: auto;
@@ -80,6 +83,10 @@ const emit = defineEmits(['close']);
   border-width: 1px;
 
   padding: 1.5rem;
+}
+
+.modal.modal-wide {
+  max-width: 900px;
 }
 
 .modal-background{

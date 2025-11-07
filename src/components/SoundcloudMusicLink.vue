@@ -12,7 +12,7 @@ const props = defineProps({
     <a :href="SelectedMusic.url" :title="'Listen to ' + SelectedMusic.media + ' - ' + SelectedMusic.title + 'on SoundCloud'" >
       <div class="title-card" :won="isWon ? 'true' : 'false'">
         <div class="title">
-          <p> {{ SelectedMusic.media }} </p>
+          <p> {{ SelectedMusic.z }} </p>
           <p class="title-text font-medium"> {{ SelectedMusic.title }} </p>
         </div>
         <SoundcloudLogo/>

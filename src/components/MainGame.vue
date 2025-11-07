@@ -12,7 +12,7 @@ import { currentGameState, ParseStringWithVariable } from "@/main";
 
 <template>
   <div class="game-container">
-    <div class="max-w-screen-sm">
+    <div class="max-w-screen-lg">
       <div class="guess-container">
         <template v-for="n in settings['guess-number']">
           <GuessField v-if="currentGameState.guessed[n-1] === undefined" :active="(n === currentGameState.guess+1)"/>
@@ -21,14 +21,14 @@ import { currentGameState, ParseStringWithVariable } from "@/main";
       </div>
     </div>
   </div>
-  <div class="list-text font-medium" v-if="settings['song-list-link'] !== '' && settings['song-list-link'] !== null && settings['song-list-link'] !== undefined" >
+  <!-- <div class="list-text font-medium" v-if="settings['song-list-link'] !== '' && settings['song-list-link'] !== null && settings['song-list-link'] !== undefined" >
     <p>
       <a :href="settings['song-list-link']">
         {{ ParseStringWithVariable(settings["phrases"]["song-list"])  }} <br/>
         <IconArrowDown class="arrow"/>
       </a>
     </p>
-  </div>
+  </div> -->
   <TransportBar/>
   <GuessBar/>
 </template>
@@ -41,7 +41,7 @@ import { currentGameState, ParseStringWithVariable } from "@/main";
   flex-direction: column;
   flex-grow: 1;
   position: relative;
-  .max-w-screen-sm {
+  .max-w-screen-lg {
     width: 100%;
     height: 100%;
 

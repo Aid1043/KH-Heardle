@@ -2,17 +2,17 @@
 
 @font-face {
     font-family: bigfont;
-    src: url("@/assets/fonts/bigfont.otf") format("opentype");
+    src: url("@/assets/fonts/Cinema_Calligraphy_Web.ttf") format("truetype");
 }
 
 @font-face {
     font-family: mediumfont;
-    src: url("@/assets/fonts/mediumfont.otf") format("opentype");
+    src: url("@/assets/fonts/KH2_ALL_MENU_I.ttf") format("truetype");
 }
 
 @font-face {
     font-family: smallfont;
-    src: url("@/assets/fonts/smallfont.otf") format("opentype");
+    src: url("@/assets/fonts/Cinema_Calligraphy_Web.ttf") format("truetype");
 }
 
 @font-face {
@@ -79,6 +79,9 @@ body {
 }
 .max-w-screen-xs {
     max-width: 468px
+}
+.max-w-screen-lg {
+    max-width: 1200px
 }
 
 .mx-auto {

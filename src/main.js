@@ -1,6 +1,6 @@
 import './assets/main.css'
 
-import { createApp, ref } from 'vue'
+import { createApp, ref, watchEffect } from 'vue'
 import App from './App.vue'
 
 import settings from '@/settings/settings.json'
@@ -65,6 +65,18 @@ function shuffle(array, seed) {                // <-- ADDED ARGUMENT
   return array;
 }
 
+const savedInfinite = localStorage.getItem('infinite');
+export const infiniteEnabled = ref(savedInfinite !== null ? savedInfinite === 'true' : settings["defaults"]["infinite"]);
+
+// Load random start setting from localStorage, defaults to settings.json
+const savedRandomStart = localStorage.getItem('random-start');
+export const randomStartEnabled = ref(savedRandomStart !== null ? savedRandomStart === 'true' : settings["defaults"]["random-start"]);
+
+// Watch for changes to random start and save to localStorage
+watchEffect(() => {
+    localStorage.setItem('random-start', randomStartEnabled.value);
+});
+
 export const _currentGameState = ref({
     guess: 0,
     guessed: [],
@@ -74,18 +86,53 @@ export const _currentGameState = ref({
 let listIndex = 0;
 let id = 0;
 
-const shuffledMusic = music;
+// Make shuffledMusic mutable
+let shuffledMusic = music.slice();
 
-if(settings["infinite"]){
-    listIndex = Math.round(Math.random() * (music.length-1));
+if (infiniteEnabled.value) {
+    // Load filters from localStorage (or use defaults)
+    let allowedStatuses = [];
+    let allowedGames = [];
+    try {
+        const savedStatuses = localStorage.getItem('allowed-statuses');
+        const savedGames = localStorage.getItem('allowed-games');
+        allowedStatuses = savedStatuses !== null ? JSON.parse(savedStatuses) : (settings.defaults && settings.defaults["allowed-statuses"]) || [];
+        allowedGames = savedGames !== null ? JSON.parse(savedGames) : (settings.defaults && settings.defaults["allowed-games:"]) || [];
+    } catch (e) {
+        // localStorage may be unavailable in some environments
+        allowedStatuses = (settings.defaults && settings.defaults["allowed-statuses"]) || [];
+        allowedGames = (settings.defaults && settings.defaults["allowed-games:"]) || [];
+    }
+
+    // Filter music by both status and game
+    const filtered = music.filter((m) => {
+        const statusOk = m && m.status && allowedStatuses.includes(m.status);
+        const gameOk = m && m.tags && m.tags.game && allowedGames.includes(m.tags.game);
+        return statusOk && gameOk;
+    });
+
+    if (filtered.length === 0) {
+        console.warn('Status/game filters returned no tracks; falling back to full music list');
+        shuffledMusic = music.slice();
+        listIndex = Math.floor(Math.random() * shuffledMusic.length);
+    } else {
+        shuffledMusic = filtered;
+        listIndex = Math.floor(Math.random() * shuffledMusic.length);
+    }
 
 } else {
+    const filtered = music.filter((m) => {
+        const dailyOk = m && m.daily;
+        return dailyOk;
+    });
+    shuffledMusic = filtered;
+
     const oldestDate = new Date(null);
     const currentDate = new Date();
 
     id = Math.floor((currentDate.getTime() - oldestDate.getTime()) / 86400000);
 
-    listIndex = id % music.length;
+    listIndex = id % shuffledMusic.length;
 
     const usString = localStorage.getItem("userStats");
     if(usString !== null && usString !== ""){
@@ -101,13 +148,29 @@ if(settings["infinite"]){
         }
     }
 
-    shuffle(shuffledMusic, Math.floor(id / music.length))
+    shuffle(shuffledMusic, Math.floor(id / filtered.length))
 }
 
 export const SelectedMusic = shuffledMusic[listIndex];
 
+let startTime = 0
+let startTimeFull = SelectedMusic.start ? SelectedMusic.start : 0;
+
+if (!infiniteEnabled.value) {
+    startTime = Math.min(13, SelectedMusic.duration - settings["times"][settings["times"].length - 1]);
+    startTime = Math.max(0, startTime);
+
+}
+else if(randomStartEnabled.value){
+    startTime = Math.floor(Math.random() * (SelectedMusic.duration - settings["times"][settings["times"].length - 1]));
+    startTime = Math.max(0, startTime);
+}
+
+export const StartTime = startTime + startTimeFull;
+export const StartTimeFull = startTimeFull;
+
 function save(){
-    if(!settings["infinite"]){
+    if(!infiniteEnabled.value){
         const usString = localStorage.getItem("userStats");
         let stats;
 
@@ -142,6 +205,28 @@ function save(){
         localStorage.setItem("userStats", JSON.stringify(stats));
     }
 }
+
+export function saveInfinite(won){
+    if(infiniteEnabled.value){
+        const usString = localStorage.getItem("userStatsInfinite");
+        let stats;
+
+        if(usString === null || usString === ""){
+            stats = {
+                gamesPlayed: 0,
+                gamesWon: 0,
+            };
+        } else {
+            stats = JSON.parse(usString);
+        }
+
+        if(won){
+            stats.gamesWon += 1;
+        }
+        stats.gamesPlayed += 1;
+
+        localStorage.setItem("userStatsInfinite", JSON.stringify(stats));
+    }}
 
 export const currentGameState = new Proxy(_currentGameState, {
     get(target, prop, receiver) {

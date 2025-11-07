@@ -1,13 +1,14 @@
 <script setup lang="ts">
 
-import SoundcloudMusicLink from "@/components/SoundcloudMusicLink.vue";
+import MusicLink from "@/components/MusicLink.vue";
 import GuessSummary from "@/components/GuessSummary.vue";
 import InfiniteButton from "@/components/InfiniteButton.vue";
+import { SelectedMusic } from '@/main';
 import IconShare from "@/components/icons/IconShare.vue";
 
 import settings from "@/settings/settings.json"
 
-import { currentGameState, ParseStringWithVariable } from "@/main";
+import { currentGameState, ParseStringWithVariable, infiniteEnabled } from "@/main";
 import TransportBar from "@/components/TransportBar.vue";
 
 // calculate time
@@ -44,28 +45,33 @@ setInterval(()=>{
 
 <template>
   <div class="max-w-screen-sm main-container">
-    <SoundcloudMusicLink :is-won="currentGameState.guessed[currentGameState.guessed.length-1].isCorrect"/>
+    <MusicLink :is-won="currentGameState.guessed[currentGameState.guessed.length-1].isCorrect"/>
+    <div class="note-container">
+      <p class="second-text">{{ SelectedMusic.tags["arranger"] }} ({{ SelectedMusic.tags['year'] }}).</p>
+      <p class="second-text">{{SelectedMusic.note}}</p>
+      <p class="second-text">Read more at the <a :href="SelectedMusic.wiki" :title="'Read about ' + SelectedMusic.title + ' on the KHWiki.'">KHWiki</a>.</p>
+    </div>
     <div class="summary-container">
       <p class="guess-number font-big"> {{ currentGameState.guessed[currentGameState.guessed.length-1].isCorrect ? currentGameState.guessed.length.toString() : '0' }} </p>
       <GuessSummary class="summary"/>
       <p class="second-text" v-if="currentGameState.guessed[currentGameState.guessed.length-1].isCorrect">
-        {{ ParseStringWithVariable((settings["infinite"] ? settings["phrases"]["infinite-win-text"] : settings["phrases"]["default-win-text"])) }}
+        {{ ParseStringWithVariable((infiniteEnabled ? settings["phrases"]["infinite-win-text"] : settings["phrases"]["default-win-text"])) }}
       </p>
       <p class="second-text" v-else>
-        {{ ParseStringWithVariable((settings["infinite"] ? settings["phrases"]["infinite-lose-text"] : settings["phrases"]["default-lose-text"])) }}
+        {{ ParseStringWithVariable((infiniteEnabled ? settings["phrases"]["infinite-lose-text"] : settings["phrases"]["default-lose-text"])) }}
       </p>
-      <div class="share">
+      <!-- <div class="share">
         <button class="font-medium">
           {{ ParseStringWithVariable(settings["phrases"]["share-button"]) }}
           <IconShare class="inline-block ml-2"/>
         </button>
-      </div>
+      </div> -->
     </div>
-    <div class="timer-container">
+    <div v-if="!infiniteEnabled">
+      <div class="timer-container">
         <div class="next-text font-medium"> {{ ParseStringWithVariable(settings["phrases"]["timer-text"]) }} </div>
         <div id="timer" class="font-big">14:25:42</div>
       </div>
-    <div v-if="!settings['infinite']">
       <div class="infinite-button-container">
         <div class="margin"></div>
        <InfiniteButton/>
@@ -93,6 +99,17 @@ setInterval(()=>{
   margin: 0 auto;
 
   overflow: auto
+}
+
+.note-container {
+  text-align: center;
+  padding: 0 0.75rem;
+  background-color: var(--color-highlight);
+
+  .second-text {
+    padding: 0.25rem 0;
+    line-height: 1.75rem;
+  }
 }
 
 .summary-container {

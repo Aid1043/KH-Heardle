@@ -47,26 +47,28 @@ export class YoutubeMusicPlayer extends Player {
     override PlayMusicUntilEnd(started_callback: () => void | null, finished_callback: () => void | null): void
     {
         if(started_callback != null) started_callback();
+        this.p.seekTo(0, true);
         this.p.playVideo();
     }
 
-    override PlayMusic(timer: number, started_callback: () => void | null, finished_callback: () => void | null): void
+    override PlayMusic(start: number, timer: number, started_callback: () => void | null, finished_callback: () => void | null): void
     {
+        console.log("Playing music from %d for %d seconds", start, timer);
         let l;
 
-        this.p.seekTo(0, true);
+        this.p.seekTo(start, true);
         let onPlay = (event)=>{
             if(event.data == PlayerStates.PLAYING){
                 if(started_callback != null) started_callback();
                 window.setTimeout(()=>{
                     this.p.getPlayerState().then((state)=>{
                         if(!(state == 2)){
-                            this.StopMusic();
+                            this.StopMusic(start);
                             if(finished_callback != null)finished_callback();
                         }
                     });
                 }, timer*1000);
-                
+
                 this.p.off(l);
             }
         }
@@ -77,10 +79,10 @@ export class YoutubeMusicPlayer extends Player {
 
     }
 
-    override StopMusic(): void
+    override StopMusic(start: number): void
     {
         this.p.pauseVideo();
-        this.p.seekTo(0, true);
+        this.p.seekTo(start, true);
     }
 
     override async GetCurrentMusicTime(callback: (percentage: number)=>void)
@@ -107,5 +109,9 @@ export class YoutubeMusicPlayer extends Player {
     override SetVolume(volume: number): void {
         this.Volume = volume
         this.p.setVolume(this.Volume)
+    }
+
+    override Destroy(): void {
+        this.p.destroy();
     }
 }

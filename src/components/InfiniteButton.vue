@@ -4,15 +4,20 @@ import IconInfinite from "@/components/icons/IconInfinite.vue";
 import settings from "@/settings/settings.json"
 
 import {ParseStringWithVariable} from "@/main";
+
+function goToInfinite() {
+  localStorage.setItem('infinite', true.toString());
+
+  // Reload so the new settings take effect across the app
+  window.location.reload();
+}
 </script>
 
 <template>
-  <div v-if="settings['variant-link'] !== '' && settings['variant-link'] !== null && settings['variant-link'] !== undefined">
-    <a :href="settings['variant-link']" title="Mario Heardle Infinite">
-      <span>
-        <IconInfinite/> {{ ParseStringWithVariable(settings["phrases"]["infinite-pub-text"]) }}
-      </span>
-    </a>
+  <div>
+    <button class="infinite-button" @click="goToInfinite">
+      Infinite Mode
+    </button>
   </div>
 </template>
 
@@ -27,16 +32,18 @@ div {
   flex-direction: column;
 }
 
-a {
-  background-color: var(--color-button-highlight);
-  text-decoration: none;
+.infinite-button {
+  background: var(--color-button-highlight);
   color: var(--color-fg);
+  border: none;
+  padding: 0.75rem 1.5rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
 
-  padding: 0.5rem 0.75rem;
-
-  border-radius: 0.5rem;
-
-  display: flex;
-  align-items: center;
+.infinite-button:hover {
+  opacity: 0.9;
 }
 </style>
