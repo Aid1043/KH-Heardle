@@ -57,12 +57,12 @@ function getInfiniteStats() {
   <div class="stats-header" style="margin-top: 20px; border-top: 1px solid var(--color-line); padding-top: 15px;">Infinite Mode</div>
   <div class="bar-graph-container">
     <div class="bar-graph-row">
-      <p class="bar-graph-label">Played:</p>
-      <p class = "bar-graph-value">{{ infiniteStats.gamesPlayed }}</p>
-    </div>
-    <div class="bar-graph-row">
       <p class="bar-graph-label">Won:</p>
       <p class = "bar-graph-value">{{ infiniteStats.gamesWon }}</p>
+    </div>
+    <div class="bar-graph-row">
+      <p class="bar-graph-label">Played:</p>
+      <p class = "bar-graph-value">{{ infiniteStats.gamesPlayed }}</p>
     </div>
     <div class="bar-graph-row">
       <p class="bar-graph-label">Accuracy:</p>

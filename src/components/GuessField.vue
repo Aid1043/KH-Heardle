@@ -5,6 +5,7 @@ import { SelectedMusic, ParseStringWithVariable } from "@/main";
 import IconEmptyBox from "@/components/icons/IconEmptyBox.vue";
 import IconSmallSuccessCheck from "@/components/icons/IconSmallSuccessCheck.vue";
 import IconSmallFailedCross from "@/components/icons/IconSmallFailedCross.vue";
+import IconSmallCloseLine from "@/components/icons/IconSmallCloseLine.vue";
 import IconSmallUpArrow from "@/components/icons/IconSmallUpArrow.vue";
 
 const props = defineProps<{
@@ -31,9 +32,12 @@ console.log("")
     <div style="max-width: 60%;" v-if="music != undefined && music['equal-to'] != undefined">
       <div>
         <div v-for="tag in settings['tag-list']">
-          <span v-if="tag.type == 'equal'">
+          <span v-if="tag.type == 'equal' || tag.type == 'equal-contains'">
               <span v-if="music['equal-to'].tags[tag.name] === SelectedMusic.tags[tag.name]">
                 <IconSmallSuccessCheck></IconSmallSuccessCheck>
+              </span>
+              <span v-else-if="tag.type == 'equal-contains' && (music['equal-to'].tags[tag.name].includes(SelectedMusic.tags[tag.name]) || SelectedMusic.tags[tag.name].includes(music['equal-to'].tags[tag.name]))">
+                 <IconSmallCloseLine></IconSmallCloseLine>
               </span>
               <span v-else>
                 <IconSmallFailedCross></IconSmallFailedCross>

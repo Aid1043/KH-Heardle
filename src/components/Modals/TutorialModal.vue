@@ -48,7 +48,7 @@ function goToDaily() {
         </div>
       </div>
       <div>
-        <p>Test yourself with the Daily Challenge, or customize the song list in Infinite Mode!</p>
+        <p>Test yourself with the Daily Challenge or customize the song list in Infinite Mode!</p>
       </div>
     </div>
     <div class="button-container font-medium">

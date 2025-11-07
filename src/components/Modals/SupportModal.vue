@@ -14,7 +14,6 @@ const allowedGames = savedGames !== null ? JSON.parse(savedGames) : settings.def
 
 // Status toggles
 const allowOst = ref(allowedStatuses.includes('ost'));
-const allowIngame = ref(allowedStatuses.includes('ingame'));
 const allowUnreleased = ref(allowedStatuses.includes('unreleased'));
 const allowUnnamed = ref(allowedStatuses.includes('unnamed'));
 const allowUnused = ref(allowedStatuses.includes('unused'));
@@ -58,7 +57,6 @@ function applySettings() {
   // Collect allowed statuses
   const newAllowed = [] as string[];
   if (allowOst.value) newAllowed.push('ost');
-  if (allowIngame.value) newAllowed.push('ingame');
   if (allowUnreleased.value) newAllowed.push('unreleased');
   if (allowUnnamed.value) newAllowed.push('unnamed');
   if (allowUnused.value) newAllowed.push('unused');
@@ -105,7 +103,6 @@ onBeforeUnmount(() => {
             <div class="difficulty-container">
               <!-- <label><input type="checkbox" v-model="allowOst" /> {{ settings.phrases["allow-ost"] }}</label> -->
               <label><input type="checkbox" v-model="allowUnreleased" /> {{ settings.phrases["allow-unreleased"] }}</label>
-              <label><input type="checkbox" v-model="allowIngame" /> {{ settings.phrases["allow-ingame"] }}</label>
               <label><input type="checkbox" v-model="allowUnnamed" /> {{ settings.phrases["allow-unnamed"] }}</label>
               <label><input type="checkbox" v-model="allowUnused" /> {{ settings.phrases["allow-unused"] }}</label>
             </div> 

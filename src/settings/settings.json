@@ -40,7 +40,7 @@
     {
       "name": "arranger",
       "display-name": "Arranger",
-      "type": "equal",
+      "type": "equal-contains",
       "word": {
         "=": "{guess} - correct",
         "!=": "{guess} - incorrect"
@@ -90,11 +90,10 @@
 
     "timer-text": "The next {heardle-name} song starts in:",
 
-    "random-start": "Randomize start time (if unchecked, it defaults to the beginning of the track)",
+    "random-start": "Randomize start time (defaults to the beginning of the track)",
     "allow-ost": "Include tracks on official albums",
-    "allow-ingame": "Include in-game versions that differ from the album version",
-    "allow-unreleased": "Include unreleased arrangements (e.g. GBA/DS versions)",
-    "allow-unnamed": "Include unnamed arrangements (e.g. KH3 cutscene tracks)",
+    "allow-unreleased": "Include non-OST tracks (e.g. DS versions)",
+    "allow-unnamed": "Include unnamed cutscene tracks",
     "allow-unused": "Include unused tracks"
   },
 
