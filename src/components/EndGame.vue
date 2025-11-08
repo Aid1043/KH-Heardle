@@ -12,35 +12,35 @@ import { currentGameState, ParseStringWithVariable, infiniteEnabled } from "@/ma
 import TransportBar from "@/components/TransportBar.vue";
 
 // calculate time
-setInterval(()=>{
+setInterval(() => {
   const timer = document.getElementById("timer");
+  if (!timer) return;
 
-  const tommorowDateFull = new Date(new Date().getTime() + 24 * 60 * 60 * 1000);
-  const tommorowDateMidnight = new Date(tommorowDateFull.getFullYear(), tommorowDateFull.getMonth(), tommorowDateFull.getDate(), 0, 0, 0, 0);
+  const now = new Date();
 
-  const timeBetween = tommorowDateMidnight.getTime() - new Date().getTime();
+  const tomorrowUtcMidnight = Date.UTC(
+    now.getUTCFullYear(),
+    now.getUTCMonth(),
+    now.getUTCDate() + 1, // tomorrow
+    0, 0, 0, 0
+  );
 
-  let timeBetweenInSecond = Math.floor(timeBetween/1000)
+  const diff = tomorrowUtcMidnight - now.getTime();
 
-  if(timeBetweenInSecond <= 0) {
+  if (diff <= 0) {
     window.location.reload();
+    return;
   }
 
-  let hours = 0;
-  while(timeBetweenInSecond > (60*60)) {
-    hours += 1;
-    timeBetweenInSecond -= (60*60);
-  }
+  const totalSeconds = Math.floor(diff / 1000);
+  const hours = Math.floor(totalSeconds / 3600);
+  const minutes = Math.floor((totalSeconds % 3600) / 60);
+  const seconds = totalSeconds % 60;
 
-  let minutes = 0;
-  while(timeBetweenInSecond > (60)) {
-    minutes += 1;
-    timeBetweenInSecond -= (60);
-  }
-
-  timer.innerHTML = `${hours.toString().padStart(2, "0")}:${minutes.toString().padStart(2, "0")}:${timeBetweenInSecond.toString().padStart(2, "0")}`;
-
-}, 300);
+  timer.innerHTML = `${hours.toString().padStart(2, "0")}:${minutes
+    .toString()
+    .padStart(2, "0")}:${seconds.toString().padStart(2, "0")}`;
+}, 1000);
 </script>
 
 <template>
