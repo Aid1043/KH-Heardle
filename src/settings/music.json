@@ -1250,7 +1250,7 @@
       "title": "March Caprice for Piano and Orchestra",
       "year": 2002,
       "game": "KH",
-      "arranger": "Kaoru Wada"
+      "arranger": "Yoko Shimomura"
     },
     "status": "ost",
     "note": "The credits theme of Kingdom Hearts.",
@@ -6219,8 +6219,8 @@
     "media": "KHM",
     "media-display": "Kingdom Hearts Mobile",
     "url": "https://www.youtube.com/watch?v=Rma97bgOLnA",
-    "start": 4003.0,
-    "duration": 125,
+    "start": 4128.0,
+    "duration": 134,
     "tags": {
       "title": "Dash-A-Long",
       "year": 2008,
@@ -6237,8 +6237,8 @@
     "media": "KHM",
     "media-display": "Kingdom Hearts Mobile",
     "url": "https://www.youtube.com/watch?v=Rma97bgOLnA",
-    "start": 4128.0,
-    "duration": 134,
+    "start": 4003.0,
+    "duration": 125,
     "tags": {
       "title": "March-A-Long",
       "year": 2008,
