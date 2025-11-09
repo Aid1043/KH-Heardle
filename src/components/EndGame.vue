@@ -49,7 +49,7 @@ setInterval(() => {
     <div class="note-container">
       <p class="second-text">{{ SelectedMusic.tags["arranger"] }} ({{ SelectedMusic.tags['year'] }}).</p>
       <p class="second-text">{{SelectedMusic.note}}</p>
-      <p class="second-text">Read more at the <a :href="SelectedMusic.wiki" :title="'Read about ' + SelectedMusic.title + ' on the KHWiki.'">KHWiki</a>.</p>
+      <p class="second-text">Read more at the <a :href="SelectedMusic.wiki" :title="'Read about ' + SelectedMusic.title + ' on the KHWiki.'" target="_blank">KHWiki</a>.</p>
     </div>
     <div class="summary-container">
       <p class="guess-number font-big"> {{ currentGameState.guessed[currentGameState.guessed.length-1].isCorrect ? currentGameState.guessed.length.toString() : '0' }} </p>

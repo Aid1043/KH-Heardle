@@ -3,7 +3,7 @@ import {onMounted, onBeforeUnmount, ref} from "vue";
 import settings from "@/settings/settings.json"
 import IconInfinite from "@/components/icons/IconInfinite.vue";
 import InfiniteButton from "@/components/InfiniteButton.vue";
-import { randomStartEnabled, infiniteEnabled } from '@/main';
+import { randomStartEnabled, infiniteEnabled, criticalEnabled } from '@/main';
 
 // Load settings from localStorage or fall back to defaults
 const savedAllowed = localStorage.getItem('allowed-statuses');
@@ -17,6 +17,8 @@ const allowOst = ref(allowedStatuses.includes('ost'));
 const allowUnreleased = ref(allowedStatuses.includes('unreleased'));
 const allowUnnamed = ref(allowedStatuses.includes('unnamed'));
 const allowUnused = ref(allowedStatuses.includes('unused'));
+
+var criticalEnabledLocal = criticalEnabled.value;
 
 // Game toggles - including additional ones
 const gameToggles = ref({
@@ -68,6 +70,10 @@ function applySettings() {
     .map(([game]) => game);
   localStorage.setItem('allowed-games', JSON.stringify(newGames));
 
+  // Other options
+  localStorage.setItem('critical', JSON.stringify(criticalEnabledLocal));
+
+
   // Reload so the new settings take effect across the app
   window.location.reload();
 }
@@ -96,6 +102,11 @@ onBeforeUnmount(() => {
         <div class="setting-item">
           <div style="display:flex;flex-direction:column;gap:0.5rem;">
             <label><input type="checkbox" v-model="randomStartEnabled"/> {{ settings.phrases["random-start"] }}</label>
+          </div>
+        </div>
+        <div class="setting-item">
+          <div style="display:flex;flex-direction:column;gap:0.5rem;">
+            <label><input type="checkbox" v-model="criticalEnabledLocal"/> {{ settings.phrases["critical-mode"] }}</label>
           </div>
         </div>
         <div class="setting-item">

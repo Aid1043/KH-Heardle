@@ -17,7 +17,7 @@ function goToInfinite() {
 }
 
 function goToDaily() {
-  localStorage.setItem('infinite', false.toString());
+  sessionStorage.setItem('infinite', false.toString());
   window.location.reload();
 }
 

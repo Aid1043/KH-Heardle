@@ -10,7 +10,7 @@ const props = defineProps({
 
 <template>
   <div class="soundcloud-box">
-    <a :href="SelectedMusic.url" :title="'Listen to ' + SelectedMusic.title + ' on YouTube'" >
+    <a :href="SelectedMusic.url" :title="'Listen to ' + SelectedMusic.title + ' on YouTube'" target='_blank'>
       <div class="title-card" :won="isWon ? 'true' : 'false'">
         <div class="title">
           <p> {{ SelectedMusic['media-display'] }} </p>

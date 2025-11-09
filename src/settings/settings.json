@@ -50,6 +50,7 @@
 
   "defaults": {
     "infinite": false,
+    "critical": false,
     "random-start": false,
     "allowed-games:": [
       "KH",
@@ -90,6 +91,7 @@
 
     "timer-text": "The next {heardle-name} song starts in:",
 
+    "critical-mode": "Critical mode: Half time, limited listens",
     "random-start": "Randomize start time (defaults to the beginning of the track)",
     "allow-ost": "Include tracks on official albums",
     "allow-unreleased": "Include non-OST tracks (e.g. DS versions)",

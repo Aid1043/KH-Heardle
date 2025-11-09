@@ -68,6 +68,9 @@ function shuffle(array, seed) {                // <-- ADDED ARGUMENT
 const savedInfinite = sessionStorage.getItem('infinite');
 export const infiniteEnabled = ref(savedInfinite !== null ? savedInfinite === 'true' : settings["defaults"]["infinite"]);
 
+const savedCritical = localStorage.getItem('critical');
+export const criticalEnabled = ref(savedCritical !== null ? savedCritical === 'true' : settings["defaults"]["critical"]);
+
 // Load random start setting from localStorage, defaults to settings.json
 const savedRandomStart = localStorage.getItem('random-start');
 export const randomStartEnabled = ref(savedRandomStart !== null ? savedRandomStart === 'true' : settings["defaults"]["random-start"]);

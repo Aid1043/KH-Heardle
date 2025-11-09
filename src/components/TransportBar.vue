@@ -8,10 +8,11 @@ import settings from "@/settings/settings.json"
 import {SoundcloudPlayer} from "@/players/SoundcloudPlayer";
 import {YoutubeMusicPlayer} from "@/players/YoutubePlayer";
 
-import {currentGameState, SelectedMusic, StartTime, StartTimeFull} from "@/main"
+import {currentGameState, SelectedMusic, StartTime, StartTimeFull, criticalEnabled, infiniteEnabled} from "@/main"
 import {Player} from "@/players/PlayerBase";
 
 const isPlaying = ref(false);
+const criticalPlayed = ref(0);
 
 let player: Player;
 
@@ -42,7 +43,7 @@ let seekBarInterval = setInterval(() => {
       // });
     } else {
       player.GetCurrentMusicTime((n2: number)=>{
-        percentage = (n2 - StartTime*1000)  / (settings["times"][currentGameState.value.guess]*1000);
+        percentage = (n2 - StartTime*1000)  / ((settings["times"][currentGameState.value.guess] / (infiniteEnabled.value && criticalEnabled.value ? 2 : 1))*1000);
 
         sb.style.width = (percentage*100) + "%";
 
@@ -115,7 +116,7 @@ onUnmounted(()=>{
 
 function ButtonClick(){
   if(isPlaying.value) Stop()
-  else Play()
+  else if (!infiniteEnabled.value || !criticalEnabled.value || criticalPlayed.value <= currentGameState.value.guess) Play()
 }
 
 function Play(){
@@ -134,7 +135,7 @@ function Play(){
     });
 
   } else {
-    player.PlayMusic(StartTime, settings["times"][currentGameState.value.guess], null, ()=>{
+    player.PlayMusic(StartTime, settings["times"][currentGameState.value.guess] / (infiniteEnabled.value && criticalEnabled.value ? 2 : 1), null, ()=>{
       Stop();
     });
   }
@@ -152,6 +153,9 @@ function Stop(){
   player.StopMusic(StartTime);
 
   icon.classList.remove("playing");
+
+  if (infiniteEnabled.value && criticalEnabled.value)
+    criticalPlayed.value += 1;
 }
 
 function getUnlockedBarWidth() : number{
@@ -213,7 +217,7 @@ function mute(){
             </div>
           </div>
           <div class="item3">
-            <button id="play-button" @click="ButtonClick">
+            <button id="play-button" @click="ButtonClick" :class="{ 'not-allowed': criticalPlayed > currentGameState.guess }">
               <div class="border">
                 <div id="icon">
                   <IconPlay v-if="!isPlaying"/>
@@ -222,7 +226,7 @@ function mute(){
               </div>
             </button>
           </div>
-          <div class="item4" v-if="!isFinished">{{ Math.floor(settings["times"][settings["guess-number"]-1]/60).toString() + ':' + (settings["times"][settings["guess-number"]-1]%60).toString().padStart(2, "0") }}</div>
+          <div class="item4" v-if="!isFinished">{{ Math.floor((settings["times"][settings["guess-number"]-1] / (infiniteEnabled && criticalEnabled ? 2 : 1))/60).toString() + ':' + ((settings["times"][settings["guess-number"]-1] / (infiniteEnabled && criticalEnabled ? 2 : 1))%60).toString().padStart(2, "0") }}</div>
           <!-- <div class="item4" v-else>{{ Math.floor(lengthInSecond / 60).toString()  + ':' + (lengthInSecond%60).toString().padStart(2, "0") }}</div> -->
           <div class="item4" v-else>{{ Math.floor(SelectedMusic.duration / 60).toString()  + ':' + (SelectedMusic.duration%60).toString().padStart(2, "0") }}</div>
         </div>
@@ -435,6 +439,10 @@ function mute(){
       }
     }
   }
+}
+
+#play-button.not-allowed:active {
+  background-color: var(--color-negative);
 }
 
 </style>
