@@ -10,7 +10,7 @@ import settings from "@/settings/settings.json"
 import IconThumbUp from "../icons/IconThumbUp.vue";
 
 onMounted(()=>{
-  document.getElementById("modal-title").innerHTML = "How to play";
+  document.getElementById("modal-title").innerHTML = sudokuMode.value? "Sudoku Mode" : "How to play";
 })
 
 function goToInfinite() {
@@ -76,7 +76,7 @@ function goToSudoku() {
           <IconSpeaker/>
         </div>
         <div>
-          <p>You may not repeat songs on the baord. Each cell will have at least two correct answers.</p>
+          <p>In this mode, all arrangements of one song are grouped together under the base title.</p>
         </div>
       </div>
       <div class="info">
@@ -84,8 +84,21 @@ function goToSudoku() {
           <IconThumbUp/>
         </div>
         <div>
+          <p>You may not repeat songs on the baord. Each cell will have at least two correct answers.</p>
+        </div>
+      </div>
+      <div class="info">
+        <div class="icon">
+          <div style="width: 100%; height: 100%; display: flex; align-items: center; justify-content: center;">
+            <IconHeart/>
+          </div>
+        </div>
+        <div>
           <p>You will have three attempts to submit a solution. Hover over a hint for details!</p>
         </div>
+      </div>
+      <div class="info-end">
+        Return to Heed to the Pulse
       </div>
     </div>
     <div class="button-container font-medium">
@@ -94,7 +107,7 @@ function goToSudoku() {
         <button @click="goToInfinite" style="background: var(--color-button-highlight);">Infinite</button>
       </div>
     </div>
-    <div class="button-container font-medium">
+    <div class="button-container font-medium" v-if="!sudokuMode">
       <div class="button-columns"> 
         <button @click="goToSudoku" style="background: var(--color-sudoku);">Sudoku Mode</button>
       </div>
@@ -116,6 +129,16 @@ function goToSudoku() {
   height: 2rem;
   margin-right: 1rem;
   flex-shrink: 0;
+}
+
+.info-end {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+  border-top: 1px solid var(--color-line);
+  padding-top: 1rem;
+  font-size: 1.4rem;
 }
 
 .button-container {
