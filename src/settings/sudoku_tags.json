@@ -19,7 +19,7 @@
   },
   {
     "tag": "arr-guest",
-    "short-desc": "Arranged by a guest musician",
+    "short-desc": "Arranged by a guest musician.",
     "long-desc": "A version of the track is arranged by a musician other than Shimomura, Sekito, or Ishimoto.",
     "rarity": 14
   },
@@ -661,9 +661,9 @@
   },
   {
     "tag": "title-character",
-    "short-desc": "Character name in title",
-    "long-desc": "A version of the track has a character's name in the title.",
-    "rarity": 11
+    "short-desc": "Character name in original title",
+    "long-desc": "The original version of the track has a character's name in the title.",
+    "rarity": 10
   },
   {
     "tag": "title-world",
@@ -673,20 +673,20 @@
   },
   {
     "tag": "title-dark",
-    "short-desc": "Dark/darkness in title",
-    "long-desc": "A version of the track has the word \"dark\" or \"darkness\" in the title.",
+    "short-desc": "Dark/darkness in original title",
+    "long-desc": "The original version of the track has some form of the word \"dark\" or \"darkness\" in the title.",
     "rarity": 6
   },
   {
     "tag": "title-ddd",
-    "short-desc": "Dream/drop/distance in title",
-    "long-desc": "A version of the track has a version of the words \"dream\", \"drop\", or \"distance\" in the title.",
+    "short-desc": "Dream/drop/distance in original title",
+    "long-desc": "The original version of the track has a version of the words \"dream\", \"drop\", or \"distance\" in the title.",
     "rarity": 6
   },
   {
     "tag": "title-chi",
-    "short-desc": "X in title",
-    "long-desc": "A version of the track has the recusant's sigil (X) in the title.",
+    "short-desc": "X in original title",
+    "long-desc": "The original version of the track has the recusant's sigil (X) in the title.",
     "rarity": 6
   },
   {
