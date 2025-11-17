@@ -3,7 +3,7 @@ import {onMounted, onBeforeUnmount, ref} from "vue";
 import settings from "@/settings/settings.json"
 import IconInfinite from "@/components/icons/IconInfinite.vue";
 import InfiniteButton from "@/components/InfiniteButton.vue";
-import { randomStartEnabled, infiniteEnabled, criticalEnabled } from '@/main';
+import { randomStartEnabled, infiniteEnabled, criticalEnabled, sudokuMode } from '@/main';
 
 // Load settings from localStorage or fall back to defaults
 const savedAllowed = localStorage.getItem('allowed-statuses');
@@ -96,70 +96,83 @@ onBeforeUnmount(() => {
 </script>
 
 <template>
-  <div v-if="infiniteEnabled">
-    <div class="settings-container">
-      <div class="settings-content">
-        <div class="setting-item">
-          <div style="display:flex;flex-direction:column;gap:0.5rem;">
-            <label><input type="checkbox" v-model="randomStartEnabled"/> {{ settings.phrases["random-start"] }}</label>
+  <div v-if="!sudokuMode">
+    <div v-if="infiniteEnabled">
+      <div class="settings-container">
+        <div class="settings-content">
+          <div class="setting-item">
+            <div style="display:flex;flex-direction:column;gap:0.5rem;">
+              <label><input type="checkbox" v-model="randomStartEnabled"/> {{ settings.phrases["random-start"] }}</label>
+            </div>
           </div>
-        </div>
-        <div class="setting-item">
-          <div style="display:flex;flex-direction:column;gap:0.5rem;">
-            <label><input type="checkbox" v-model="criticalEnabledLocal"/> {{ settings.phrases["critical-mode"] }}</label>
+          <div class="setting-item">
+            <div style="display:flex;flex-direction:column;gap:0.5rem;">
+              <label><input type="checkbox" v-model="criticalEnabledLocal"/> {{ settings.phrases["critical-mode"] }}</label>
+            </div>
           </div>
-        </div>
-        <div class="setting-item">
-          <div style="display:flex;flex-direction:column;gap:0.5rem;">
-            <div class="difficulty-container">
-              <!-- <label><input type="checkbox" v-model="allowOst" /> {{ settings.phrases["allow-ost"] }}</label> -->
-              <label><input type="checkbox" v-model="allowUnreleased" /> {{ settings.phrases["allow-unreleased"] }}</label>
-              <label><input type="checkbox" v-model="allowUnnamed" /> {{ settings.phrases["allow-unnamed"] }}</label>
-              <label><input type="checkbox" v-model="allowUnused" /> {{ settings.phrases["allow-unused"] }}</label>
-            </div> 
+          <div class="setting-item">
+            <div style="display:flex;flex-direction:column;gap:0.5rem;">
+              <div class="difficulty-container">
+                <!-- <label><input type="checkbox" v-model="allowOst" /> {{ settings.phrases["allow-ost"] }}</label> -->
+                <label><input type="checkbox" v-model="allowUnreleased" /> {{ settings.phrases["allow-unreleased"] }}</label>
+                <label><input type="checkbox" v-model="allowUnnamed" /> {{ settings.phrases["allow-unnamed"] }}</label>
+                <label><input type="checkbox" v-model="allowUnused" /> {{ settings.phrases["allow-unused"] }}</label>
+              </div> 
+            </div>
           </div>
-        </div>
-        <div class="setting-item:last-child">
-          <div style="display:flex;flex-direction:column;gap:0.5rem;">
-            <div class="games-grid">
-              <!-- Column 1 -->
-              <label><input type="checkbox" v-model="gameToggles.KH" /> KH</label>
-              <label><input type="checkbox" v-model="gameToggles.KHCOM" /> CoM</label>
-              <label><input type="checkbox" v-model="gameToggles.KHRECOM" /> Re:CoM</label>
-              <label><input type="checkbox" v-model="gameToggles.KHII" /> KHII</label>
-              <label><input type="checkbox" v-model="gameToggles.KHD" /> Days</label>
-              <!-- Column 2 -->
-              <label><input type="checkbox" v-model="gameToggles.KHM" /> Mobile</label>
-              <label><input type="checkbox" v-model="gameToggles.KHC" /> coded</label>
-              <label><input type="checkbox" v-model="gameToggles.KHREC" /> Re:coded</label>
-              <label><input type="checkbox" v-model="gameToggles.KHBBS" /> BBS</label>
-              <label><input type="checkbox" v-model="gameToggles.KH3D" /> DDD</label>
-              <!-- Column 3 -->
-              <label><input type="checkbox" v-model="gameToggles['KH0.2']" /> 0.2</label>
-              <label><input type="checkbox" v-model="gameToggles.KHX" /> KHX</label>
-              <label><input type="checkbox" v-model="gameToggles.KHUX" /> KHUX</label>
-              <label><input type="checkbox" v-model="gameToggles.KHXBC" /> Back Cover</label>
-              <label><input type="checkbox" v-model="gameToggles.KHIII" /> KHIII</label>
-              <!-- Column 4 -->
-              <label><input type="checkbox" v-model="gameToggles.KHMOM" /> MelMem</label>
-              <label><input type="checkbox" v-model="gameToggles.KHML" /> Missing-Link</label>
-              <label><input type="checkbox" v-model="gameToggles.KHIV" /> KHIV</label>
-              <label><input type="checkbox" v-model="gameToggles['KHHD1.5']" /> HD 1.5</label>
-              <label><input type="checkbox" v-model="gameToggles['KHHD2.5']" /> HD 2.5</label>
-              <!-- Column 5 -->
-              <label><input type="checkbox" v-model="gameToggles.KHVC" /> V CAST</label>
-              <label><input type="checkbox" v-model="gameToggles['Concerts/Albums']" /> Concerts/Albums</label>
-              <label><input type="checkbox" v-model="gameToggles.Other" /> Other</label>
-               <p></p>
-               <label><input type="checkbox" v-model="checkAll" @change="toggleAllGames" /> Select All</label>
+          <div class="setting-item:last-child">
+            <div style="display:flex;flex-direction:column;gap:0.5rem;">
+              <div class="games-grid">
+                <!-- Column 1 -->
+                <label><input type="checkbox" v-model="gameToggles.KH" /> KH</label>
+                <label><input type="checkbox" v-model="gameToggles.KHCOM" /> CoM</label>
+                <label><input type="checkbox" v-model="gameToggles.KHRECOM" /> Re:CoM</label>
+                <label><input type="checkbox" v-model="gameToggles.KHII" /> KHII</label>
+                <label><input type="checkbox" v-model="gameToggles.KHD" /> Days</label>
+                <!-- Column 2 -->
+                <label><input type="checkbox" v-model="gameToggles.KHM" /> Mobile</label>
+                <label><input type="checkbox" v-model="gameToggles.KHC" /> coded</label>
+                <label><input type="checkbox" v-model="gameToggles.KHREC" /> Re:coded</label>
+                <label><input type="checkbox" v-model="gameToggles.KHBBS" /> BBS</label>
+                <label><input type="checkbox" v-model="gameToggles.KH3D" /> DDD</label>
+                <!-- Column 3 -->
+                <label><input type="checkbox" v-model="gameToggles['KH0.2']" /> 0.2</label>
+                <label><input type="checkbox" v-model="gameToggles.KHX" /> KHX</label>
+                <label><input type="checkbox" v-model="gameToggles.KHUX" /> KHUX</label>
+                <label><input type="checkbox" v-model="gameToggles.KHXBC" /> Back Cover</label>
+                <label><input type="checkbox" v-model="gameToggles.KHIII" /> KHIII</label>
+                <!-- Column 4 -->
+                <label><input type="checkbox" v-model="gameToggles.KHMOM" /> MelMem</label>
+                <label><input type="checkbox" v-model="gameToggles.KHML" /> Missing-Link</label>
+                <label><input type="checkbox" v-model="gameToggles.KHIV" /> KHIV</label>
+                <label><input type="checkbox" v-model="gameToggles['KHHD1.5']" /> HD 1.5</label>
+                <label><input type="checkbox" v-model="gameToggles['KHHD2.5']" /> HD 2.5</label>
+                <!-- Column 5 -->
+                <label><input type="checkbox" v-model="gameToggles.KHVC" /> V CAST</label>
+                <label><input type="checkbox" v-model="gameToggles['Concerts/Albums']" /> Concerts/Albums</label>
+                <label><input type="checkbox" v-model="gameToggles.Other" /> Other</label>
+                <p></p>
+                <label><input type="checkbox" v-model="checkAll" @change="toggleAllGames" /> Select All</label>
+              </div>
             </div>
           </div>
         </div>
+        <div class="settings-footer">
+          <button class="apply-button" @click="applySettings">
+            Apply
+          </button>
+        </div>
       </div>
-      <div class="settings-footer">
-        <button class="apply-button" @click="applySettings">
-          Apply
-        </button>
+    </div>
+    <div v-else>
+      <div class="settings-container">
+        <div class="settings-content">
+          <div class="setting-item">
+            <strong>Settings are disabled for the Daily Challenge.</strong>
+            <p><br></br>The Daily Challenge plays from the 13 second mark. It uses a curated list of tracks.</p>
+            <p><br></br>In Infinite Mode, you can change the start time and filter by game and release status.</p>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -167,14 +180,11 @@ onBeforeUnmount(() => {
     <div class="settings-container">
       <div class="settings-content">
         <div class="setting-item">
-          <strong>Settings are disabled for the Daily Challenge.</strong>
-          <p><br></br>The Daily Challenge plays from the 13 second mark. It uses a curated list of tracks.</p>
-          <p><br></br>In Infinite Mode, you can change the start time and filter by game and release status.</p>
+          <strong>Settings are disabled in the daily Sudoku.</strong>
         </div>
       </div>
     </div>
   </div>
-  
 </template>
 
 <style scoped>

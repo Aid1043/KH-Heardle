@@ -14,8 +14,10 @@ const currentModal = shallowRef(null);
 import themes from '@/settings/themes.json'
 import settings from "@/settings/settings.json"
 import MainGame from "@/components/MainGame.vue";
+import SudokuMainGame from "@/components/SudokuMainGame.vue";
 
-import { currentGameState } from "@/main";
+
+import { currentGameState, sudokuMode } from "@/main";
 import EndGame from "@/components/EndGame.vue";
 
 // CSS Variables
@@ -54,6 +56,11 @@ onMounted(() => {
     window.localStorage.setItem('firstPlay', 'false');
   }
 
+  if(sudokuMode.value && window.localStorage.getItem('sudokuFirstPlay') !== "false"){
+    openModal(TutorialModal);
+    window.localStorage.setItem('sudokuFirstPlay', 'false');
+  }
+
   document.title = settings["tab-title"]
 });
 
@@ -71,8 +78,13 @@ onBeforeUnmount(() => {
     <div class="no-flex">
       <Header @create-modal="(modal)=>openModal(modal)"/>
     </div>
-    <MainGame v-if="!currentGameState.isFinished"/>
-    <EndGame v-else/>
+    <span v-if="!sudokuMode">
+      <MainGame v-if="!currentGameState.isFinished"/>
+      <EndGame v-else/>
+    </span>
+    <span v-else>
+      <SudokuMainGame/>
+    </span>
   </main>
 </template>
 

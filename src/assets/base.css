@@ -55,5 +55,7 @@ html {
   --color-lost-card: var(--color-mg);
   --color-win-card: var(--color-positive);
 
+  --color-sudoku: #A19000;
+
 }
 

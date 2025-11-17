@@ -11,6 +11,8 @@ import StatsModal from "@/components/Modals/StatsModal.vue";
 
 import settings from "@/settings/settings.json"
 
+import { sudokuMode } from "@/main";
+
 const emit = defineEmits(['create-modal']);
 </script>
 
@@ -26,7 +28,8 @@ const emit = defineEmits(['create-modal']);
             <IconSettings/>
           </button>
         </div>
-        <img src="@/assets/images/kh-http-logo.png" alt="Kingdom Hearts Heed to the Pulse" class="logo-image"/>
+        <img v-if="!sudokuMode" src="@/assets/images/kh-http-logo.png" alt="Kingdom Hearts Heed to the Pulse" class="logo-image"/>
+        <img v-else src="@/assets/images/kh-https-logo.png" alt="Kingdom Hearts Heed to the Pulse: Sudoku" class="logo-image"/>
         <!-- <h1 class="font-title">Kingdom Hearts</h1> -->
         <div class="button-container justify-end">
           <button @click="emit('create-modal', StatsModal)">

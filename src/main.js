@@ -6,6 +6,10 @@ import App from './App.vue'
 import settings from '@/settings/settings.json'
 import music from '@/settings/music.json'
 
+import sudoku_music from '@/settings/sudoku_music.json'
+import sudoku_tags from '@/settings/sudoku_tags.json'
+
+
 // Create audio players
 
 // Choose music
@@ -247,6 +251,183 @@ export const currentGameState = new Proxy(_currentGameState, {
         save();
     }
 })
+
+const savedSudokuMode = sessionStorage.getItem('sudoku-mode');
+export const sudokuMode = ref(savedSudokuMode !== null ? savedSudokuMode === 'true' : false);
+
+// Seeded random
+function splitmix32(a) {
+    return function() {
+        a |= 0;
+        a = a + 0x9e3779b9 | 0;
+        let t = a ^ a >>> 16;
+        t = Math.imul(t, 0x21f0aaad);
+        t = t ^ t >>> 15;
+        t = Math.imul(t, 0x735a2d97);
+        return ((t = t ^ t >>> 15) >>> 0) / 4294967296;
+    }
+}
+
+function weightedShuffle(tags, seed) {
+    const rand = splitmix32(seed);
+
+    const itemsWithKeys = tags.map(item => {
+        const key = -Math.log(rand()) / item.rarity;
+        return { item, key };
+    });
+
+    itemsWithKeys.sort((a, b) => a.key - b.key);
+
+    return itemsWithKeys.map(x => x.item);
+}
+
+function canFormUnique9(colTags, rowTags) {
+    const overlapGrid = [];
+
+    for (let r = 0; r < 3; r++) {
+        overlapGrid[r] = [];
+        for (let c = 0; c < 3; c++) {
+            const songsR = new Set(sudoku_music[rowTags[r].tag]);
+            const songsC = new Set(sudoku_music[colTags[c].tag]);
+            const overlap = [...songsR].filter(s => songsC.has(s));
+            if (overlap.length < 2) return false; // Minimum options per cell
+            overlapGrid[r][c] = overlap;
+        }
+    }
+
+    // Recursion (yay) to test for unique solutions
+    function assignUniqueSongs(r, c, used) {
+        if (r === 3) return true;
+            const nextR = c===2 ? r+1 : r;
+            const nextC = c===2 ? 0 : c+1;
+
+        for (const song of overlapGrid[r][c]) {
+            if (!used.has(song)) {
+                used.add(song);
+                if (assignUniqueSongs(nextR, nextC, used)) return true;
+                used.delete(song);
+            }
+        }
+        return false;
+    }
+
+    return assignUniqueSongs(0,0,new Set());
+}
+
+function generateBoard() {
+    // Seed based on current date
+    let seed = 0.0;
+
+    if (true) { //!infiniteEnabled.value
+        const oldestDate = new Date(null);
+        const currentDate = new Date();
+        seed = Math.floor((currentDate.getTime() - oldestDate.getTime()) / 86400000);
+    }
+    else {
+        seed = Math.floor(Math.random() * 1000000);
+    }
+    const shuffledTags = weightedShuffle(sudoku_tags, seed);
+
+    // Try first 3 as columns
+    for (let cStart=0; cStart<=shuffledTags.length-3; cStart++) {
+        const colTags = shuffledTags.slice(cStart, cStart+3);
+
+        // Remaining tags for rows, in weighted order
+        const remaining = shuffledTags.filter(t => !colTags.includes(t));
+
+        for (let rStart=0; rStart<=remaining.length-3; rStart++) {
+            const rowTags = remaining.slice(rStart, rStart+3);
+
+            if (canFormUnique9(colTags,rowTags)) {
+                return [...colTags, ...rowTags];
+            }
+        }
+    }
+
+    return null;
+}
+
+export const sudokuBoard = generateBoard();
+
+export const _sudokuGameState = ref({
+    guess: 1,
+    guessed: [],
+    correct: [null, true, true, true, true, true, true, true, true, true],
+    activeCell: -1,
+    isFinished: false,
+    isWon: false,
+});
+
+export const sudokuGameState = new Proxy(_sudokuGameState, {
+    get(target, prop, receiver) {
+        sudokuSave();
+        return Reflect.get(...arguments);
+    },
+
+    set(target, key, value) {
+        Object.set(target, key, value);
+        sudokuSave();
+    },
+
+    defineProperty(target, key, descriptor) {
+        Object.defineProperty(target, key, descriptor);
+        sudokuSave();
+    }
+})
+
+function sudokuSave(){
+    const ssString = localStorage.getItem("sudokuStats");
+    let stats;
+
+    if(ssString === null || ssString === ""){
+        stats = [];
+    } else {
+        stats = JSON.parse(ssString);
+    }
+
+    let item = stats.find((item)=>{
+        return item.id === id;
+    })
+
+    if(item === undefined){
+        stats.push({
+            id: id,
+            guess: _sudokuGameState.value.guess,
+            guessed: _sudokuGameState.value.guessed,
+            correct: _sudokuGameState.value.correct,
+            isFinished: _sudokuGameState.value.isFinished,
+            isWon: _sudokuGameState.value.isWon,
+        });
+    }
+    else {
+        stats[stats.indexOf(item)] = {
+            id: id,
+            guess: _sudokuGameState.value.guess,
+            guessed: _sudokuGameState.value.guessed,
+            correct: _sudokuGameState.value.correct,
+            isFinished: _sudokuGameState.value.isFinished,
+            isWon: _sudokuGameState.value.isWon,
+        };
+    }
+
+    localStorage.setItem("sudokuStats", JSON.stringify(stats));
+}
+
+const ssString = localStorage.getItem("sudokuStats");
+if(ssString !== null && ssString !== ""){
+    let stats = JSON.parse(ssString);
+    let item = stats.find((item)=>{
+        return item.id === id;
+    })
+
+    if(item !== undefined){
+        _sudokuGameState.value.guess = item.guess;
+        _sudokuGameState.value.guessed = item.guessed;
+        _sudokuGameState.value.correct = item.correct;
+        _sudokuGameState.value.isFinished = item.isFinished;
+        _sudokuGameState.value.isWon = item.isWon;
+    }
+}
 
 const app = createApp(App);
 app.mount('#app')

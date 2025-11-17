@@ -1,0 +1,860 @@
+[
+  {
+    "tag": "arr-shimomura",
+    "short-desc": "Arranged by Yoko Shimomura",
+    "long-desc": "A version of the track is arranged by Yoko Shimomura.",
+    "rarity": 27
+  },
+  {
+    "tag": "arr-sekito",
+    "short-desc": "Arranged by Tsuyoshi Sekito",
+    "long-desc": "A version of the track is arranged by Tsuyoshi Sekito.",
+    "rarity": 21
+  },
+  {
+    "tag": "arr-ishimoto",
+    "short-desc": "Arranged by Takeharu Ishimoto",
+    "long-desc": "A version of the track is arranged by Takeharu Ishimoto.",
+    "rarity": 20
+  },
+  {
+    "tag": "arr-guest",
+    "short-desc": "Arranged by a guest mucisian",
+    "long-desc": "A version of the track is arranged by a mucisian other than Shimomura, Sekito, or Ishimoto.",
+    "rarity": 14
+  },
+  {
+    "tag": "arr-orch",
+    "short-desc": "Has an orchestrator",
+    "long-desc": "A version of the track has a credited orchestrator (excluding ReMIX).",
+    "rarity": 7
+  },
+  {
+    "tag": "origin-kh",
+    "short-desc": "Originated in KH",
+    "long-desc": "The original version of the track made its KH debut in Kingdom Hearts (or Final Mix).",
+    "rarity": 23
+  },
+  {
+    "tag": "origin-khcom",
+    "short-desc": "Originated in CoM",
+    "long-desc": "The original version of the track made its KH debut in Chain of Memories (or Re:CoM).",
+    "rarity": 19
+  },
+  {
+    "tag": "origin-khii",
+    "short-desc": "Originated in KHII",
+    "long-desc": "The original version of the track made its KH debut in Kingdom Hearts II (or Final Mix).",
+    "rarity": 23
+  },
+  {
+    "tag": "origin-khd",
+    "short-desc": "Originated in Days",
+    "long-desc": "The original version of the track made its KH debut in 358/2 Days.",
+    "rarity": 7
+  },
+  {
+    "tag": "origin-khrec",
+    "short-desc": "Originated in Re:coded",
+    "long-desc": "The original version of the track made its KH debut in Re:coded (or coded).",
+    "rarity": 5
+  },
+  {
+    "tag": "origin-khbbs",
+    "short-desc": "Originated in BBS",
+    "long-desc": "The original version of the track made its KH debut in Birth by Sleep (or Final Mix).",
+    "rarity": 22
+  },
+  {
+    "tag": "origin-kh3d",
+    "short-desc": "Originated in DDD",
+    "long-desc": "The original version of the track made its KH debut in Dream Drop Distance.",
+    "rarity": 21
+  },
+  {
+    "tag": "origin-khux",
+    "short-desc": "Originated in KHUX",
+    "long-desc": "The original version of the track made its KH debut in Union χ (or χ[chi]).",
+    "rarity": 5
+  },
+  {
+    "tag": "origin-khxbc",
+    "short-desc": "Originated in Back Cover",
+    "long-desc": "The original version of the track made its KH debut in Back Cover.",
+    "rarity": 3
+  },
+  {
+    "tag": "origin-kh02",
+    "short-desc": "Originated in KH0.2",
+    "long-desc": "The original version of the track made its KH debut in 0.2 Birth by Sleep -A fragmentary passage-.",
+    "rarity": 3
+  },
+  {
+    "tag": "origin-khiii",
+    "short-desc": "Originated in KHIII",
+    "long-desc": "The original version of the track made its KH debut in Kingdom Hearts III (or Re Mind).",
+    "rarity": 24
+  },
+  {
+    "tag": "origin-khmom",
+    "short-desc": "Originated in MelMem",
+    "long-desc": "The original version of the track made its KH debut in Melody of Memory.",
+    "rarity": 3
+  },
+  {
+    "tag": "origin-disney",
+    "short-desc": "Disney song",
+    "long-desc": "The song originated in a Disney property.",
+    "rarity": 12
+  },
+  {
+    "tag": "origin-outside",
+    "short-desc": "Non-Disney outside origin",
+    "long-desc": "The song originated in a non-Disney property outside of the Kingdom Hearts series.",
+    "rarity": 10
+  },
+  {
+    "tag": "appear-kh",
+    "short-desc": "Appears in KH",
+    "long-desc": "A version of the track appears in Kingdom Hearts (or Final Mix).",
+    "rarity": 22
+  },
+  {
+    "tag": "appear-khcom",
+    "short-desc": "Appears in CoM",
+    "long-desc": "A version of the track appears in Chain of Memories (or Re:CoM).",
+    "rarity": 21
+  },
+  {
+    "tag": "appear-khii",
+    "short-desc": "Appears in KHII",
+    "long-desc": "A version of the track appears in Kingdom Hearts II (or Final Mix).",
+    "rarity": 24
+  },
+  {
+    "tag": "appear-khd",
+    "short-desc": "Appears in Days",
+    "long-desc": "A version of the track appears in 358/2 Days.",
+    "rarity": 18
+  },
+  {
+    "tag": "appear-khrec",
+    "short-desc": "Appears in Re:coded",
+    "long-desc": "A version of the track appears in Re:coded (or coded).",
+    "rarity": 19
+  },
+  {
+    "tag": "appear-khbbs",
+    "short-desc": "Appears in BBS",
+    "long-desc": "A version of the track appears in Birth by Sleep (or Final Mix).",
+    "rarity": 23
+  },
+  {
+    "tag": "appear-kh3d",
+    "short-desc": "Appears in DDD",
+    "long-desc": "A version of the track appears in Dream Drop Distance.",
+    "rarity": 23
+  },
+  {
+    "tag": "appear-khux",
+    "short-desc": "Appears in KHUX",
+    "long-desc": "A version of the track appears in Union χ (or χ[chi]).",
+    "rarity": 19
+  },
+  {
+    "tag": "appear-khxbc",
+    "short-desc": "Appears in Back Cover",
+    "long-desc": "A version of the track appears in Back Cover.",
+    "rarity": 9
+  },
+  {
+    "tag": "appear-kh02",
+    "short-desc": "Appears in KH0.2",
+    "long-desc": "A version of the track appears in 0.2 Birth by Sleep -A fragmentary passage-.",
+    "rarity": 9
+  },
+  {
+    "tag": "appear-khiii",
+    "short-desc": "Appears in KHIII",
+    "long-desc": "A version of the track appears in Kingdom Hearts III (or Re Mind).",
+    "rarity": 22
+  },
+  {
+    "tag": "appear-khdr",
+    "short-desc": "Appears in Dark Road",
+    "long-desc": "A version of the track appears in Dark Road.",
+    "rarity": 10
+  },
+  {
+    "tag": "appear-khmom",
+    "short-desc": "Appears in MelMem",
+    "long-desc": "A version of the track appears in Melody of Memory.",
+    "rarity": 24
+  },
+  {
+    "tag": "appear-khm",
+    "short-desc": "Appears in Mobile",
+    "long-desc": "A version of the track appears in Kingdom Hearts Mobile.",
+    "rarity": 4
+  },
+  {
+    "tag": "appear-concert",
+    "short-desc": "Appears in a KH concert",
+    "long-desc": "The track appears in one of the four KH concerts (medleys count).",
+    "rarity": 16
+  },
+  {
+    "tag": "appear-piano",
+    "short-desc": "Appears in Piano Collections",
+    "long-desc": "The track appears in one of the two Piano Collections albums (medleys count).",
+    "rarity": 11
+  },
+  {
+    "tag": "last-kh",
+    "short-desc": "Last heard in KH",
+    "long-desc": "The most recent time a version of the track was heard was in Kingdom Hearts (or Final Mix).",
+    "rarity": 9
+  },
+  {
+    "tag": "last-khcom",
+    "short-desc": "Last heard in CoM",
+    "long-desc": "The most recent time a version of the track was heard was in Chain of Memories (or Re:CoM).",
+    "rarity": 7
+  },
+  {
+    "tag": "last-khii",
+    "short-desc": "Last heard in KHII",
+    "long-desc": "The most recent time a version of the track was heard was in Kingdom Hearts II (or Final Mix).",
+    "rarity": 9
+  },
+  {
+    "tag": "last-khd",
+    "short-desc": "Last heard in Days",
+    "long-desc": "The most recent time a version of the track was heard was in 358/2 Days.",
+    "rarity": 3
+  },
+  {
+    "tag": "last-khrec",
+    "short-desc": "Last heard in Re:coded",
+    "long-desc": "The most recent time a version of the track was heard was in Re:coded (or coded).",
+    "rarity": 3
+  },
+  {
+    "tag": "last-khbbs",
+    "short-desc": "Last heard in BBS",
+    "long-desc": "The most recent time a version of the track was heard was in Birth by Sleep (or Final Mix).",
+    "rarity": 9
+  },
+  {
+    "tag": "last-kh3d",
+    "short-desc": "Last heard in DDD",
+    "long-desc": "The most recent time a version of the track was heard was in Dream Drop Distance.",
+    "rarity": 9
+  },
+  {
+    "tag": "last-khux",
+    "short-desc": "Last heard in KHUX",
+    "long-desc": "The most recent time a version of the track was heard was in Union χ (or χ[chi]).",
+    "rarity": 8
+  },
+  {
+    "tag": "last-kh02",
+    "short-desc": "Last heard in KH0.2",
+    "long-desc": "The most recent time a version of the track was heard was in 0.2 Birth by Sleep -A fragmentary passage-.",
+    "rarity": 1
+  },
+  {
+    "tag": "last-khiii",
+    "short-desc": "Last heard in KHIII",
+    "long-desc": "The most recent time a version of the track was heard was in Kingdom Hearts III (or Re Mind).",
+    "rarity": 12
+  },
+  {
+    "tag": "last-khdr",
+    "short-desc": "Last heard in Dark Road",
+    "long-desc": "The most recent time a version of the track was heard was in Dark Road.",
+    "rarity": 8
+  },
+  {
+    "tag": "last-khmom",
+    "short-desc": "Last heard in MelMem",
+    "long-desc": "The most recent time a version of the track was heard was in Melody of Memory.",
+    "rarity": 13
+  },
+  {
+    "tag": "plays-dtth",
+    "short-desc": "Plays in Dive to the Heart",
+    "long-desc": "A version of the track plays in the Dive to the Heart.",
+    "rarity": 4
+  },
+  {
+    "tag": "plays-di",
+    "short-desc": "Plays in Destiny Islands",
+    "long-desc": "A version of the track plays in Destiny Islands.",
+    "rarity": 8
+  },
+  {
+    "tag": "plays-dc-dt",
+    "short-desc": "Plays in Disney Castle / Town",
+    "long-desc": "A version of the track plays in Disney Castle / Disney Town / Timeless River.",
+    "rarity": 6
+  },
+  {
+    "tag": "plays-tt",
+    "short-desc": "Plays in Traverse Town",
+    "long-desc": "A version of the track plays in Traverse Town.",
+    "rarity": 8
+  },
+  {
+    "tag": "plays-wl",
+    "short-desc": "Plays in Wonderland",
+    "long-desc": "A version of the track plays in Wonderland.",
+    "rarity": 8
+  },
+  {
+    "tag": "plays-oc",
+    "short-desc": "Plays in Olympus Coliseum",
+    "long-desc": "A version of the track plays in Olympus Coliseum / Olympus.",
+    "rarity": 8
+  },
+  {
+    "tag": "plays-dj",
+    "short-desc": "Plays in Deep Jungle",
+    "long-desc": "A version of the track plays in Deep Jungle.",
+    "rarity": 5
+  },
+  {
+    "tag": "plays-ag",
+    "short-desc": "Plays in Agrabah",
+    "long-desc": "A version of the track plays in Agrabah.",
+    "rarity": 8
+  },
+  {
+    "tag": "plays-mo-pp",
+    "short-desc": "Plays in Monstro / Prankster’s Paradise",
+    "long-desc": "A version of the track plays in Monstro / Prankster’s Paradise.",
+    "rarity": 8
+  },
+  {
+    "tag": "plays-at",
+    "short-desc": "Plays in Atlantica",
+    "long-desc": "A version of the track plays in Atlantica.",
+    "rarity": 7
+  },
+  {
+    "tag": "plays-ht",
+    "short-desc": "Plays in Halloween Town",
+    "long-desc": "A version of the track plays in Halloween Town.",
+    "rarity": 7
+  },
+  {
+    "tag": "plays-nl",
+    "short-desc": "Plays in Neverland",
+    "long-desc": "A version of the track plays in Neverland.",
+    "rarity": 8
+  },
+  {
+    "tag": "plays-haw",
+    "short-desc": "Plays in 100 Acre Wood",
+    "long-desc": "A version of the track plays in 100 Acre Wood.",
+    "rarity": 7
+  },
+  {
+    "tag": "plays-hb-rg",
+    "short-desc": "Plays in Hollow Bastion / Radiant Garden",
+    "long-desc": "A version of the track plays in Hollow Bastion / Radiant Garden.",
+    "rarity": 8
+  },
+  {
+    "tag": "plays-eotw",
+    "short-desc": "Plays in End of the World",
+    "long-desc": "A version of the track plays in End of the World.",
+    "rarity": 7
+  },
+  {
+    "tag": "plays-rod",
+    "short-desc": "Plays in Realm of Darkness",
+    "long-desc": "A version of the track plays in Realm of Darkness.",
+    "rarity": 5
+  },
+  {
+    "tag": "plays-co",
+    "short-desc": "Plays in Castle Oblivion",
+    "long-desc": "A version of the track plays in Castle Oblivion.",
+    "rarity": 7
+  },
+  {
+    "tag": "plays-twt",
+    "short-desc": "Plays in Twilight Town / Mysterious Tower",
+    "long-desc": "A version of the track plays in Twilight Town / Mysterious Tower.",
+    "rarity": 8
+  },
+  {
+    "tag": "plays-ld",
+    "short-desc": "Plays in The Land of Dragons",
+    "long-desc": "A version of the track plays in The Land of Dragons.",
+    "rarity": 7
+  },
+  {
+    "tag": "plays-bc",
+    "short-desc": "Plays in Beast’s Castle",
+    "long-desc": "A version of the track plays in Beast’s Castle.",
+    "rarity": 8
+  },
+  {
+    "tag": "plays-pr-tc",
+    "short-desc": "Plays in Port Royal / The Caribbean",
+    "long-desc": "A version of the track plays in Port Royal / The Caribbean.",
+    "rarity": 8
+  },
+  {
+    "tag": "plays-pl",
+    "short-desc": "Plays in Pride Lands",
+    "long-desc": "A version of the track plays in Pride Lands.",
+    "rarity": 7
+  },
+  {
+    "tag": "plays-sp-tg",
+    "short-desc": "Plays in Space Paranoids / The Grid",
+    "long-desc": "A version of the track plays in Space Paranoids / The Grid.",
+    "rarity": 8
+  },
+  {
+    "tag": "plays-twtnw",
+    "short-desc": "Plays in The World That Never Was",
+    "long-desc": "A version of the track plays in The World That Never Was.",
+    "rarity": 8
+  },
+  {
+    "tag": "plays-kg",
+    "short-desc": "Plays in Keyblade Graveyard",
+    "long-desc": "A version of the track plays in Keyblade Graveyard.",
+    "rarity": 8
+  },
+  {
+    "tag": "plays-lod",
+    "short-desc": "Plays in Land of Departure",
+    "long-desc": "A version of the track plays in Land of Departure.",
+    "rarity": 3
+  },
+  {
+    "tag": "plays-ma",
+    "short-desc": "Plays in Mirage Arena",
+    "long-desc": "A version of the track plays in Mirage Arena.",
+    "rarity": 2
+  },
+  {
+    "tag": "plays-dw",
+    "short-desc": "Plays in Dwarf Woodlands",
+    "long-desc": "A version of the track plays in Dwarf Woodlands.",
+    "rarity": 8
+  },
+  {
+    "tag": "plays-ed",
+    "short-desc": "Plays in Enchanted Dominion",
+    "long-desc": "A version of the track plays in Enchanted Dominion.",
+    "rarity": 8
+  },
+  {
+    "tag": "plays-cod",
+    "short-desc": "Plays in Castle of Dreams",
+    "long-desc": "A version of the track plays in Castle of Dreams.",
+    "rarity": 8
+  },
+  {
+    "tag": "plays-ds",
+    "short-desc": "Plays in Deep Space",
+    "long-desc": "A version of the track plays in Deep Space.",
+    "rarity": 7
+  },
+  {
+    "tag": "plays-lcdc",
+    "short-desc": "Plays in La Cité des Cloches",
+    "long-desc": "A version of the track plays in La Cité des Cloches.",
+    "rarity": 7
+  },
+  {
+    "tag": "plays-sos",
+    "short-desc": "Plays in Symphony of Sorcery",
+    "long-desc": "A version of the track plays in Symphony of Sorcery.",
+    "rarity": 7
+  },
+  {
+    "tag": "plays-cotm",
+    "short-desc": "Plays in Country of the Musketeers",
+    "long-desc": "A version of the track plays in Country of the Musketeers.",
+    "rarity": 7
+  },
+  {
+    "tag": "plays-dbt",
+    "short-desc": "Plays in Daybreak Town",
+    "long-desc": "A version of the track plays in Daybreak Town.",
+    "rarity": 7
+  },
+  {
+    "tag": "plays-gcs",
+    "short-desc": "Plays in Game Central Station",
+    "long-desc": "A version of the track plays in Game Central Station (or one of its sub-worlds).",
+    "rarity": 4
+  },
+  {
+    "tag": "plays-fw",
+    "short-desc": "Plays in The Final World",
+    "long-desc": "A version of the track plays in The Final World.",
+    "rarity": 4
+  },
+  {
+    "tag": "plays-tb",
+    "short-desc": "Plays in Toy Box",
+    "long-desc": "A version of the track plays in Toy Box.",
+    "rarity": 7
+  },
+  {
+    "tag": "plays-koc",
+    "short-desc": "Plays in Kingdom of Corona",
+    "long-desc": "A version of the track plays in Kingdom of Corona.",
+    "rarity": 7
+  },
+  {
+    "tag": "plays-mp",
+    "short-desc": "Plays in Monstropolis",
+    "long-desc": "A version of the track plays in Monstropolis.",
+    "rarity": 7
+  },
+  {
+    "tag": "plays-ar",
+    "short-desc": "Plays in Arendelle",
+    "long-desc": "A version of the track plays in Arendelle.",
+    "rarity": 7
+  },
+  {
+    "tag": "plays-sf",
+    "short-desc": "Plays in San Fransokyo",
+    "long-desc": "A version of the track plays in San Fransokyo.",
+    "rarity": 7
+  },
+  {
+    "tag": "plays-sac",
+    "short-desc": "Plays in Scala ad Caelum",
+    "long-desc": "A version of the track plays in Scala ad Caelum.",
+    "rarity": 7
+  },
+  {
+    "tag": "type-field",
+    "short-desc": "Field theme",
+    "long-desc": "A version of the track is used as a world's field theme.",
+    "rarity": 23
+  },
+  {
+    "tag": "type-battle",
+    "short-desc": "World battle theme",
+    "long-desc": "A version of the track is used as a world's battle theme.",
+    "rarity": 22
+  },
+  {
+    "tag": "type-minigame",
+    "short-desc": "Mini-game theme",
+    "long-desc": "A version of the track is used in a mini-game (other than Gummi Ship).",
+    "rarity": 15
+  },
+  {
+    "tag": "type-character",
+    "short-desc": "Character theme",
+    "long-desc": "A version of the track is used as a character theme.",
+    "rarity": 11
+  },
+  {
+    "tag": "type-heartless",
+    "short-desc": "Heartless boss theme",
+    "long-desc": "A version of the track plays for a Heartless boss battle.",
+    "rarity": 21
+  },
+  {
+    "tag": "type-nobody",
+    "short-desc": "Nobody boss theme",
+    "long-desc": "A version of the track plays for a Nobody boss battle.",
+    "rarity": 9
+  },
+  {
+    "tag": "type-unversed",
+    "short-desc": "Unversed boss theme",
+    "long-desc": "A version of the track plays for an Unversed boss battle.",
+    "rarity": 3
+  },
+  {
+    "tag": "type-nightmare",
+    "short-desc": "Nightmare boss theme",
+    "long-desc": "A version of the track plays for a Nightmare boss battle.",
+    "rarity": 5
+  },
+  {
+    "tag": "type-disney",
+    "short-desc": "Disney boss theme",
+    "long-desc": "A version of the track plays for a Disney character boss battle.",
+    "rarity": 18
+  },
+  {
+    "tag": "type-ff",
+    "short-desc": "Final Fantasy boss theme",
+    "long-desc": "A version of the track plays for a Final Fantasy character boss battle.",
+    "rarity": 9
+  },
+  {
+    "tag": "type-oc",
+    "short-desc": "Original character boss theme",
+    "long-desc": "A version of the track plays for a boss battle against an original KH character.",
+    "rarity": 21
+  },
+  {
+    "tag": "type-gummi",
+    "short-desc": "Gummi Ship theme",
+    "long-desc": "A version of the track is used for a Gummi Ship segment.",
+    "rarity": 13
+  },
+  {
+    "tag": "type-menu",
+    "short-desc": "Menu theme",
+    "long-desc": "A version of the track is used as the background music on a menu screen.",
+    "rarity": 10
+  },
+  {
+    "tag": "motif-db",
+    "short-desc": "Incorporates Dearly Beloved",
+    "long-desc": "A version of the track incorporates musical material from \"Dearly Beloved\".",
+    "rarity": 11
+  },
+  {
+    "tag": "motif-destati",
+    "short-desc": "Incorporates Destati",
+    "long-desc": "A version of the track incorporates musical material from \"Destati\".",
+    "rarity": 6
+  },
+  {
+    "tag": "motif-as",
+    "short-desc": "Incorporates Another Side",
+    "long-desc": "A version of the track incorporates musical material from \"Another Side\".",
+    "rarity": 8
+  },
+  {
+    "tag": "motif-fdm",
+    "short-desc": "Incorporates Forze Del Male",
+    "long-desc": "A version of the track incorporates musical material originating in \"Forze Del Male\".",
+    "rarity": 4
+  },
+  {
+    "tag": "motif-roxas",
+    "short-desc": "Incorporates Roxas",
+    "long-desc": "A version of the track incorporates musical material from \"Roxas\".",
+    "rarity": 4
+  },
+  {
+    "tag": "title-subtitle",
+    "short-desc": "Has a -subtitle-",
+    "long-desc": "A version of the track has a subtitle written with -hyphens-.",
+    "rarity": 7
+  },
+  {
+    "tag": "title-foreign",
+    "short-desc": "Titled in another language",
+    "long-desc": "A version of the track has a title entirely in another language.",
+    "rarity": 10
+  },
+  {
+    "tag": "title-character",
+    "short-desc": "Character name in title",
+    "long-desc": "A version of the track has a character's name in the title.",
+    "rarity": 11
+  },
+  {
+    "tag": "title-world",
+    "short-desc": "World name in title",
+    "long-desc": "A version of the track has the name of a world (or major area) in the title.",
+    "rarity": 11
+  },
+  {
+    "tag": "title-dark",
+    "short-desc": "Dark/darkness in title",
+    "long-desc": "A version of the track has the word \"dark\" or \"darkness\" in the title.",
+    "rarity": 6
+  },
+  {
+    "tag": "title-ddd",
+    "short-desc": "Dream/drop/distance in title",
+    "long-desc": "A version of the track has a version of the words \"dream\", \"drop\", or \"distance\" in the title.",
+    "rarity": 6
+  },
+  {
+    "tag": "title-chi",
+    "short-desc": "X in title",
+    "long-desc": "A version of the track has the recusant's sigil (X) in the title.",
+    "rarity": 6
+  },
+  {
+    "tag": "misc-onetime",
+    "short-desc": "Only plays once",
+    "long-desc": "The track only plays a single time, non-repeatable.",
+    "rarity": 7
+  },
+  {
+    "tag": "misc-tenyears",
+    "short-desc": "Returned after 10+ years",
+    "long-desc": "The track went unused for 10+ years before making another appearance.",
+    "rarity": 2
+  },
+  {
+    "tag": "misc-remake",
+    "short-desc": "Added in remake/re-release",
+    "long-desc": "A version of the track was introduced in a remake or re-release.",
+    "rarity": 14
+  },
+  {
+    "tag": "misc-lyrics",
+    "short-desc": "Has lyrics",
+    "long-desc": "A version of the track has sung lyrics.",
+    "rarity": 11
+  },
+  {
+    "tag": "misc-minute",
+    "short-desc": "Under 1 minute",
+    "long-desc": "A version of the track is one minute or shorter on the OST.",
+    "rarity": 6
+  },
+  {
+    "tag": "misc-guitar",
+    "short-desc": "Has guitar",
+    "long-desc": "A version of the track uses acoustic or electric guitar.",
+    "rarity": 14
+  },
+  {
+    "tag": "misc-organ",
+    "short-desc": "Has organ",
+    "long-desc": "A version of the track uses organ.",
+    "rarity": 15
+  },
+  {
+    "tag": "misc-harpsichord",
+    "short-desc": "Has harpsichord",
+    "long-desc": "A version of the track uses harpsichord.",
+    "rarity": 8
+  },
+  {
+    "tag": "letter-a",
+    "short-desc": "Title starts with A",
+    "long-desc": "The track's title starts with the letter A.",
+    "rarity": 6
+  },
+  {
+    "tag": "letter-b",
+    "short-desc": "Title starts with B",
+    "long-desc": "The track's title starts with the letter B.",
+    "rarity": 6
+  },
+  {
+    "tag": "letter-c",
+    "short-desc": "Title starts with C",
+    "long-desc": "The track's title starts with the letter C.",
+    "rarity": 6
+  },
+  {
+    "tag": "letter-d",
+    "short-desc": "Title starts with D",
+    "long-desc": "The track's title starts with the letter D.",
+    "rarity": 6
+  },
+  {
+    "tag": "letter-e",
+    "short-desc": "Title starts with E",
+    "long-desc": "The track's title starts with the letter E.",
+    "rarity": 5
+  },
+  {
+    "tag": "letter-f",
+    "short-desc": "Title starts with F",
+    "long-desc": "The track's title starts with the letter F.",
+    "rarity": 6
+  },
+  {
+    "tag": "letter-g",
+    "short-desc": "Title starts with G",
+    "long-desc": "The track's title starts with the letter G.",
+    "rarity": 4
+  },
+  {
+    "tag": "letter-h",
+    "short-desc": "Title starts with H",
+    "long-desc": "The track's title starts with the letter H.",
+    "rarity": 6
+  },
+  {
+    "tag": "letter-i",
+    "short-desc": "Title starts with I",
+    "long-desc": "The track's title starts with the letter I.",
+    "rarity": 4
+  },
+  {
+    "tag": "letter-l",
+    "short-desc": "Title starts with L",
+    "long-desc": "The track's title starts with the letter L.",
+    "rarity": 6
+  },
+  {
+    "tag": "letter-m",
+    "short-desc": "Title starts with M",
+    "long-desc": "The track's title starts with the letter M.",
+    "rarity": 6
+  },
+  {
+    "tag": "letter-n",
+    "short-desc": "Title starts with N",
+    "long-desc": "The track's title starts with the letter N.",
+    "rarity": 6
+  },
+  {
+    "tag": "letter-o",
+    "short-desc": "Title starts with O",
+    "long-desc": "The track's title starts with the letter O.",
+    "rarity": 4
+  },
+  {
+    "tag": "letter-p",
+    "short-desc": "Title starts with P",
+    "long-desc": "The track's title starts with the letter P.",
+    "rarity": 5
+  },
+  {
+    "tag": "letter-r",
+    "short-desc": "Title starts with R",
+    "long-desc": "The track's title starts with the letter R.",
+    "rarity": 6
+  },
+  {
+    "tag": "letter-s",
+    "short-desc": "Title starts with S",
+    "long-desc": "The track's title starts with the letter S.",
+    "rarity": 6
+  },
+  {
+    "tag": "letter-t",
+    "short-desc": "Title starts with T",
+    "long-desc": "The track's title starts with the letter T.",
+    "rarity": 6
+  },
+  {
+    "tag": "letter-u",
+    "short-desc": "Title starts with U",
+    "long-desc": "The track's title starts with the letter U.",
+    "rarity": 4
+  },
+  {
+    "tag": "letter-v",
+    "short-desc": "Title starts with V",
+    "long-desc": "The track's title starts with the letter V.",
+    "rarity": 4
+  },
+  {
+    "tag": "letter-w",
+    "short-desc": "Title starts with W",
+    "long-desc": "The track's title starts with the letter W.",
+    "rarity": 5
+  }
+]

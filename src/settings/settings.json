@@ -82,12 +82,14 @@
     "submit-button": "Submit",
     "next-button": "Next",
     "share-button": "Share",
+    "sudoku-enter-button": "Fill Cell",
+    "sudoku-submit-button": "Submit Board",
 
     "infinite-win-text": "Good job! You got the {heardle-name} song within {unlocked-time} seconds.",
     "default-win-text": "You got today's {heardle-name} song within {unlocked-time} seconds.",
 
     "infinite-lose-text": "You didn't get the {heardle-name} song. Try another one!",
-    "default-lose-text": "You didn't get today's {heardle-name} song. Better luck tomorrow! \uD83D\uDC8E",
+    "default-lose-text": "You didn't get today's {heardle-name} song. Better luck tomorrow!",
 
     "timer-text": "The next {heardle-name} song starts in:",
 
@@ -101,5 +103,7 @@
 
   "!COMMENT!": "Variant link is  \"infinite\" when infinite is false, or \"base game\" when infinite is true",
   "variant-link": "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
-  "song-list-link": "https://raw.githubusercontent.com/s4pph1r3-dev/Heardle-Base/refs/heads/main/src/settings/music.json"
+  "song-list-link": "https://raw.githubusercontent.com/s4pph1r3-dev/Heardle-Base/refs/heads/main/src/settings/music.json",
+
+  "sudoku-guess-number": 3
 }

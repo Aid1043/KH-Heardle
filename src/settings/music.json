@@ -12,7 +12,7 @@
       "arranger": "Yoko Shimomura"
     },
     "status": "ost",
-    "note": "The boss theme of the Schwarzgeist, remixed by the original Einhänder composer. This is the only track in the series arranged by Kenichiro Fukui.",
+    "note": "The main theme of Kingdom Hearts. This original version has spawned over three dozen arrangements, the most out of any song in the series.",
     "wiki": "https://www.khwiki.com/Dearly_Beloved",
     "daily": true
   },
@@ -6215,24 +6215,6 @@
     "daily": false
   },
   {
-    "title": "Dash-A-Long",
-    "media": "KHM",
-    "media-display": "Kingdom Hearts Mobile",
-    "url": "https://www.youtube.com/watch?v=Rma97bgOLnA",
-    "start": 4128.0,
-    "duration": 134,
-    "tags": {
-      "title": "Dash-A-Long",
-      "year": 2008,
-      "game": "KHM",
-      "arranger": "Yoko Shimomura"
-    },
-    "status": "ost",
-    "note": "The background music for the challenge stage in KH Balloon Glider.",
-    "wiki": "https://www.khwiki.com/Dash-A-Long",
-    "daily": false
-  },
-  {
     "title": "March-A-Long",
     "media": "KHM",
     "media-display": "Kingdom Hearts Mobile",
@@ -6247,6 +6229,24 @@
     },
     "status": "ost",
     "note": "The background music for menus and odd-numbered stages in KH Balloon Glider.",
+    "wiki": "https://www.khwiki.com/Dash-A-Long",
+    "daily": false
+  },
+  {
+    "title": "Dash-A-Long",
+    "media": "KHM",
+    "media-display": "Kingdom Hearts Mobile",
+    "url": "https://www.youtube.com/watch?v=Rma97bgOLnA",
+    "start": 4128.0,
+    "duration": 134,
+    "tags": {
+      "title": "Dash-A-Long",
+      "year": 2008,
+      "game": "KHM",
+      "arranger": "Yoko Shimomura"
+    },
+    "status": "ost",
+    "note": "The background music for the challenge stage in KH Balloon Glider.",
     "wiki": "https://www.khwiki.com/March-A-Long",
     "daily": false
   },
@@ -7900,19 +7900,19 @@
     "daily": true
   },
   {
-    "title": "Mákaukau?",
+    "title": "Makaukau?",
     "media": "KHBBS",
     "media-display": "Kingdom Hearts Birth by Sleep",
     "url": "https://www.youtube.com/watch?v=lm2zIz6LjVQ",
     "duration": 170,
     "tags": {
-      "title": "Mákaukau?",
+      "title": "Makaukau?",
       "year": 2010,
       "game": "KHBBS",
       "arranger": "Yoko Shimomura"
     },
     "status": "ost",
-    "note": "The battle theme of Deep Space.",
+    "note": "The battle theme of Deep Space. (This font can't display the diacritic.)",
     "wiki": "https://www.khwiki.com/M%C3%A1kaukau%3F",
     "daily": true
   },
@@ -9107,19 +9107,19 @@
     "daily": true
   },
   {
-    "title": "L'Oscurità dell'Ignoto",
+    "title": "L'Oscurita dell'Ignoto",
     "media": "KH3D",
     "media-display": "Kingdom Hearts 3D: Dream Drop Distance",
     "url": "https://www.youtube.com/watch?v=TydgfIcGYOE",
     "duration": 274,
     "tags": {
-      "title": "L'Oscurità dell'Ignoto",
+      "title": "L'Oscurita dell'Ignoto",
       "year": 2012,
       "game": "KH3D",
       "arranger": "Yoko Shimomura"
     },
     "status": "ost",
-    "note": "The battle theme of Xemnas. It incorporates elements of \"Darkness of the Unknown\".",
+    "note": "The battle theme of Xemnas. It incorporates elements of \"Darkness of the Unknown\". (This font can't display the diacritic.)",
     "wiki": "https://www.khwiki.com/L%27Oscurit%C3%A0_dell%27Ignoto",
     "daily": true
   },
@@ -12821,8 +12821,8 @@
     "title": "Simple and Clean -Ray Of Hope MIX-",
     "media": "KH0.2",
     "media-display": "Kingdom Hearts 0.2 Birth by Sleep -A fragmentary passage-",
-    "url": "https://www.youtube.com/watch?v=tY-Y7F4vwQo",
-    "duration": 152,
+    "url": "https://www.youtube.com/watch?v=LBUGPOrtIuw",
+    "duration": 153,
     "tags": {
       "title": "Hikari / Simple and Clean",
       "year": 2017,
@@ -13626,7 +13626,7 @@
       "title": "Say Cheese!",
       "year": 2019,
       "game": "KHIII",
-      "arranger": "Hiroki Hirose"
+      "arranger": "Yuki Hirose"
     },
     "status": "ost",
     "note": "The theme of the Orange Flan mini-game, called \"Tangled à la Mode\" in Data Greeting. It is an arrangement of \"Happy Hair Day\".",
@@ -13779,7 +13779,7 @@
       "title": "Shipmeisters' Shanty",
       "year": 2019,
       "game": "KHIII",
-      "arranger": "Hiroki Hirose"
+      "arranger": "Yuki Hirose"
     },
     "status": "ost",
     "note": "The theme of the Gummi Garage.",
@@ -13796,7 +13796,7 @@
       "title": "Blast Off!",
       "year": 2019,
       "game": "KHIII",
-      "arranger": "Hiroki Hirose"
+      "arranger": "Yuki Hirose"
     },
     "status": "ost",
     "note": "The Gummi Ship launch theme.",
@@ -13847,7 +13847,7 @@
       "title": "Crossing the Finish Line",
       "year": 2019,
       "game": "KHIII",
-      "arranger": "Hiroki Hirose"
+      "arranger": "Yuki Hirose"
     },
     "status": "ost",
     "note": "The Gummi Ship results theme. The official title is inaccurate; it is actually an arrangement of \"Blast Away -Gummi Ship I-\", not \"Crossing the Finish Line\".",
@@ -14178,13 +14178,13 @@
     "daily": true
   },
   {
-    "title": "Mákaukau? -Link Version-",
+    "title": "Makaukau? -Link Version-",
     "media": "KHIII",
     "media-display": "Kingdom Hearts III",
     "url": "https://www.youtube.com/watch?v=yT831QJuTV8",
     "duration": 178,
     "tags": {
-      "title": "Mákaukau?",
+      "title": "Makaukau?",
       "year": 2019,
       "game": "KHIII",
       "arranger": "Yuko Komiyama"
@@ -15193,7 +15193,7 @@
       "arranger": "Yoko Shimomura"
     },
     "status": "ost",
-    "note": "The credits theme of KH3. It is a medley of \"Dearly Beloved\", \"Toy Box Jam\", \"Miracle on Ice\", \"Flags of Fury\", \"Robot Overdrive\", \"Hero's Fanfare\", \"Swingin' Free\", \"Monster Smash!\", \"Destati\", \"Guardando nel buio\", and \"Another Side\".",
+    "note": "The credits theme of KH3 and the longest track in the series. It is a medley of \"Dearly Beloved\", \"Toy Box Jam\", \"Miracle on Ice\", \"Flags of Fury\", \"Robot Overdrive\", \"Hero's Fanfare\", \"Swingin' Free\", \"Monster Smash!\", \"Destati\", \"Guardando nel buio\", and \"Another Side\".",
     "wiki": "https://www.khwiki.com/Rhapsody_in_Tres_for_Piano,_Chorus_and_Orchestra",
     "daily": true
   },
@@ -15300,19 +15300,19 @@
     "daily": true
   },
   {
-    "title": "L'Oscurità dell'Ignoto -Xemnas-",
+    "title": "L'Oscurita dell'Ignoto -Xemnas-",
     "media": "KHIIIRM",
     "media-display": "Kingdom Hearts III Re Mind",
     "url": "https://www.youtube.com/watch?v=o2hDhcUb9TY",
     "duration": 311,
     "tags": {
-      "title": "L'Oscurità dell'Ignoto",
+      "title": "L'Oscurita dell'Ignoto",
       "year": 2020,
       "game": "KHIII",
       "arranger": "Natsumi Kameoka"
     },
     "status": "ost",
-    "note": "The boss theme of Xemnas's Recreated Data.",
+    "note": "The boss theme of Xemnas's Recreated Data. (This font can't display the diacritic.)",
     "wiki": "https://www.khwiki.com/L%27Oscurit%C3%A0_dell%27Ignoto",
     "daily": true
   },
@@ -15521,13 +15521,13 @@
     "daily": true
   },
   {
-    "title": "Nachtflügel",
+    "title": "Nachtflugel",
     "media": "KHIIIRM",
     "media-display": "Kingdom Hearts III Re Mind",
     "url": "https://www.youtube.com/watch?v=TMYfULr80jg",
     "duration": 341,
     "tags": {
-      "title": "Nachtflügel",
+      "title": "Nachtflugel",
       "year": 2020,
       "game": "KHIII",
       "arranger": "Yoko Shimomura, Sachiko Miyano"
@@ -15584,7 +15584,7 @@
       "arranger": "Yuki Hirose"
     },
     "status": "unreleased",
-    "note": "The variant of the Kingdom of Corona field theme the plays when escorting the songbirds.",
+    "note": "The variant of the Kingdom of Corona field theme that plays when escorting the songbirds.",
     "wiki": "https://www.khwiki.com/Happy_Hair_Day",
     "daily": true
   },
@@ -18604,7 +18604,7 @@
       "arranger": "Natsumi Kameoka"
     },
     "status": "ost",
-    "note": "A medley of battle themes from Kingdom Hearts: \"Night of Fate\", \"To Our Surprise\", \"Go for It!\", \"Having a Wild Time\", \"Hand in Hand\", \"Arabian Dream\", \"Monstrous Monstro\", \"An Adventure in Atlantica\", \"Spooks of Halloween Town\", \"Pirate's Gigue\", and \"Scherzo Di Notte\".",
+    "note": "A medley of battle themes from Kingdom Hearts: \"Night of Fate\", \"To Our Surprise\", \"Go for It!\", \"Having a Wild Time\", \"Hand in Hand\", \"Arabian Dream\", \"Monstrous Monstro\", \"An Adventure in Atlantica\", \"Spooks of Halloween Town\", \"Pirate's Gigue\", and \"Scherzo Di Notte\". It is one of the only modern references to Deep Jungle.",
     "wiki": "https://www.khwiki.com/Threats_of_the_Land:_KINGDOM_HEARTS_Battle_Medley",
     "daily": true
   },
