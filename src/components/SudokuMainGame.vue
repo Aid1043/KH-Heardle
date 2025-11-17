@@ -206,17 +206,20 @@ const possibleAnswers = computed(() => {
 
   .top-results {
     padding: 1rem;
-    width: 800px;
-    height: 3.2rem;
+    min-width: 50%;
+    min-height: 3.2rem;
     margin-top: 20px;
-    background-color: var(--color-mg)
+    background-color: var(--color-mg);
+    line-height: 1.3rem;
   }
 }
 
 .answers-list {
-  width: 800px;
+  min-width: 50%;
   margin: 20px auto;
   text-align: left;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
 }
 
 .answer-block {
