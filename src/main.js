@@ -255,6 +255,8 @@ export const currentGameState = new Proxy(_currentGameState, {
 const savedSudokuMode = sessionStorage.getItem('sudoku-mode');
 export const sudokuMode = ref(savedSudokuMode !== null ? savedSudokuMode === 'true' : false);
 
+let seed = 0.0;
+
 // Seeded random
 function splitmix32(a) {
     return function() {
@@ -316,8 +318,6 @@ function canFormUnique9(colTags, rowTags) {
 
 function generateBoard() {
     // Seed based on current date
-    let seed = 0.0;
-
     if (true) { //!infiniteEnabled.value
         const oldestDate = new Date(null);
         const currentDate = new Date();
@@ -386,12 +386,12 @@ function sudokuSave(){
     }
 
     let item = stats.find((item)=>{
-        return item.id === id;
+        return item.seed === seed;
     })
 
     if(item === undefined){
         stats.push({
-            id: id,
+            seed: seed,
             guess: _sudokuGameState.value.guess,
             guessed: _sudokuGameState.value.guessed,
             correct: _sudokuGameState.value.correct,
@@ -401,7 +401,7 @@ function sudokuSave(){
     }
     else {
         stats[stats.indexOf(item)] = {
-            id: id,
+            seed: seed,
             guess: _sudokuGameState.value.guess,
             guessed: _sudokuGameState.value.guessed,
             correct: _sudokuGameState.value.correct,
@@ -417,7 +417,7 @@ const ssString = localStorage.getItem("sudokuStats");
 if(ssString !== null && ssString !== ""){
     let stats = JSON.parse(ssString);
     let item = stats.find((item)=>{
-        return item.id === id;
+        return item.seed === seed;
     })
 
     if(item !== undefined){
