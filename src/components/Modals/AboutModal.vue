@@ -46,7 +46,7 @@ onMounted(()=>{
     </div>
     <div class="hint-item">
       <div class="label">-</div>
-      <div class="text">Don't forget about those additional arrangements! For instance, "Dismiss -Terra-Xehanort-" checks off categories that the original doesn't: it was introduced in an update and has a character name in the title.</div>
+      <div class="text">Don't forget about those additional arrangements! They might check off categories that the original song wouldn't on its own.</div>
     </div>
   </div>
 </template>
