@@ -65,6 +65,7 @@ onBeforeUnmount(() => {
 .close-button button{
   color: var(--color-mg);
   border-style: none;
+  cursor: pointer;
 }
 
 .close-button button svg{

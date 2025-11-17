@@ -406,6 +406,8 @@ function mute(){
   align-items: center;
   display: flex;
 
+  cursor: pointer;
+
   .border {
     display: flex;
     justify-content: center;

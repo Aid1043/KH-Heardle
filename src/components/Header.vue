@@ -65,6 +65,7 @@ const emit = defineEmits(['create-modal']);
 
     button{
       border: none;
+      cursor: pointer;
     }
   }
 

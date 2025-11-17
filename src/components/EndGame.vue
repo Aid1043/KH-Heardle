@@ -41,6 +41,18 @@ setInterval(() => {
     .toString()
     .padStart(2, "0")}:${seconds.toString().padStart(2, "0")}`;
 }, 1000);
+
+
+function goToInfinite() {
+  sessionStorage.setItem('infinite', true.toString());
+  sessionStorage.setItem('sudoku-mode', false.toString());
+  window.location.reload();
+}
+
+function goToSudoku() {
+  sessionStorage.setItem('sudoku-mode', true.toString());
+  window.location.reload();
+}
 </script>
 
 <template>
@@ -74,7 +86,12 @@ setInterval(() => {
       </div>
       <div class="infinite-button-container">
         <div class="margin"></div>
-       <InfiniteButton/>
+          <div class="button-container">
+           <div class="button-columns"> 
+            <button @click="goToInfinite" style="background: var(--color-button-highlight); border-style: none; cursor: pointer;">Infinite Mode</button>
+            <button @click="goToSudoku" style="background: var(--color-sudoku); border-style: none; cursor: pointer;">Sudoku Mode</button>
+          </div>
+        </div> 
       </div>
     </div>
     <div v-else>
@@ -212,5 +229,19 @@ setInterval(() => {
 
     cursor: pointer;
   }
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+  
+  margin-top: 0.5rem;
+  border-style: none;
+}
+
+.button-columns {
+  display: flex;
+  gap: 3rem;
+  border-style: none;
 }
 </style>

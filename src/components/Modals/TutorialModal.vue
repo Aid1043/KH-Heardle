@@ -84,7 +84,7 @@ function goToSudoku() {
           <IconThumbUp/>
         </div>
         <div>
-          <p>You will have three attempts to submit a solution. The puzzle will refresh daily!</p>
+          <p>You will have three attempts to submit a solution. Hover over a hint for details!</p>
         </div>
       </div>
     </div>

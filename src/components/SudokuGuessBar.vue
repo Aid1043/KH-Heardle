@@ -130,7 +130,7 @@ function ClearText(){
         <div id="autocomplete-wrapper">
           <IconMagnifyingGlass class="glass"/>
           <input ref="searchinput" class="font-input" id="autoComplete" type="search" dir="ltr" spellcheck="false" autocorrect="off" autocomplete="off" autocapitalize="none"
-                 aria-controls="autoComplete_list_1" aria-autocomplete="both" placeholder="Select a cell, the search for the title"
+                 aria-controls="autoComplete_list_1" aria-autocomplete="both" placeholder="Select a cell, then search for the title"
                  role="combobox" aria-owns="autoComplete_list" aria-haspopup="true" aria-expanded="false"
                  @input="GetAutocomplete"
                  @keydown.enter="OnSubmit">
@@ -220,6 +220,8 @@ function ClearText(){
     align-items: center;
     font-weight: 10;
     line-height: 1.3rem;
+
+    cursor: pointer;
 
     &.check{
       background: var(--color-sudoku);

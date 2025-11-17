@@ -34,6 +34,10 @@ onMounted(()=>{
     <p><br></br>Tips for Sudoku puzzles:</p>
     <div class="hint-item">
       <div class="label">-</div>
+      <div class="text">You can hover over a hint for a more detailed version.</div>
+    </div>
+    <div class="hint-item">
+      <div class="label">-</div>
       <div class="text">Every cell will have at least two valid answers.</div>
     </div>
     <div class="hint-item">

@@ -244,6 +244,8 @@ function ClearText(){
     font-weight: 10;
     line-height: 1.3rem;
 
+    cursor: pointer;
+
     &.skip{
       background: var(--color-mg);
     }
