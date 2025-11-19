@@ -209,7 +209,7 @@ function goToSudoku() {
   align-items: center;
   justify-content: center;
 
-  margin: 3.5rem 0;
+  margin: 1rem 0;
 
   button {
     text-transform: uppercase;

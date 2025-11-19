@@ -11,10 +11,6 @@ import { currentGameState, SelectedMusic, ParseStringWithVariable, infiniteEnabl
 import {onMounted} from "vue";
 import TransportBar from "./TransportBar.vue";
 
-const searcher = new FuzzySearch(music, ["title", "media"], {
-  sort: false
-});
-
 onMounted(() => {
   document.getElementById("main").onclick = () => {
     const autoCompleteList = document.getElementById('autoComplete_list')
@@ -22,6 +18,19 @@ onMounted(() => {
       autoCompleteList.setAttribute("hidden", "");
   }
 })
+
+function stripDiacritics(str) {
+  return str.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+}
+
+const normalizedMusic = music.map(item => ({
+  ...item,
+  title_normalized: stripDiacritics(item.title),
+}));
+
+const searcher = new FuzzySearch(normalizedMusic, ['title_normalized', 'media'], {
+  sort: false
+});
 
 function GetAutocomplete(){
   const autoCompleteList = document.getElementById('autoComplete_list');
@@ -45,10 +54,13 @@ function GetAutocomplete(){
     }
   }
 
-  const result = searcher.search(inputEl.value);
+  const query = stripDiacritics(inputEl.value);
+  const result = searcher.search(query);
   // Filter by fuzzy search results and both allowed statuses and games in infinite mode
   const ordered = music.filter(m => {
-    const matchesSearch = result.includes(m);
+    const matchesSearch = result.some(r =>
+      r.title === m.title && r.media === m.media
+    ); 
     if (!infiniteEnabled.value) {
       const dailyOk = m && m.daily;
       return matchesSearch && dailyOk;

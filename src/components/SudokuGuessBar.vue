@@ -12,10 +12,6 @@ import { sudokuGameState, ParseStringWithVariable, sudokuBoard} from "@/main";
 import {onMounted} from "vue";
 import TransportBar from "./TransportBar.vue";
 
-const searcher = new FuzzySearch(sudoku_music['all'], {
-  sort: false
-});
-
 onMounted(() => {
   document.getElementById("main").onclick = () => {
     const autoCompleteList = document.getElementById('autoComplete_list')
@@ -24,17 +20,29 @@ onMounted(() => {
   }
 })
 
+function stripDiacritics(str) {
+  return str.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+}
+
+const normalizedList = sudoku_music['all'].map(s => ({
+  original: s,
+  normalized: stripDiacritics(s)
+}));
+
+const searcher = new FuzzySearch(normalizedList, ['normalized'], {
+  sort: false
+});
+
 function GetAutocomplete(){
   const autoCompleteList = document.getElementById('autoComplete_list');
   const inputEl = document.getElementById("autoComplete") as HTMLInputElement;
   if (!autoCompleteList || !inputEl) return;
   
   autoCompleteList.removeAttribute('hidden');
-
-  const result = searcher.search(inputEl.value);
-  // Filter by fuzzy search results and both allowed statuses and games in infinite mode
-  const ordered = sudoku_music['all'].filter(m => {
-    return result.includes(m);
+  const query = stripDiacritics(inputEl.value);
+  const result = searcher.search(query);
+  const ordered = sudoku_music['all'].filter(s => {
+    return result.some(r => r.original === s);
   });
 
   autoCompleteList.innerHTML = "";
