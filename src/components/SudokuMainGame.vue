@@ -54,7 +54,7 @@ const possibleAnswers = computed(() => {
     <div class="max-w-screen-lg">
       <div class="guess-container">
          <div class="grid">
-          <div class="cell-instructions"></div>
+          <div class="cell-instructions">Hover over a hint for details!</div>
           <div class="cell-label" @mouseenter="hover[0] = true" @mouseleave="hover[0] = false">{{ hover[0] ? sudokuBoard[0]['long-desc'] : sudokuBoard[0]['short-desc']}}</div>
           <div class="cell-label" @mouseenter="hover[1] = true" @mouseleave="hover[1] = false">{{ hover[1] ? sudokuBoard[1]['long-desc'] : sudokuBoard[1]['short-desc']}}</div>
           <div class="cell-label" @mouseenter="hover[2] = true" @mouseleave="hover[2] = false">{{ hover[2] ? sudokuBoard[2]['long-desc'] : sudokuBoard[2]['short-desc']}}</div>

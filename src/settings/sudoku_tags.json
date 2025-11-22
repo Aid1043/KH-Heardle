@@ -25,7 +25,7 @@
   },
   {
     "tag": "arr-orch",
-    "short-desc": "Has an orchestrator",
+    "short-desc": "Orchestrated",
     "long-desc": "A version of the track has a credited orchestrator (excluding ReMIX).",
     "rarity": 7
   },
