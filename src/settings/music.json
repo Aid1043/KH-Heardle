@@ -403,7 +403,7 @@
       "arranger": "Yoko Shimomura"
     },
     "status": "ost",
-    "note": "A track that plays when Sora seals a Keyhole.",
+    "note": "A track that plays when Sora seals a Keyhole. It is tied for the shortest released track in the series.",
     "wiki": "https://www.khwiki.com/Turning_the_Key",
     "daily": true
   },
@@ -1117,7 +1117,7 @@
       "arranger": "Yoko Shimomura"
     },
     "status": "ost",
-    "note": "This arrangement plays in a single cutscene (\"Kairi's Light\").",
+    "note": "A cutscene track for Kairi saving Sora form being a Heartless. It is tied for the shortest released track in the series.",
     "wiki": "https://www.khwiki.com/Miracle",
     "daily": true
   },
@@ -8660,7 +8660,7 @@
       "arranger": "Yoko Shimomura"
     },
     "status": "ost",
-    "note": "The field theme of La Cité des Cloches.",
+    "note": "The battle theme of La Cité des Cloches.",
     "wiki": "https://www.khwiki.com/Le_Sanctuaire",
     "daily": true
   },
@@ -8677,7 +8677,7 @@
       "arranger": "Yoko Shimomura"
     },
     "status": "ost",
-    "note": "The battle theme of La Cité des Cloches.",
+    "note": "The field theme of La Cité des Cloches.",
     "wiki": "https://www.khwiki.com/La_Cloche",
     "daily": true
   },
@@ -9731,7 +9731,7 @@
       "arranger": "Yoko Shimomura"
     },
     "status": "ost",
-    "note": "A track that plays when Sora seals a Keyhole. Its only other appearance is in KH3 Monstropolis.",
+    "note": "A track that plays when Sora seals a Keyhole. Its only other appearance is in KH3 Monstropolis. It is tied for the shortest released track in the series.",
     "wiki": "https://www.khwiki.com/Turning_the_Key",
     "daily": false
   },
@@ -10445,7 +10445,7 @@
       "arranger": "Yoko Shimomura"
     },
     "status": "ost",
-    "note": "This arrangement plays in a single cutscene (\"Kairi's Light\").",
+    "note": "A cutscene track for when Kairi saves Sora from being a Heartless, reused once in 0.2.  It is tied for the shortest released track in the series.",
     "wiki": "https://www.khwiki.com/Miracle",
     "daily": false
   },
@@ -17380,6 +17380,23 @@
     "daily": false
   },
   {
+    "title": "Unnamed (Society Event Theme)",
+    "media": "KHML",
+    "media-display": "Kingdom Hearts Missing-Link",
+    "url": "https://www.youtube.com/watch?v=g_skD3R6b2A",
+    "duration": 125,
+    "tags": {
+      "title": "Unnamed",
+      "year": 2022,
+      "game": "KHML",
+      "arranger": "Unknown"
+    },
+    "status": "unreleased",
+    "note": "An event theme used for cutscenes dealing with societies. Named \"association\" in the game files.",
+    "wiki": "https://www.khwiki.com/Kingdom_Hearts_Missing-Link",
+    "daily": false
+  },
+  {
     "title": "Unnamed (Character Creation)",
     "media": "KHML",
     "media-display": "Kingdom Hearts Missing-Link",
@@ -18448,7 +18465,7 @@
       "arranger": "Kaoru Wada"
     },
     "status": "ost",
-    "note": "The credits theme of Kingdom Hearts and the encore track of the First Breath concer.",
+    "note": "The credits theme of Kingdom Hearts and the encore track of the First Breath concert.",
     "wiki": "https://www.khwiki.com/March_Caprice_for_Piano_and_Orchestra",
     "daily": true
   },

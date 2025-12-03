@@ -723,19 +723,19 @@
     "tag": "misc-guitar",
     "short-desc": "Has guitar",
     "long-desc": "A version of the track uses acoustic or electric guitar.",
-    "rarity": 14
+    "rarity": 12
   },
   {
     "tag": "misc-organ",
     "short-desc": "Has organ",
     "long-desc": "A version of the track uses organ.",
-    "rarity": 15
+    "rarity": 7
   },
   {
     "tag": "misc-harpsichord",
     "short-desc": "Has harpsichord",
     "long-desc": "A version of the track uses harpsichord.",
-    "rarity": 8
+    "rarity": 4
   },
   {
     "tag": "letter-a",
