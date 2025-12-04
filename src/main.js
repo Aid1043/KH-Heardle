@@ -324,7 +324,7 @@ function generateBoard() {
         seed = Math.floor((currentDate.getTime() - oldestDate.getTime()) / 86400000);
     }
     else {
-        seed = Math.floor(Math.random() * 1000000);
+        seed = Math.floor(Math.random() * 1000000000);
     }
     const shuffledTags = weightedShuffle(sudoku_tags, seed);
 

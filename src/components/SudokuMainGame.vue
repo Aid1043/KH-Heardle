@@ -41,11 +41,21 @@ const possibleAnswers = computed(() => {
   <span v-if="sudokuGameState.isFinished">
     <div class="results-container">
       <div class="top-results">
-        <span v-if="sudokuGameState.isWon">
-          Congratulations! You solved today's puzzle in {{ sudokuGameState.guess }} attempts!
+        <span v-if="!infiniteEnabled">
+          <span v-if="sudokuGameState.isWon">
+            Congratulations! You solved today's puzzle in {{ sudokuGameState.guess }} attempts!
+          </span>
+          <span v-else>
+            You couldn't solve today's puzzle. Better luck tomorrow!
+          </span>
         </span>
         <span v-else>
-          You couldn't solve today's puzzle. Better luck tomorrow!
+          <span v-if="sudokuGameState.isWon">
+            Congratulations! You solved the puzzle in {{ sudokuGameState.guess }} attempts!
+          </span>
+          <span v-else>
+            You couldn't solve the puzzle. Try another?
+          </span>
         </span>
       </div>
     </div>
