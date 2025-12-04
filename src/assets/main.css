@@ -2,7 +2,7 @@
 
 @font-face {
     font-family: bigfont;
-    src: url("@/assets/fonts/Cinema_Calligraphy_Web.ttf") format("truetype");
+    src: url("@/assets/fonts/Cinema_Calligraphy_Web_Custom.ttf") format("truetype");
 }
 
 @font-face {
@@ -12,7 +12,7 @@
 
 @font-face {
     font-family: smallfont;
-    src: url("@/assets/fonts/Cinema_Calligraphy_Web.ttf") format("truetype");
+    src: url("@/assets/fonts/Cinema_Calligraphy_Web_Custom.ttf") format("truetype");
 }
 
 @font-face {

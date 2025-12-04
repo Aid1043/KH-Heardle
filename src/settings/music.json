@@ -7900,19 +7900,19 @@
     "daily": true
   },
   {
-    "title": "Makaukau?",
+    "title": "Mákaukau?",
     "media": "KHBBS",
     "media-display": "Kingdom Hearts Birth by Sleep",
     "url": "https://www.youtube.com/watch?v=lm2zIz6LjVQ",
     "duration": 170,
     "tags": {
-      "title": "Makaukau?",
+      "title": "Mákaukau?",
       "year": 2010,
       "game": "KHBBS",
       "arranger": "Yoko Shimomura"
     },
     "status": "ost",
-    "note": "The battle theme of Deep Space. (This font can't display the diacritic.)",
+    "note": "The battle theme of Deep Space.",
     "wiki": "https://www.khwiki.com/M%C3%A1kaukau%3F",
     "daily": true
   },
@@ -9107,19 +9107,19 @@
     "daily": true
   },
   {
-    "title": "L'Oscurita dell'Ignoto",
+    "title": "L'Oscurità dell'Ignoto",
     "media": "KH3D",
     "media-display": "Kingdom Hearts 3D: Dream Drop Distance",
     "url": "https://www.youtube.com/watch?v=TydgfIcGYOE",
     "duration": 274,
     "tags": {
-      "title": "L'Oscurita dell'Ignoto",
+      "title": "L'Oscurità dell'Ignoto",
       "year": 2012,
       "game": "KH3D",
       "arranger": "Yoko Shimomura"
     },
     "status": "ost",
-    "note": "The battle theme of Xemnas. It incorporates elements of \"Darkness of the Unknown\". (This font can't display the diacritic.)",
+    "note": "The battle theme of Xemnas. It incorporates elements of \"Darkness of the Unknown\".",
     "wiki": "https://www.khwiki.com/L%27Oscurit%C3%A0_dell%27Ignoto",
     "daily": true
   },
@@ -14178,13 +14178,13 @@
     "daily": true
   },
   {
-    "title": "Makaukau? -Link Version-",
+    "title": "Mákaukau? -Link Version-",
     "media": "KHIII",
     "media-display": "Kingdom Hearts III",
     "url": "https://www.youtube.com/watch?v=yT831QJuTV8",
     "duration": 178,
     "tags": {
-      "title": "Makaukau?",
+      "title": "Mákaukau?",
       "year": 2019,
       "game": "KHIII",
       "arranger": "Yuko Komiyama"
@@ -15300,19 +15300,19 @@
     "daily": true
   },
   {
-    "title": "L'Oscurita dell'Ignoto -Xemnas-",
+    "title": "L'Oscurità dell'Ignoto -Xemnas-",
     "media": "KHIIIRM",
     "media-display": "Kingdom Hearts III Re Mind",
     "url": "https://www.youtube.com/watch?v=o2hDhcUb9TY",
     "duration": 311,
     "tags": {
-      "title": "L'Oscurita dell'Ignoto",
+      "title": "L'Oscurità dell'Ignoto",
       "year": 2020,
       "game": "KHIII",
       "arranger": "Natsumi Kameoka"
     },
     "status": "ost",
-    "note": "The boss theme of Xemnas's Recreated Data. (This font can't display the diacritic.)",
+    "note": "The boss theme of Xemnas's Recreated Data.",
     "wiki": "https://www.khwiki.com/L%27Oscurit%C3%A0_dell%27Ignoto",
     "daily": true
   },
@@ -15521,13 +15521,13 @@
     "daily": true
   },
   {
-    "title": "Nachtflugel",
+    "title": "Nachtflügel",
     "media": "KHIIIRM",
     "media-display": "Kingdom Hearts III Re Mind",
     "url": "https://www.youtube.com/watch?v=TMYfULr80jg",
     "duration": 341,
     "tags": {
-      "title": "Nachtflugel",
+      "title": "Nachtflügel",
       "year": 2020,
       "game": "KHIII",
       "arranger": "Yoko Shimomura, Sachiko Miyano"
@@ -15679,7 +15679,7 @@
     "media-display": "Kingdom Hearts III",
     "url": "https://www.youtube.com/watch?v=WmQe_ppjTu0",
     "start": 3.0,
-    "duration": 83,
+    "duration": 82,
     "tags": {
       "title": "Unnamed",
       "year": 2019,
@@ -19170,7 +19170,7 @@
       "arranger": "Jonne Valtonen"
     },
     "status": "ost",
-    "note": "A massive medley of seven KH songs created for a concert of Square Enix orchestral arrangements. Performed by WDR Rundfunkchor Koln.",
+    "note": "A massive medley of seven KH songs created for a concert of Square Enix orchestral arrangements. Performed by WDR Rundfunkchor Köln.",
     "wiki": "https://www.khwiki.com/Fantasy_I:_Kingdom_Hearts",
     "daily": false
   },
@@ -19187,7 +19187,7 @@
       "arranger": "Jonne Valtonen, Roger Wanamo"
     },
     "status": "ost",
-    "note": "A medley of \"Destati\" from Kingdom Hearts, \"Meridian Dance\" from Secret of Mana, \"Lavos's Theme\" from Chrono Trigger, and \"One-Winged Angel\" from Final Fantasy VII. Performed by WDR Rundfunkchor Koln.",
+    "note": "A medley of \"Destati\" from Kingdom Hearts, \"Meridian Dance\" from Secret of Mana, \"Lavos's Theme\" from Chrono Trigger, and \"One-Winged Angel\" from Final Fantasy VII. Performed by WDR Rundfunkchor Köln.",
     "wiki": "https://www.khwiki.com/Encore:_Final_Boss_Suite",
     "daily": false
   },
