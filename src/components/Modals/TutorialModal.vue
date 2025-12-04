@@ -26,6 +26,13 @@ function goToDaily() {
 }
 
 function goToSudoku() {
+  sessionStorage.setItem('infinite', false.toString());
+  sessionStorage.setItem('sudoku-mode', true.toString());
+  window.location.reload();
+}
+
+function goToSudokuInfinite() {
+  sessionStorage.setItem('infinite', true.toString());
   sessionStorage.setItem('sudoku-mode', true.toString());
   window.location.reload();
 }
@@ -95,6 +102,12 @@ function goToSudoku() {
         </div>
         <div>
           <p>You will have three attempts to submit a solution. Hover over a hint for details!</p>
+        </div>
+      </div>
+      <div class="button-container font-medium">
+        <div class="button-columns"> 
+          <button @click="goToSudoku" style="background: var(--color-sudoku);">Daily Sudoku</button>
+          <button @click="goToSudokuInfinite" style="background: var(--color-sudoku);">Infinite Sudoku</button>
         </div>
       </div>
       <div class="info-end">

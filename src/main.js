@@ -318,7 +318,7 @@ function canFormUnique9(colTags, rowTags) {
 
 function generateBoard() {
     // Seed based on current date
-    if (true) { //!infiniteEnabled.value
+    if (!infiniteEnabled.value) { //!infiniteEnabled.value
         const oldestDate = new Date(null);
         const currentDate = new Date();
         seed = Math.floor((currentDate.getTime() - oldestDate.getTime()) / 86400000);

@@ -5,7 +5,7 @@ import settings from "@/settings/settings.json";
 import sudoku_music from "@/settings/sudoku_music.json";
 import SudokuGuessBar from "./SudokuGuessBar.vue";
 
-import { sudokuGameState, sudokuBoard } from "@/main";
+import { sudokuGameState, sudokuBoard, infiniteEnabled } from "@/main";
 const hover = reactive(Array(6).fill(false));
 
 const possibleAnswers = computed(() => {
@@ -86,6 +86,9 @@ const possibleAnswers = computed(() => {
   </span>
   <span v-else>
     <div class="results-container">
+      <div class="next-button-container" v-if="infiniteEnabled">
+        <button class="font-medium" onclick="window.location.reload()"> Next Puzzle </button>
+      </div>
       <div class="top-results">Possible Answers</div>
       <div class="answers-list">
         <div v-for="(entry, i) in possibleAnswers" :key="i" class="answer-block">
@@ -232,5 +235,33 @@ const possibleAnswers = computed(() => {
     font-size: 1.0rem;
   }
 }
+
+.next-button-container{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin: 1rem 0;
+
+  button {
+    text-transform: uppercase;
+
+    text-indent: 0.25em;
+    letter-spacing: 0.2em;
+    font-weight: 10;
+
+    padding: 0.5rem;
+
+    background: var(--color-sudoku);
+
+    border-style: none;
+
+    align-items: center;
+    display: flex;
+
+    cursor: pointer;
+  }
+}
+
 
 </style>

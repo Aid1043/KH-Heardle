@@ -180,7 +180,7 @@ onBeforeUnmount(() => {
     <div class="settings-container">
       <div class="settings-content">
         <div class="setting-item">
-          <strong>Settings are disabled in the daily Sudoku.</strong>
+          <strong>Settings are disabled in Sudoku Mode.</strong>
         </div>
       </div>
     </div>
