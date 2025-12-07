@@ -10,6 +10,8 @@ import settings from "@/settings/settings.json"
 
 import { currentGameState, ParseStringWithVariable, infiniteEnabled } from "@/main";
 import TransportBar from "@/components/TransportBar.vue";
+import { ref } from "vue";
+
 
 // calculate time
 setInterval(() => {
@@ -47,11 +49,33 @@ function goToInfinite() {
   sessionStorage.setItem('infinite', true.toString());
   sessionStorage.setItem('sudoku-mode', false.toString());
   window.location.reload();
+
 }
 
 function goToSudoku() {
   sessionStorage.setItem('sudoku-mode', true.toString());
   window.location.reload();
+}
+
+const copied = ref(false);
+function copyShare() {
+  var copyText = "Today's KH Heed to the Pulse puzzle:\n\n";
+  
+  for (var i = 0; i < currentGameState.value.guessed.length; i++) {
+    const guess = currentGameState.value.guessed[i];
+    if (!guess) continue;
+
+    if(guess.name === "Skipped") copyText = copyText.concat("⬛");
+    else if(guess.isCorrect) copyText = copyText.concat("🟩");
+    else if(guess['equal-to']['tags']['title'] === SelectedMusic.tags['title']) copyText = copyText.concat("🟨");
+    else copyText = copyText.concat("🟥");
+  }
+
+  copyText = copyText.concat("\n\n#HeedToThePulse\n\nhttps://aid1043.github.io/KH-Heardle/");
+
+  navigator.clipboard.writeText(copyText);
+
+  copied.value = true;
 }
 </script>
 
@@ -72,12 +96,13 @@ function goToSudoku() {
       <p class="second-text" v-else>
         {{ ParseStringWithVariable((infiniteEnabled ? settings["phrases"]["infinite-lose-text"] : settings["phrases"]["default-lose-text"])) }}
       </p>
-      <!-- <div class="share">
-        <button class="font-medium">
+      <div class="share" v-if="!infiniteEnabled">
+        <p class="share-text" v-if="copied">Copied results to clipboard!</p>
+        <button @click="copyShare">
           {{ ParseStringWithVariable(settings["phrases"]["share-button"]) }}
           <IconShare class="inline-block ml-2"/>
         </button>
-      </div> -->
+      </div>
     </div>
     <div v-if="!infiniteEnabled">
       <div class="timer-container">
@@ -145,6 +170,12 @@ function goToSudoku() {
     padding: 0.25rem 0;
     line-height: 1.75rem;
   }
+
+  .share-text {
+    padding: 0.25rem 0;
+    line-height: 1.75rem;
+  }
+
   .share {
     display: flex;
 
@@ -168,6 +199,7 @@ function goToSudoku() {
       border: none;
 
       background-color: var(--color-positive);
+      cursor: pointer;
     }
   }
 }

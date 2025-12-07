@@ -1,11 +1,11 @@
 <script setup lang="ts">
 
-import { reactive, computed } from "vue";
+import { reactive, computed, ref } from "vue";
 import settings from "@/settings/settings.json";
 import sudoku_music from "@/settings/sudoku_music.json";
 import SudokuGuessBar from "./SudokuGuessBar.vue";
 
-import { sudokuGameState, sudokuBoard, infiniteEnabled } from "@/main";
+import { sudokuGameState, sudokuBoard, infiniteEnabled, ParseStringWithVariable } from "@/main";
 const hover = reactive(Array(6).fill(false));
 
 const possibleAnswers = computed(() => {
@@ -34,6 +34,25 @@ const possibleAnswers = computed(() => {
 
   return results;
 });
+
+const copied = ref(false);
+function copyShare() {
+  var copyText = "Today's KH Heed to the Pulse Sudoku puzzle:\n\n";
+  
+  for (var i = 1; i < 10; i++) {
+    if (sudokuGameState.value.correct[i]) { copyText = copyText.concat("🟩"); }
+    else { copyText = copyText.concat("🟥"); }
+
+    if (i % 3 == 0) {copyText = copyText.concat("\n"); }
+  }
+
+  copyText = copyText.concat("\n#HeedToThePulse\n\nhttps://aid1043.github.io/KH-Heardle/");
+
+  navigator.clipboard.writeText(copyText);
+
+  copied.value = true;
+}
+
 
 </script>
 
@@ -98,6 +117,13 @@ const possibleAnswers = computed(() => {
     <div class="results-container">
       <div class="next-button-container" v-if="infiniteEnabled">
         <button class="font-medium" onclick="window.location.reload()"> Next Puzzle </button>
+      </div>
+      <div class="share" v-else>
+        <p class="share-text" v-if="copied">Copied results to clipboard!</p>
+        <button @click="copyShare">
+          {{ ParseStringWithVariable(settings["phrases"]["share-button"]) }}
+          <IconShare class="inline-block ml-2"/>
+        </button>
       </div>
       <div class="top-results">Possible Answers</div>
       <div class="answers-list">
@@ -269,6 +295,38 @@ const possibleAnswers = computed(() => {
     align-items: center;
     display: flex;
 
+    cursor: pointer;
+  }
+}
+
+.share-text {
+  padding: 0.25rem 0;
+  line-height: 1.75rem;
+}
+
+.share {
+  display: flex;
+
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  padding-top: 0.75rem;
+
+  button {
+    display: flex;
+
+    align-items: center;
+
+    padding: 0.5rem;
+    text-transform: uppercase;
+
+    text-indent: 0.25em;
+    letter-spacing: 0.2em;
+
+    border: none;
+
+    background-color: var(--color-positive);
     cursor: pointer;
   }
 }
