@@ -3,7 +3,7 @@
     "tag": "arr-shimomura",
     "short-desc": "Arranged by Yoko Shimomura",
     "long-desc": "A version of the track is arranged by Yoko Shimomura.",
-    "rarity": 27
+    "rarity": 23
   },
   {
     "tag": "arr-sekito",
@@ -313,7 +313,7 @@
   },
   {
     "tag": "plays-oc",
-    "short-desc": "Plays in Olympus Coliseum",
+    "short-desc": "Plays in Olympus Coliseum / Olympus",
     "long-desc": "A version of the track plays in Olympus Coliseum / Olympus.",
     "rarity": 8
   },
@@ -386,7 +386,7 @@
   {
     "tag": "plays-twt",
     "short-desc": "Plays in Twilight Town / Mysterious Tower",
-    "long-desc": "A version of the track plays in Twilight Town / Mysterious Tower.",
+    "long-desc": "A version of the track plays in Twilight Town / Mysterious Tower (not counting Symphony of Sorcery).",
     "rarity": 8
   },
   {
@@ -441,7 +441,7 @@
     "tag": "plays-ma",
     "short-desc": "Plays in Mirage Arena",
     "long-desc": "A version of the track plays in Mirage Arena.",
-    "rarity": 2
+    "rarity": 3
   },
   {
     "tag": "plays-dw",
@@ -615,13 +615,13 @@
     "tag": "type-menu",
     "short-desc": "Menu theme",
     "long-desc": "A version of the track is used as the background music on a menu screen.",
-    "rarity": 10
+    "rarity": 12
   },
   {
     "tag": "motif-db",
     "short-desc": "Incorporates Dearly Beloved",
     "long-desc": "A version of the track incorporates musical material from \"Dearly Beloved\".",
-    "rarity": 11
+    "rarity": 13
   },
   {
     "tag": "motif-destati",
@@ -693,7 +693,7 @@
     "tag": "misc-onetime",
     "short-desc": "Only plays once",
     "long-desc": "The track only plays a single time, non-repeatable.",
-    "rarity": 7
+    "rarity": 9
   },
   {
     "tag": "misc-tenyears",
@@ -704,7 +704,7 @@
   {
     "tag": "misc-remake",
     "short-desc": "Added in remake/re-release",
-    "long-desc": "A version of the track was introduced in a remake or re-release.",
+    "long-desc": "A version of the track originated in a remake, re-release, or expansion.",
     "rarity": 14
   },
   {

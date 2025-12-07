@@ -49,6 +49,7 @@ onMounted(()=>{
       <div class="text">Don't forget about those additional arrangements! They might check off categories that the original song wouldn't on its own.</div>
     </div>
   </div>
+  <p>Kingdom Hearts Heed to the Pulse not affiliated with the Walt Disney Company, Square Enix, or thier subsidiaries.</p>
 </template>
 
 <style scoped>
