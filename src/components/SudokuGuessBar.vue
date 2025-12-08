@@ -8,7 +8,7 @@ import music from "@/settings/music.json"
 import sudoku_music from "@/settings/sudoku_music.json"
 import settings from "@/settings/settings.json"
 
-import { sudokuGameState, ParseStringWithVariable, sudokuBoard} from "@/main";
+import { sudokuGameState, ParseStringWithVariable, sudokuBoard, getISOWeek} from "@/main";
 import {onMounted} from "vue";
 import TransportBar from "./TransportBar.vue";
 
@@ -122,7 +122,7 @@ function Verify() {
 }
 
 function incrementGameCount() {
-  const counterRef = ref(db, "globalHTTPSCount");
+  const weekId = getISOWeek();
   var increment = 1;
 
   const betaSync = localStorage.getItem('beta-sync-https');
@@ -131,8 +131,12 @@ function incrementGameCount() {
       localStorage.setItem('beta-sync-https', JSON.stringify(true));
   }
 
-  return runTransaction(counterRef, (currentValue) => {
+  runTransaction(ref(db, "globalHTTPSCount"), (currentValue) => {
     return (currentValue || 0) + increment;
+  });
+
+  runTransaction(ref(db, `weeklyHTTPSCount/${weekId}`), (currentValue) => {
+    return (currentValue || 0) + 1;
   });
 
   function getTotalGames() {

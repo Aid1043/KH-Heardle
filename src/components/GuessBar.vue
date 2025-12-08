@@ -7,7 +7,7 @@ import FuzzySearch from "fuzzy-search";
 import music from "@/settings/music.json"
 import settings from "@/settings/settings.json"
 
-import { currentGameState, SelectedMusic, ParseStringWithVariable, infiniteEnabled, saveInfinite } from "@/main";
+import { currentGameState, SelectedMusic, ParseStringWithVariable, infiniteEnabled, saveInfinite, getISOWeek } from "@/main";
 import {onMounted} from "vue";
 import TransportBar from "./TransportBar.vue";
 
@@ -149,7 +149,7 @@ function Verify(){
 }
 
 function incrementGameCount() {
-  const counterRef = ref(db, "globalHTTPCount");
+  const weekId = getISOWeek();
   var increment = 1;
 
   const betaSync = localStorage.getItem('beta-sync-http');
@@ -158,8 +158,12 @@ function incrementGameCount() {
       localStorage.setItem('beta-sync-http', JSON.stringify(true));
   }
 
-  return runTransaction(counterRef, (currentValue) => {
+  runTransaction(ref(db, "globalHTTPCount"), (currentValue) => {
     return (currentValue || 0) + increment;
+  });
+
+  runTransaction(ref(db, `weeklyHTTPCount/${weekId}`), (currentValue) => {
+    return (currentValue || 0) + 1;
   });
 
   function getTotalGames() {

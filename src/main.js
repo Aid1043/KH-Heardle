@@ -429,6 +429,19 @@ if(ssString !== null && ssString !== ""){
     }
 }
 
+export function getISOWeek() {
+  const date = new Date();
+  const temp = new Date(Date.UTC(date.getFullYear(), date.getMonth(), date.getDate()));
+  const dayNumber = temp.getUTCDay() || 7;
+
+  temp.setUTCDate(temp.getUTCDate() + 4 - dayNumber);
+  const yearStart = new Date(Date.UTC(temp.getUTCFullYear(), 0, 1));
+
+  const weekNo = Math.ceil((((temp - yearStart) / 86400000) + 1) / 7);
+
+  return `${temp.getUTCFullYear()}-W${String(weekNo).padStart(2, "0")}`;
+}
+
 const app = createApp(App);
 app.mount('#app')
 
