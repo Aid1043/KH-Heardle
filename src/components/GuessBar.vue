@@ -11,6 +11,9 @@ import { currentGameState, SelectedMusic, ParseStringWithVariable, infiniteEnabl
 import {onMounted} from "vue";
 import TransportBar from "./TransportBar.vue";
 
+import { ref, runTransaction } from "firebase/database";
+import { db } from "@/firebase";
+
 onMounted(() => {
   document.getElementById("main").onclick = () => {
     const autoCompleteList = document.getElementById('autoComplete_list')
@@ -133,13 +136,45 @@ function OnSkip(){
 function Verify(){
   if(currentGameState.value.guessed[currentGameState.value.guessed.length - 1].isCorrect){
     currentGameState.value.isFinished = true;
+    incrementGameCount();
     saveInfinite(true);
   } else {
     currentGameState.value.guess += 1;
     if(currentGameState.value.guess >= settings["guess-number"]){
       currentGameState.value.isFinished = true;
+      incrementGameCount();
       saveInfinite(false);
     }
+  }
+}
+
+function incrementGameCount() {
+  const counterRef = ref(db, "globalHTTPCount");
+  var increment = 1;
+
+  const betaSync = localStorage.getItem('beta-sync-http');
+  if (!betaSync || !JSON.parse(betaSync)) {
+      increment = getTotalGames()
+      localStorage.setItem('beta-sync-http', JSON.stringify(true));
+  }
+
+  return runTransaction(counterRef, (currentValue) => {
+    return (currentValue || 0) + increment;
+  });
+
+  function getTotalGames() {
+    const infiniteStatsRaw = localStorage.getItem("userStatsInfinite");
+    const infiniteStats = !infiniteStatsRaw ? 0 : JSON.parse(infiniteStatsRaw)['gamesWon'];
+
+    const dailyStatsRaw = localStorage.getItem("userStats");
+    var dailyStats = 0;
+    if (dailyStatsRaw) {
+      for (const day of JSON.parse(dailyStatsRaw)) {
+        if (day.isFinished) {dailyStats += 1;}
+      }
+    }
+
+    return infiniteStats + dailyStats;
   }
 }
 

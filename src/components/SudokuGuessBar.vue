@@ -12,6 +12,9 @@ import { sudokuGameState, ParseStringWithVariable, sudokuBoard} from "@/main";
 import {onMounted} from "vue";
 import TransportBar from "./TransportBar.vue";
 
+import { ref, runTransaction } from "firebase/database";
+import { db } from "@/firebase";
+
 onMounted(() => {
   document.getElementById("main").onclick = () => {
     const autoCompleteList = document.getElementById('autoComplete_list')
@@ -106,13 +109,42 @@ function Verify() {
   if(won) {
     sudokuGameState.value.isFinished = true;
     sudokuGameState.value.isWon = true;
+    incrementGameCount()
   }
   else {
     sudokuGameState.value.guess += 1;
     if(sudokuGameState.value.guess > settings["sudoku-guess-number"]){
       sudokuGameState.value.isFinished = true;
       sudokuGameState.value.isWon = false;
+      incrementGameCount()
     }
+  }
+}
+
+function incrementGameCount() {
+  const counterRef = ref(db, "globalHTTPSCount");
+  var increment = 1;
+
+  const betaSync = localStorage.getItem('beta-sync-https');
+  if (!betaSync || !JSON.parse(betaSync)) {
+      increment = getTotalGames()
+      localStorage.setItem('beta-sync-https', JSON.stringify(true));
+  }
+
+  return runTransaction(counterRef, (currentValue) => {
+    return (currentValue || 0) + increment;
+  });
+
+  function getTotalGames() {
+    const statsRaw = localStorage.getItem("sudokuStats");
+    var stats = 0;
+    if (statsRaw) {
+      for (const day of JSON.parse(statsRaw)) {
+        if (day.isFinished) {stats += 1;}
+      }
+    }
+    
+    return stats;
   }
 }
 

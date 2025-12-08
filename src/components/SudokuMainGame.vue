@@ -4,6 +4,7 @@ import { reactive, computed, ref } from "vue";
 import settings from "@/settings/settings.json";
 import sudoku_music from "@/settings/sudoku_music.json";
 import SudokuGuessBar from "./SudokuGuessBar.vue";
+import IconShare from "@/components/icons/IconShare.vue";
 
 import { sudokuGameState, sudokuBoard, infiniteEnabled, ParseStringWithVariable } from "@/main";
 const hover = reactive(Array(6).fill(false));

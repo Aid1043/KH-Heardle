@@ -10,9 +10,10 @@
     "preview": "vite preview",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist"
-  }, 
+  },
   "dependencies": {
     "@types/youtube-player": "^5.5.11",
+    "firebase": "^12.6.0",
     "fuzzy-search": "^3.2.1",
     "mount-vue-component": "^0.10.2",
     "soundcloud": "^3.3.2",
