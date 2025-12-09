@@ -22,13 +22,13 @@ function goToInfinite() {
 function goToDaily() {
   sessionStorage.setItem('infinite', false.toString());
   sessionStorage.setItem('sudoku-mode', false.toString());
-  window.location.reload();
+  window.location.search = "";
 }
 
 function goToSudoku() {
   sessionStorage.setItem('infinite', false.toString());
   sessionStorage.setItem('sudoku-mode', true.toString());
-  window.location.reload();
+  window.location.search = "";
 }
 
 function goToSudokuInfinite() {
@@ -91,7 +91,7 @@ function goToSudokuInfinite() {
           <IconThumbUp/>
         </div>
         <div>
-          <p>You may not repeat songs on the baord. Each cell will have at least two correct answers.</p>
+          <p>You may not repeat songs on the board. Each cell will have at least two correct answers.</p>
         </div>
       </div>
       <div class="info">

@@ -3,7 +3,7 @@
 import MusicLink from "@/components/MusicLink.vue";
 import GuessSummary from "@/components/GuessSummary.vue";
 import InfiniteButton from "@/components/InfiniteButton.vue";
-import { SelectedMusic } from '@/main';
+import { SelectedMusic, urlSeed } from '@/main';
 import IconShare from "@/components/icons/IconShare.vue";
 
 import settings from "@/settings/settings.json"
@@ -55,6 +55,15 @@ function goToInfinite() {
 function goToSudoku() {
   sessionStorage.setItem('sudoku-mode', true.toString());
   window.location.reload();
+}
+
+function goToNext() {
+  if (urlSeed > 0) {
+    const params = new URLSearchParams(window.location.search);
+    params.set("seed", (urlSeed + 1).toString());
+    window.location.search = params.toString();
+  }
+  else { window.location.reload(); }
 }
 
 const copied = ref(false);
@@ -121,7 +130,7 @@ function copyShare() {
     </div>
     <div v-else>
       <div class="next-button-container">
-        <button class="font-medium" onclick="window.location.reload()"> {{ ParseStringWithVariable(settings["phrases"]["next-button"]) }} </button>
+        <button class="font-medium" @click="goToNext"> {{ ParseStringWithVariable(settings["phrases"]["next-button"]) }} </button>
       </div>
     </div>
   </div>

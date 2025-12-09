@@ -72,6 +72,67 @@ function shuffle(array, seed) {                // <-- ADDED ARGUMENT
 const savedInfinite = sessionStorage.getItem('infinite');
 export const infiniteEnabled = ref(savedInfinite !== null ? savedInfinite === 'true' : settings["defaults"]["infinite"]);
 
+// Seeded runs
+const urlParams = new URLSearchParams(window.location.search);
+const urlSeedRaw = urlParams.get("seed");
+var _urlSeed = 0;
+if (urlSeedRaw !== null && !isNaN(urlSeedRaw)) {
+    _urlSeed = Number(urlSeedRaw);
+    infiniteEnabled.value = true;
+}
+export const urlSeed = _urlSeed;
+var infiniteSeedSong = 0;
+var infiniteSeedTime = 0;
+if (urlSeed == 0) {
+    infiniteSeedSong = Math.random();
+    infiniteSeedTime = Math.random();
+}
+else {
+    infiniteSeedSong = splitmix32(urlSeed)();
+    infiniteSeedTime = splitmix32(urlSeed * urlSeed)();
+}
+
+// Set settings from URL
+const urlSettingsRaw = urlParams.get("settings");
+if (urlSettingsRaw !== null) {
+    const urlSettings = parseInt(urlSettingsRaw, 16).toString(2).padStart(28, '0');
+
+    localStorage.setItem('random-start', JSON.stringify(urlSettings.charAt(0) === '1'));
+    localStorage.setItem('critical', JSON.stringify(urlSettings.charAt(1) === '1'));
+
+    const newAllowed = ['ost'];
+    if (urlSettings.charAt(2) === '1') newAllowed.push('unreleased');
+    if (urlSettings.charAt(3) === '1') newAllowed.push('unnamed');
+    if (urlSettings.charAt(4) === '1') newAllowed.push('unused');
+    localStorage.setItem('allowed-statuses', JSON.stringify(newAllowed));
+
+    const newAllowedGames = [];
+    if (urlSettings.charAt(5) === '1') newAllowedGames.push('KH');
+    if (urlSettings.charAt(6) === '1') newAllowedGames.push('KHCOM');
+    if (urlSettings.charAt(7) === '1') newAllowedGames.push('KHRECOM');
+    if (urlSettings.charAt(8) === '1') newAllowedGames.push('KHII');
+    if (urlSettings.charAt(9) === '1') newAllowedGames.push('KHD');
+    if (urlSettings.charAt(10) === '1') newAllowedGames.push('KHM');
+    if (urlSettings.charAt(11) === '1') newAllowedGames.push('KHC');
+    if (urlSettings.charAt(12) === '1') newAllowedGames.push('KHREC');
+    if (urlSettings.charAt(13) === '1') newAllowedGames.push('KHBBS');
+    if (urlSettings.charAt(14) === '1') newAllowedGames.push('KH3D');
+    if (urlSettings.charAt(15) === '1') newAllowedGames.push('KHX');
+    if (urlSettings.charAt(16) === '1') newAllowedGames.push('KHUX');
+    if (urlSettings.charAt(17) === '1') newAllowedGames.push('KHXBC');
+    if (urlSettings.charAt(18) === '1') newAllowedGames.push('KH0.2');
+    if (urlSettings.charAt(19) === '1') newAllowedGames.push('KHIII');
+    if (urlSettings.charAt(20) === '1') newAllowedGames.push('KHMOM');
+    if (urlSettings.charAt(21) === '1') newAllowedGames.push('KHIV');
+    if (urlSettings.charAt(22) === '1') newAllowedGames.push('KHML');
+    if (urlSettings.charAt(23) === '1') newAllowedGames.push('KHHD1.5');
+    if (urlSettings.charAt(24) === '1') newAllowedGames.push('KHHD2.5');
+    if (urlSettings.charAt(25) === '1') newAllowedGames.push('KHVC');
+    if (urlSettings.charAt(26) === '1') newAllowedGames.push('Concerts/Albums');
+    if (urlSettings.charAt(27) === '1') newAllowedGames.push('Other');
+    localStorage.setItem('allowed-games', JSON.stringify(newAllowedGames));
+}
+
 const savedCritical = localStorage.getItem('critical');
 export const criticalEnabled = ref(savedCritical !== null ? savedCritical === 'true' : settings["defaults"]["critical"]);
 
@@ -121,10 +182,10 @@ if (infiniteEnabled.value) {
     if (filtered.length === 0) {
         console.warn('Status/game filters returned no tracks; falling back to full music list');
         shuffledMusic = music.slice();
-        listIndex = Math.floor(Math.random() * shuffledMusic.length);
+        listIndex = Math.floor(infiniteSeedSong * shuffledMusic.length);
     } else {
         shuffledMusic = filtered;
-        listIndex = Math.floor(Math.random() * shuffledMusic.length);
+        listIndex = Math.floor(infiniteSeedSong * shuffledMusic.length);
     }
 
 } else {
@@ -169,7 +230,7 @@ if (!infiniteEnabled.value) {
 
 }
 else if(randomStartEnabled.value){
-    startTime = Math.floor(Math.random() * (SelectedMusic.duration - settings["times"][settings["times"].length - 1]));
+    startTime = Math.floor(infiniteSeedTime * (SelectedMusic.duration - settings["times"][settings["times"].length - 1]));
     startTime = Math.max(0, startTime);
 }
 

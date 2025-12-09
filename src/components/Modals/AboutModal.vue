@@ -29,7 +29,7 @@ onMounted(()=>{
     </div>
   </div>
   <div v-else>
-    <p><i>Kingdom Hearts Heed to the Pulse: Sudoku</i> is a music puzzle game inspirted by the Pokémon community game PokeDoku.</p>
+    <p><i>Kingdom Hearts Heed to the Pulse: Sudoku</i> is a music puzzle game inspired by the Pokémon community game PokeDoku.</p>
     <p>Created by <a href="https://bsky.app/profile/aid1043.bsky.social/">Aid1043</a>. Core functionality forked from s4pph1r3's <a href="https://github.com/s4pph1r3-dev/Heardle-Base/">Heardle Base</a>.</p>
     <p><br></br>Tips for Sudoku puzzles:</p>
     <div class="hint-item">
@@ -49,7 +49,7 @@ onMounted(()=>{
       <div class="text">Don't forget about those additional arrangements! They might check off categories that the original song wouldn't on its own.</div>
     </div>
   </div>
-  <p>Kingdom Hearts Heed to the Pulse not affiliated with the Walt Disney Company, Square Enix, or thier subsidiaries.</p>
+  <p>Kingdom Hearts Heed to the Pulse not affiliated with the Walt Disney Company, Square Enix, or their subsidiaries.</p>
 </template>
 
 <style scoped>

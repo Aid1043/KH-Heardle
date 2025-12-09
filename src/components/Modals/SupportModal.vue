@@ -3,7 +3,7 @@ import {onMounted, onBeforeUnmount, ref} from "vue";
 import settings from "@/settings/settings.json"
 import IconInfinite from "@/components/icons/IconInfinite.vue";
 import InfiniteButton from "@/components/InfiniteButton.vue";
-import { randomStartEnabled, infiniteEnabled, criticalEnabled, sudokuMode } from '@/main';
+import { randomStartEnabled, infiniteEnabled, criticalEnabled, sudokuMode, urlSeed } from '@/main';
 
 // Load settings from localStorage or fall back to defaults
 const savedAllowed = localStorage.getItem('allowed-statuses');
@@ -55,7 +55,7 @@ function toggleAllGames() {
   });
 }
 
-function applySettings() {
+function applySettings(newSeed: Boolean) {
   // Collect allowed statuses
   const newAllowed = [] as string[];
   if (allowOst.value) newAllowed.push('ost');
@@ -75,12 +75,29 @@ function applySettings() {
 
 
   // Reload so the new settings take effect across the app
-  window.location.reload();
+  if (newSeed || urlSeed > 0) {
+    const params = new URLSearchParams(window.location.search);
+    params.set("seed", newSeed ? (Math.floor(Math.random() * 1000000000)).toString() : urlSeed.toString());
+
+    var newSettings = "";
+    newSettings = newSettings.concat(randomStartEnabled.value ? '1' : '0')
+      .concat(criticalEnabledLocal ? '1' : '0')
+      .concat(allowUnreleased.value ? '1' : '0')
+      .concat(allowUnnamed.value ? '1' : '0')
+      .concat(allowUnused.value ? '1' : '0');
+    for (const key of Object.keys(gameToggles.value)) {
+      newSettings = newSettings.concat(gameToggles.value[key] ? '1' : '0');
+    }
+    params.set("settings", parseInt(newSettings, 2).toString(16));
+
+    window.location.search = params.toString();
+  }
+  else { window.location.reload(); }
 }
 
 function handleKeydown(e: KeyboardEvent) {
   if (e.key === "Enter") {
-    applySettings();
+    applySettings(false);
   }
 }
 
@@ -136,10 +153,10 @@ onBeforeUnmount(() => {
                 <label><input type="checkbox" v-model="gameToggles.KHBBS" /> BBS</label>
                 <label><input type="checkbox" v-model="gameToggles.KH3D" /> DDD</label>
                 <!-- Column 3 -->
-                <label><input type="checkbox" v-model="gameToggles['KH0.2']" /> 0.2</label>
                 <label><input type="checkbox" v-model="gameToggles.KHX" /> KHX</label>
                 <label><input type="checkbox" v-model="gameToggles.KHUX" /> KHUX</label>
                 <label><input type="checkbox" v-model="gameToggles.KHXBC" /> Back Cover</label>
+                <label><input type="checkbox" v-model="gameToggles['KH0.2']" /> 0.2</label>
                 <label><input type="checkbox" v-model="gameToggles.KHIII" /> KHIII</label>
                 <!-- Column 4 -->
                 <label><input type="checkbox" v-model="gameToggles.KHMOM" /> MelMem</label>
@@ -158,8 +175,11 @@ onBeforeUnmount(() => {
           </div>
         </div>
         <div class="settings-footer">
-          <button class="apply-button" @click="applySettings">
+          <button class="apply-button" @click="applySettings(false)">
             Apply
+          </button>
+          <button class="seed-button" @click="applySettings(true)" style="align-self: right;">
+            Seeded Link
           </button>
         </div>
       </div>
@@ -213,6 +233,8 @@ onBeforeUnmount(() => {
 .settings-footer {
   display: flex;
   justify-content: center;
+  align-items: center;
+  position: relative;
   padding-top: 0.5rem;
 }
 
@@ -229,6 +251,24 @@ onBeforeUnmount(() => {
 }
 
 .apply-button:hover {
+  opacity: 0.9;
+}
+
+.seed-button {
+  position: absolute;
+  right: 0;
+  background: var(--color-line);
+  color: var(--color-fg);
+  border: none;
+  padding: 0.75rem 1.5rem;
+  font-weight: 250;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.seed-button:hover {
   opacity: 0.9;
 }
 
