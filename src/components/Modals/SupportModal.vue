@@ -3,7 +3,7 @@ import {onMounted, onBeforeUnmount, ref} from "vue";
 import settings from "@/settings/settings.json"
 import IconInfinite from "@/components/icons/IconInfinite.vue";
 import InfiniteButton from "@/components/InfiniteButton.vue";
-import { randomStartEnabled, infiniteEnabled, criticalEnabled, sudokuMode, urlSeed } from '@/main';
+import { randomStartEnabled, infiniteEnabled, criticalEnabled, sudokuMode, urlSeed, sudokuDifficulty } from '@/main';
 
 // Load settings from localStorage or fall back to defaults
 const savedAllowed = localStorage.getItem('allowed-statuses');
@@ -19,6 +19,7 @@ const allowUnnamed = ref(allowedStatuses.includes('unnamed'));
 const allowUnused = ref(allowedStatuses.includes('unused'));
 
 var criticalEnabledLocal = criticalEnabled.value;
+var sudokuDifficultyLocal = sudokuDifficulty.value;
 
 // Game toggles - including additional ones
 const gameToggles = ref({
@@ -94,6 +95,13 @@ function applySettings(newSeed: Boolean) {
   }
   else { window.location.reload(); }
 }
+
+function applySettingsSudoku() {
+  localStorage.setItem('sudoku-difficulty', sudokuDifficultyLocal);
+
+  window.location.reload();
+}
+
 
 function handleKeydown(e: KeyboardEvent) {
   if (e.key === "Enter") {
@@ -197,10 +205,34 @@ onBeforeUnmount(() => {
     </div>
   </div>
   <div v-else>
-    <div class="settings-container">
-      <div class="settings-content">
-        <div class="setting-item">
-          <strong>Settings are disabled in Sudoku Mode.</strong>
+    <div v-if="infiniteEnabled">
+      <div class="settings-container">
+        <div class="settings-content">
+          <div class="setting-item">
+            <strong>Sudoku Difficulty</strong><p><br></br></p>
+            <div style="display:flex;flex-direction:column;gap:0.5rem;">
+                <label><input type="radio" v-model="sudokuDifficultyLocal" value="beginner" name="difficulty"/> {{ settings.phrases["sudoku-beginner"] }}</label>
+                <label><input type="radio" v-model="sudokuDifficultyLocal" value="standard" name="difficulty"/> {{ settings.phrases["sudoku-standard"] }}</label>
+                <label><input type="radio" v-model="sudokuDifficultyLocal" value="proud" name="difficulty"/> {{ settings.phrases["sudoku-proud"] }}</label>
+                <label><input type="radio" v-model="sudokuDifficultyLocal" value="critical" name="difficulty"/> {{ settings.phrases["sudoku-critical"] }}</label>
+            </div>
+          </div>
+        </div>
+        <div class="settings-footer">
+            <button class="apply-button" @click="applySettingsSudoku()">
+              Apply
+            </button>
+          </div>
+      </div>
+    </div>
+    <div v-else>
+      <div class="settings-container">
+        <div class="settings-content">
+          <div class="setting-item">
+            <strong>Settings are disabled for the Daily Sudoku.</strong>
+            <p><br></br>The Daily Sudoku has a minimum of 2 possible answers in every cell.</p>
+            <p><br></br>In Infinite Mode, you can adjust the difficulty.</p>
+          </div>
         </div>
       </div>
     </div>

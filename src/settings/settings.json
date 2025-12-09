@@ -98,12 +98,24 @@
     "allow-ost": "Include tracks on official albums",
     "allow-unreleased": "Include non-OST tracks (e.g. DS versions)",
     "allow-unnamed": "Include unnamed cutscene tracks",
-    "allow-unused": "Include unused tracks"
+    "allow-unused": "Include unused tracks",
+
+    "sudoku-beginner": "Beginner: Every cell has at least 8 possible answers.",
+    "sudoku-standard": "Standard: Every cell has at least 2 possible answers. The daily puzzle uses these rules.",
+    "sudoku-proud": "Proud: Every cell has 2-15 possible answers.",
+    "sudoku-critical": "Critical: Every cell has 1-10 possible answers. This setting is not recommended."
+
   },
 
   "!COMMENT!": "Variant link is  \"infinite\" when infinite is false, or \"base game\" when infinite is true",
   "variant-link": "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
   "song-list-link": "https://raw.githubusercontent.com/s4pph1r3-dev/Heardle-Base/refs/heads/main/src/settings/music.json",
 
-  "sudoku-guess-number": 3
+  "sudoku-guess-number": 3,
+  "sudoku-difficulty": {
+    "beginner": [8, 500],
+    "standard": [2, 500],
+    "proud": [2, 15],
+    "critical": [1, 10]
+  }
 }

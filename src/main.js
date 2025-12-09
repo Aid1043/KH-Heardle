@@ -316,6 +316,9 @@ export const currentGameState = new Proxy(_currentGameState, {
 const savedSudokuMode = sessionStorage.getItem('sudoku-mode');
 export const sudokuMode = ref(savedSudokuMode !== null ? savedSudokuMode === 'true' : false);
 
+const savedSudokuDifficulty = localStorage.getItem('sudoku-difficulty');
+export const sudokuDifficulty = ref(savedSudokuDifficulty !== null ? savedSudokuDifficulty : 'standard');
+
 let seed = 0.0;
 
 // Seeded random
@@ -345,7 +348,9 @@ function weightedShuffle(tags, seed) {
 }
 
 function canFormUnique9(colTags, rowTags) {
+
     const overlapGrid = [];
+    const difficultyRange = settings['sudoku-difficulty'][infiniteEnabled.value ? sudokuDifficulty.value : 'standard'];
 
     for (let r = 0; r < 3; r++) {
         overlapGrid[r] = [];
@@ -353,7 +358,7 @@ function canFormUnique9(colTags, rowTags) {
             const songsR = new Set(sudoku_music[rowTags[r].tag]);
             const songsC = new Set(sudoku_music[colTags[c].tag]);
             const overlap = [...songsR].filter(s => songsC.has(s));
-            if (overlap.length < 2) return false; // Minimum options per cell
+            if (overlap.length < difficultyRange[0] || overlap.length > difficultyRange[1]) return false; // Minimum/maximum options per cell
             overlapGrid[r][c] = overlap;
         }
     }
@@ -377,7 +382,7 @@ function canFormUnique9(colTags, rowTags) {
     return assignUniqueSongs(0,0,new Set());
 }
 
-function generateBoard() {
+function generateBoard(iter = 0) {
     // Seed based on current date
     if (!infiniteEnabled.value) { //!infiniteEnabled.value
         const oldestDate = new Date(null);
@@ -405,7 +410,10 @@ function generateBoard() {
         }
     }
 
-    return null;
+    if (iter < 50 && infiniteEnabled.value) { // Try again with another seed
+        console.log("No valid boards. Trying another seed.")
+        return(generateBoard(iter + 1));
+    }
 }
 
 export const sudokuBoard = generateBoard();
