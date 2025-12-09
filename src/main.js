@@ -533,6 +533,13 @@ export function getISOWeek() {
   return `${temp.getUTCFullYear()}-W${String(weekNo).padStart(2, "0")}`;
 }
 
+export function getISODay() {
+    const date = new Date();
+    const temp = new Date(Date.UTC(date.getFullYear(), date.getMonth(), date.getDate()));
+    
+    return `${temp.getUTCFullYear()}-${(temp.getUTCMonth() + 1).toString().padStart(2, '0')}-${temp.getUTCDate().toString().padStart(2, '0')}`;
+}
+
 const app = createApp(App);
 app.mount('#app')
 

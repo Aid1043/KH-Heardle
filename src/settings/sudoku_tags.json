@@ -698,7 +698,7 @@
   {
     "tag": "misc-tenyears",
     "short-desc": "Returned after 10+ years",
-    "long-desc": "The track went unused for 10+ years before making another appearance.",
+    "long-desc": "The track went unused for 10+ years before making another appearance. (Melody of Memory music stages are excluded.)",
     "rarity": 2
   },
   {

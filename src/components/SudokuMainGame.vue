@@ -6,7 +6,7 @@ import sudoku_music from "@/settings/sudoku_music.json";
 import SudokuGuessBar from "./SudokuGuessBar.vue";
 import IconShare from "@/components/icons/IconShare.vue";
 
-import { sudokuGameState, sudokuBoard, infiniteEnabled, ParseStringWithVariable, urlSeed, sudokuDifficulty, seeded } from "@/main";
+import { sudokuGameState, sudokuBoard, infiniteEnabled, ParseStringWithVariable, urlSeed, sudokuDifficulty, seeded, getISODay } from "@/main";
 const hover = reactive(Array(6).fill(false));
 
 function goToNext() {
@@ -57,7 +57,7 @@ function copyShare() {
     if (i % 3 == 0) {copyText = copyText.concat("\n"); }
   }
 
-  copyText = copyText.concat("\n#HeedToThePulse\n\nhttps://aid1043.github.io/KH-Heardle/");
+  copyText = copyText.concat(`\n(${getISODay()}) #HeedToThePulse\n\nhttps://aid1043.github.io/KH-Heardle/`);
 
   navigator.clipboard.writeText(copyText);
 

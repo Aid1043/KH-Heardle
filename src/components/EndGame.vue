@@ -9,7 +9,7 @@ import { getSettingsURL } from "@/components/Modals/SupportModal.vue"
 
 import settings from "@/settings/settings.json"
 
-import { currentGameState, ParseStringWithVariable, infiniteEnabled, seeded } from "@/main";
+import { currentGameState, ParseStringWithVariable, infiniteEnabled, seeded, getISODay } from "@/main";
 import TransportBar from "@/components/TransportBar.vue";
 import { ref } from "vue";
 
@@ -81,7 +81,7 @@ function copyShare() {
     else copyText = copyText.concat("🟥");
   }
 
-  copyText = copyText.concat("\n\n#HeedToThePulse\n\nhttps://aid1043.github.io/KH-Heardle/");
+  copyText = copyText.concat(`\n\n(${getISODay()}) #HeedToThePulse\n\nhttps://aid1043.github.io/KH-Heardle/`);
 
   navigator.clipboard.writeText(copyText);
 
