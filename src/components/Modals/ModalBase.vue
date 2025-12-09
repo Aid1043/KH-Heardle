@@ -5,6 +5,7 @@ import IconX from "@/components/icons/IconX.vue";
 const emit = defineEmits(['close']);
 const props = defineProps<{
   wide?: boolean
+  update?: boolean
 }>();
 
 function handleKeydown(e: KeyboardEvent) {
@@ -24,7 +25,7 @@ onBeforeUnmount(() => {
 
 <template>
   <div id="modal-background" class="modal-background">
-    <div class="modal max-w-screen-xs mx-auto" :class="{ 'modal-wide': wide }">
+    <div class="modal max-w-screen-xs mx-auto" :class="{ 'modal-wide': wide, 'modal-update': update }">
       <div class="title">
         <div class="subtitle">
           <h2 id="modal-title">about</h2>
@@ -99,6 +100,14 @@ onBeforeUnmount(() => {
   border-width: 1px;
 
   padding: 1.5rem;
+}
+
+.modal.modal-update {
+  background-color: #BC93C7;
+  color: black;
+}
+.modal.modal-update .subtitle h2 {
+  color: black;
 }
 
 .modal.modal-wide {

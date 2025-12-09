@@ -4,6 +4,7 @@ import Header from "@/components/Header.vue";
 import ModalBase from "@/components/Modals/ModalBase.vue";
 import {onMounted, onBeforeUnmount, ref, shallowRef} from "vue";
 import TutorialModal from "@/components/Modals/TutorialModal.vue";
+import UpdateModal from "@/components/Modals/UpdateModal.vue";
 
 // Vue Binding References
 const style = ref("height:" + window.innerHeight + "px;")
@@ -51,14 +52,18 @@ onMounted(() => {
     r.style.setProperty(colorKey, value);
   }
 
+
   if(window.localStorage.getItem('firstPlay') !== "false"){
     openModal(TutorialModal);
     window.localStorage.setItem('firstPlay', 'false');
   }
-
-  if(sudokuMode.value && window.localStorage.getItem('sudokuFirstPlay') !== "false"){
+  else if(sudokuMode.value && window.localStorage.getItem('sudokuFirstPlay') !== "false"){
     openModal(TutorialModal);
     window.localStorage.setItem('sudokuFirstPlay', 'false');
+  }
+  else if (window.localStorage.getItem('update-2025-12-08') !== "false") {
+    openModal(UpdateModal);
+    window.localStorage.setItem('update-2025-12-08', 'false');
   }
 
   document.title = settings["tab-title"]
@@ -72,7 +77,7 @@ onBeforeUnmount(() => {
 
 <template>
   <main id='main' :style="style">
-    <ModalBase v-if="showModal" @close="closeModal" :wide="currentModal?.__name === 'SupportModal'">
+    <ModalBase v-if="showModal" @close="closeModal" :wide="currentModal?.__name === 'SupportModal'" :update="currentModal?.__name === 'UpdateModal'">
       <component :is="currentModal" />
     </ModalBase>
     <div class="no-flex">
