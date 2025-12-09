@@ -3,7 +3,7 @@ import {onMounted, onBeforeUnmount, ref} from "vue";
 import settings from "@/settings/settings.json"
 import IconInfinite from "@/components/icons/IconInfinite.vue";
 import InfiniteButton from "@/components/InfiniteButton.vue";
-import { randomStartEnabled, infiniteEnabled, criticalEnabled, sudokuMode, urlSeed, sudokuDifficulty } from '@/main';
+import { randomStartEnabled, infiniteEnabled, criticalEnabled, sudokuMode, urlSeed, sudokuDifficulty, seeded } from '@/main';
 
 // Load settings from localStorage or fall back to defaults
 const savedAllowed = localStorage.getItem('allowed-statuses');
@@ -76,9 +76,9 @@ function applySettings(newSeed: Boolean) {
 
 
   // Reload so the new settings take effect across the app
-  if (newSeed || urlSeed > 0) {
+  if (newSeed || seeded) {
     const params = new URLSearchParams(window.location.search);
-    params.set("seed", newSeed ? (Math.floor(Math.random() * 1000000000)).toString() : urlSeed.toString());
+    params.set("seed", newSeed ? (Math.floor(Math.random() * 13000000000)).toString() : urlSeed.toString());
 
     var newSettings = "";
     newSettings = newSettings.concat(randomStartEnabled.value ? '1' : '0')
@@ -96,16 +96,28 @@ function applySettings(newSeed: Boolean) {
   else { window.location.reload(); }
 }
 
-function applySettingsSudoku() {
+function applySettingsSudoku(newSeed: Boolean) {
   localStorage.setItem('sudoku-difficulty', sudokuDifficultyLocal);
 
-  window.location.reload();
+  if (newSeed || seeded) {
+    const params = new URLSearchParams(window.location.search);
+    params.set("seed", (Math.floor(Math.random() * 13000000000)).toString());
+
+    const difficultyLabels = ['beginner', 'standard', 'proud', 'critical'];
+    params.set("d", JSON.stringify(difficultyLabels.indexOf(sudokuDifficultyLocal)));
+
+    window.location.search = params.toString();
+  }
+  else { window.location.reload(); }
 }
 
 
 function handleKeydown(e: KeyboardEvent) {
   if (e.key === "Enter") {
-    applySettings(false);
+    if (sudokuMode.value)
+      applySettings(false);
+    else
+      applySettingsSudoku(false);
   }
 }
 
@@ -219,9 +231,12 @@ onBeforeUnmount(() => {
           </div>
         </div>
         <div class="settings-footer">
-            <button class="apply-button" @click="applySettingsSudoku()">
+            <button class="apply-button" @click="applySettingsSudoku(false)">
               Apply
             </button>
+            <button class="seed-button" @click="applySettingsSudoku(true)" style="align-self: right;">
+              Seeded Link
+          </button>
           </div>
       </div>
     </div>

@@ -76,20 +76,31 @@ export const infiniteEnabled = ref(savedInfinite !== null ? savedInfinite === 't
 const urlParams = new URLSearchParams(window.location.search);
 const urlSeedRaw = urlParams.get("seed");
 var _urlSeed = 0;
+var _seeded = false;
 if (urlSeedRaw !== null && !isNaN(urlSeedRaw)) {
     _urlSeed = Number(urlSeedRaw);
     infiniteEnabled.value = true;
-}
-export const urlSeed = _urlSeed;
-var infiniteSeedSong = 0;
-var infiniteSeedTime = 0;
-if (urlSeed == 0) {
-    infiniteSeedSong = Math.random();
-    infiniteSeedTime = Math.random();
+    _seeded = true;
 }
 else {
-    infiniteSeedSong = splitmix32(urlSeed)();
-    infiniteSeedTime = splitmix32(urlSeed * urlSeed)();
+    _urlSeed = Math.floor(Math.random() * 13000000000)
+}
+// Constants exported at bottom
+
+var infiniteSeedSong = splitmix32(_urlSeed)();
+const infiniteSeedTime = splitmix32(_urlSeed * _urlSeed)();
+
+const urlSudokuSettingsRaw = urlParams.get("d");
+var _urlSudokuSettings = 1;
+if (urlSudokuSettingsRaw !== null && !isNaN(urlSudokuSettingsRaw)) {
+    sessionStorage.setItem('sudoku-mode', JSON.stringify(true));
+
+    _urlSudokuSettings = Number(urlSudokuSettingsRaw);
+    if (_urlSudokuSettings < 0 || _urlSudokuSettings > 3)
+        _urlSudokuSettings = 1;
+
+    const difficultyLabels = ['beginner', 'standard', 'proud', 'critical'];
+    localStorage.setItem('sudoku-difficulty', difficultyLabels[_urlSudokuSettings]);
 }
 
 // Set settings from URL
@@ -382,7 +393,7 @@ function canFormUnique9(colTags, rowTags) {
     return assignUniqueSongs(0,0,new Set());
 }
 
-function generateBoard(iter = 0) {
+function generateBoard(iter = 1) {
     // Seed based on current date
     if (!infiniteEnabled.value) { //!infiniteEnabled.value
         const oldestDate = new Date(null);
@@ -390,9 +401,9 @@ function generateBoard(iter = 0) {
         seed = Math.floor((currentDate.getTime() - oldestDate.getTime()) / 86400000);
     }
     else {
-        seed = Math.floor(Math.random() * 1000000000);
+        seed = Math.floor(infiniteSeedSong * 13000000000);
     }
-    const shuffledTags = weightedShuffle(sudoku_tags, seed);
+    const shuffledTags = (sudokuDifficulty === "critical") ? shuffle(sudoku_tags, seed) : weightedShuffle(sudoku_tags, seed);
 
     // Try first 3 as columns
     for (let cStart=0; cStart<=shuffledTags.length-3; cStart++) {
@@ -410,13 +421,20 @@ function generateBoard(iter = 0) {
         }
     }
 
-    if (iter < 50 && infiniteEnabled.value) { // Try again with another seed
+    if (iter < 10 && infiniteEnabled.value) { // Try again with another seed
         console.log("No valid boards. Trying another seed.")
+
+        _urlSeed += 1;
+        infiniteSeedSong = splitmix32(_urlSeed)();
+
         return(generateBoard(iter + 1));
     }
 }
 
-export const sudokuBoard = generateBoard();
+export const urlSeed = _urlSeed;
+export const seeded = _seeded;
+
+export const sudokuBoard = sudokuMode.value ? generateBoard() : null;
 
 export const _sudokuGameState = ref({
     guess: 1,
@@ -425,6 +443,7 @@ export const _sudokuGameState = ref({
     activeCell: -1,
     isFinished: false,
     isWon: false,
+    isDaily: !infiniteEnabled.value,
 });
 
 export const sudokuGameState = new Proxy(_sudokuGameState, {
@@ -466,6 +485,7 @@ function sudokuSave(){
             correct: _sudokuGameState.value.correct,
             isFinished: _sudokuGameState.value.isFinished,
             isWon: _sudokuGameState.value.isWon,
+            isDaily: _sudokuGameState.value.isDaily,
         });
     }
     else {
@@ -476,6 +496,7 @@ function sudokuSave(){
             correct: _sudokuGameState.value.correct,
             isFinished: _sudokuGameState.value.isFinished,
             isWon: _sudokuGameState.value.isWon,
+            isDaily: _sudokuGameState.value.isDaily,
         };
     }
 
@@ -489,12 +510,13 @@ if(ssString !== null && ssString !== ""){
         return item.seed === seed;
     })
 
-    if(item !== undefined){
+    if(item !== undefined && item.isDaily){
         _sudokuGameState.value.guess = item.guess;
         _sudokuGameState.value.guessed = item.guessed;
         _sudokuGameState.value.correct = item.correct;
         _sudokuGameState.value.isFinished = item.isFinished;
         _sudokuGameState.value.isWon = item.isWon;
+        _sudokuGameState.value.isDaily = item.isDaily;
     }
 }
 

@@ -82,6 +82,7 @@
     "submit-button": "Submit",
     "next-button": "Next",
     "share-button": "Share",
+    "seed-button": "Copy Puzzle Seed",
     "sudoku-enter-button": "Fill Cell",
     "sudoku-submit-button": "Submit Board",
 
@@ -100,10 +101,10 @@
     "allow-unnamed": "Include unnamed cutscene tracks",
     "allow-unused": "Include unused tracks",
 
-    "sudoku-beginner": "Beginner: Every cell has at least 8 possible answers.",
+    "sudoku-beginner": "Beginner: Every cell has at least 10 possible answers.",
     "sudoku-standard": "Standard: Every cell has at least 2 possible answers. The daily puzzle uses these rules.",
     "sudoku-proud": "Proud: Every cell has 2-15 possible answers.",
-    "sudoku-critical": "Critical: Every cell has 1-10 possible answers. This setting is not recommended."
+    "sudoku-critical": "Critical: Every cell has 1-10 possible answers. Weighting is removed from category selection, making all prompts equally likely. This setting is not recommended."
 
   },
 

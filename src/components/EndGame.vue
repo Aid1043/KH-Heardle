@@ -3,12 +3,13 @@
 import MusicLink from "@/components/MusicLink.vue";
 import GuessSummary from "@/components/GuessSummary.vue";
 import InfiniteButton from "@/components/InfiniteButton.vue";
-import { SelectedMusic, urlSeed } from '@/main';
+import { criticalEnabled, randomStartEnabled, SelectedMusic, urlSeed } from '@/main';
 import IconShare from "@/components/icons/IconShare.vue";
+import { getSettingsURL } from "@/components/Modals/SupportModal.vue"
 
 import settings from "@/settings/settings.json"
 
-import { currentGameState, ParseStringWithVariable, infiniteEnabled } from "@/main";
+import { currentGameState, ParseStringWithVariable, infiniteEnabled, seeded } from "@/main";
 import TransportBar from "@/components/TransportBar.vue";
 import { ref } from "vue";
 
@@ -58,7 +59,7 @@ function goToSudoku() {
 }
 
 function goToNext() {
-  if (urlSeed > 0) {
+  if (seeded) {
     const params = new URLSearchParams(window.location.search);
     params.set("seed", (urlSeed + 1).toString());
     window.location.search = params.toString();
@@ -86,6 +87,40 @@ function copyShare() {
 
   copied.value = true;
 }
+
+function copySeed() {
+  const params = new URLSearchParams(window.location.search);
+  const newParams = new URLSearchParams();
+
+  newParams.set("seed", JSON.stringify(urlSeed));
+  
+  if (params.has("settings")) {
+    newParams.set("settings", params.get("settings"));
+  }
+  else {
+    var newSettings = "";
+
+    // Get settings
+    const savedStatuses = localStorage.getItem('allowed-statuses');
+    const savedGames = localStorage.getItem('allowed-games');
+    const allowedStatuses = savedStatuses !== null ? JSON.parse(savedStatuses) : (settings.defaults && settings.defaults["allowed-statuses"]) || [];
+    const allowedGames = savedGames !== null ? JSON.parse(savedGames) : (settings.defaults && settings.defaults["allowed-games:"]) || [];
+
+    newSettings = newSettings.concat(randomStartEnabled.value ? '1' : '0')
+      .concat(criticalEnabled ? '1' : '0')
+      .concat(allowedStatuses.includes("unreleased") ? '1' : '0')
+      .concat(allowedStatuses.includes("unnamed") ? '1' : '0')
+      .concat(allowedStatuses.includes("unused") ? '1' : '0');
+    for (const game of ["KH", "KHCOM", "KHRECOM", "KHII", "KHD", "KHM", "KHC", "KHREC", "KHBBS", "KH3D", "KHX", "KHUX", "KHXBC", "KH0.2", "KHIII", "KHMOM", "KHIV", "KHML", "KHHD1.5", "KHHD2.5", "KHVC", "Concerts/Albums", "Other"]) {
+      newSettings = newSettings.concat(allowedGames.includes(game) ? '1' : '0');
+    }
+    newParams.set("settings", parseInt(newSettings, 2).toString(16));
+  }
+  
+  const newUrl = `${window.location.origin}${window.location.pathname}?${newParams.toString()}`;
+  navigator.clipboard.writeText(newUrl);
+  copied.value = true;
+}
 </script>
 
 <template>
@@ -109,6 +144,13 @@ function copyShare() {
         <p class="share-text" v-if="copied">Copied results to clipboard!</p>
         <button @click="copyShare">
           {{ ParseStringWithVariable(settings["phrases"]["share-button"]) }}
+          <IconShare class="inline-block ml-2"/>
+        </button>
+      </div>
+      <div class="share" v-else>
+        <p class="share-text" v-if="copied">Copied link to clipboard!</p>
+        <button @click="copySeed" style="background-color: var(--color-line);">
+          {{ ParseStringWithVariable(settings["phrases"]["seed-button"]) }}
           <IconShare class="inline-block ml-2"/>
         </button>
       </div>

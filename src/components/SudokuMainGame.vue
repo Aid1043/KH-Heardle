@@ -6,8 +6,18 @@ import sudoku_music from "@/settings/sudoku_music.json";
 import SudokuGuessBar from "./SudokuGuessBar.vue";
 import IconShare from "@/components/icons/IconShare.vue";
 
-import { sudokuGameState, sudokuBoard, infiniteEnabled, ParseStringWithVariable } from "@/main";
+import { sudokuGameState, sudokuBoard, infiniteEnabled, ParseStringWithVariable, urlSeed, sudokuDifficulty, seeded } from "@/main";
 const hover = reactive(Array(6).fill(false));
+
+function goToNext() {
+  if (seeded) {
+    const params = new URLSearchParams(window.location.search);
+    params.set("seed", (urlSeed + 1).toString());
+    window.location.search = params.toString();
+  }
+  else { window.location.reload(); }
+}
+
 
 const possibleAnswers = computed(() => {
   const results: Array<{ row: any; col: any; tracks: string[] }> = [];
@@ -51,6 +61,24 @@ function copyShare() {
 
   navigator.clipboard.writeText(copyText);
 
+  copied.value = true;
+}
+function copySeed() {
+  const params = new URLSearchParams(window.location.search);
+  const newParams = new URLSearchParams();
+
+  newParams.set("seed", JSON.stringify(urlSeed));
+  
+  if (params.has("d")) {
+    newParams.set("d", params.get("d"));
+  }
+  else {
+    const difficultyLabels = ['beginner', 'standard', 'proud', 'critical'];
+    newParams.set("d", JSON.stringify(difficultyLabels.indexOf(sudokuDifficulty.value)));
+  }
+  
+  const newUrl = `${window.location.origin}${window.location.pathname}?${newParams.toString()}`;
+  navigator.clipboard.writeText(newUrl);
   copied.value = true;
 }
 
@@ -116,9 +144,18 @@ function copyShare() {
   </span>
   <span v-else>
     <div class="results-container">
-      <div class="next-button-container" v-if="infiniteEnabled">
-        <button class="font-medium" onclick="window.location.reload()"> Next Puzzle </button>
-      </div>
+      <span v-if="infiniteEnabled">
+        <div class="next-button-container">
+          <button class="font-medium" @click="goToNext"> Next Puzzle </button>
+        </div>
+        <div class="share">
+          <p class="share-text" v-if="copied">Copied link to clipboard!</p>
+          <button @click="copySeed" style="background-color: var(--color-line);">
+            {{ ParseStringWithVariable(settings["phrases"]["seed-button"]) }}
+            <IconShare class="inline-block ml-2"/>
+          </button>
+        </div>
+      </span>
       <div class="share" v-else>
         <p class="share-text" v-if="copied">Copied results to clipboard!</p>
         <button @click="copyShare">
