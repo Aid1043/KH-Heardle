@@ -81,7 +81,7 @@ onBeforeUnmount(() => {
   text-transform: uppercase;
   font-weight: 10;
   font-size: 1.75rem;
-  line-height: 1.15rem;
+  line-height: 1.75rem;
   text-align: center;
   font-family: mediumfont;
 }

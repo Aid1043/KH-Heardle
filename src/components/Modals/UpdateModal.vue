@@ -39,5 +39,6 @@ onMounted(()=>{
 
   h1 {
     margin-bottom: 1rem;
+    line-height: 2rem;
   }
 </style>
