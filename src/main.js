@@ -227,7 +227,13 @@ if (infiniteEnabled.value) {
         }
     }
 
-    shuffle(shuffledMusic, Math.floor(id / filtered.length))
+    // Christmas Eve special ooheehee
+    if (id == 20446) {
+        listIndex = 223;
+    }
+    else {
+        shuffle(shuffledMusic, Math.floor(id / filtered.length))
+    }
 }
 
 export const SelectedMusic = shuffledMusic[listIndex];

@@ -6484,7 +6484,7 @@
       "arranger": "Yoko Shimomura"
     },
     "status": "ost",
-    "note": "The field theme of the labyrinth in Olympus Coliseum, based on the KH2 version. It is also the background music for JG Gummiship Studio stages.",
+    "note": "The field theme of the labyrinth in Olympus Coliseum, based on the KH2 version. It is also the background music for KH Gummiship Studio stages.",
     "wiki": "https://www.khwiki.com/Road_to_a_Hero",
     "daily": false
   },
@@ -7487,7 +7487,7 @@
       "arranger": "Yoko Shimomura"
     },
     "status": "ost",
-    "note": "An event theme used for peaceful resolutions.",
+    "note": "An event theme used for peaceful resolutions, repurposed as the field theme of Castle of Dreams in KHUX.",
     "wiki": "https://www.khwiki.com/Peaceful_Hearts",
     "daily": true
   },
@@ -15533,7 +15533,7 @@
       "arranger": "Yoko Shimomura, Sachiko Miyano"
     },
     "status": "ost",
-    "note": "The boss theme of Yozora. (This font can't display the diacritic.)",
+    "note": "The boss theme of Yozora.",
     "wiki": "https://www.khwiki.com/Nachtfl%C3%BCgel",
     "daily": true
   },
@@ -16337,7 +16337,7 @@
     "media": "KHIII",
     "media-display": "Kingdom Hearts III",
     "url": "https://www.youtube.com/watch?v=zmDcAHs6QNg",
-    "duration": 82,
+    "duration": 74,
     "tags": {
       "title": "Unnamed",
       "year": 2019,
