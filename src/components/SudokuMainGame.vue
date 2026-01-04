@@ -119,19 +119,19 @@ function copySeed() {
           <div class="cell-instructions"></div>
 
           <div class="cell-label" @mouseenter="hover[3] = true" @mouseleave="hover[3] = false">{{ hover[3] ? sudokuBoard[3]['long-desc'] : sudokuBoard[3]['short-desc']}}</div>
-          <div v-for="i in 3" :key="i" class="cell-guess" :class="{ selected: sudokuGameState.activeCell === i, incorrect: !sudokuGameState.correct[i] }" @click="sudokuGameState.activeCell = (sudokuGameState.activeCell === i ? -1 : i)">
+          <div v-for="i in 3" :key="i" class="cell-guess" :class="{ selected: sudokuGameState.activeCell === i, incorrect: !sudokuGameState.correct[i], selectatrack: !sudokuGameState.guessed[i] }" @click="sudokuGameState.activeCell = (sudokuGameState.activeCell === i ? -1 : i)">
           {{ sudokuGameState.guessed[i] ? sudokuGameState.guessed[i] : "Select a track." }}
           </div>
           <div class="cell-instructions"></div>
 
           <div class="cell-label" @mouseenter="hover[4] = true" @mouseleave="hover[4] = false">{{ hover[4] ? sudokuBoard[4]['long-desc'] : sudokuBoard[4]['short-desc']}}</div>
-          <div v-for="i in 3" :key="i" class="cell-guess" :class="{ selected: sudokuGameState.activeCell === i+3, incorrect: !sudokuGameState.correct[i+3] }" @click="sudokuGameState.activeCell = (sudokuGameState.activeCell === i+3 ? -1 : i+3)">
+          <div v-for="i in 3" :key="i" class="cell-guess" :class="{ selected: sudokuGameState.activeCell === i+3, incorrect: !sudokuGameState.correct[i+3], selectatrack: !sudokuGameState.guessed[i+3] }" @click="sudokuGameState.activeCell = (sudokuGameState.activeCell === i+3 ? -1 : i+3)">
           {{ sudokuGameState.guessed[i+3] ? sudokuGameState.guessed[i+3] : "Select a track." }}
           </div>
           <div class="cell-instructions"></div>
 
           <div class="cell-label" @mouseenter="hover[5] = true" @mouseleave="hover[5] = false">{{ hover[5] ? sudokuBoard[5]['long-desc'] : sudokuBoard[5]['short-desc']}}</div>
-          <div v-for="i in 3" :key="i" class="cell-guess" :class="{ selected: sudokuGameState.activeCell === i+6, incorrect: !sudokuGameState.correct[i+6] }" @click="sudokuGameState.activeCell = (sudokuGameState.activeCell === i+6 ? -1 : i+6)">
+          <div v-for="i in 3" :key="i" class="cell-guess" :class="{ selected: sudokuGameState.activeCell === i+6, incorrect: !sudokuGameState.correct[i+6], selectatrack: !sudokuGameState.guessed[i+6] }" @click="sudokuGameState.activeCell = (sudokuGameState.activeCell === i+6 ? -1 : i+6)">
           {{ sudokuGameState.guessed[i+6] ? sudokuGameState.guessed[i+6] : "Select a track." }}
           </div>
           <div class="cell-instructions">Submit attempts<br/>remaining:<br/>{{ 1 + settings["sudoku-guess-number"] - sudokuGameState.guess }}</div>
@@ -245,6 +245,10 @@ function copySeed() {
 
   .cell-guess.incorrect {
     background-color: #500000;
+  }
+
+  .cell-guess.selectatrack {
+    color: var(--color-line);
   }
 
   .cell-instructions {

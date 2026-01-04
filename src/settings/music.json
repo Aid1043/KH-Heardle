@@ -8478,6 +8478,23 @@
     "daily": false
   },
   {
+    "title": "It's a Small World [Unused]",
+    "media": "KHBBS",
+    "media-display": "Kingdom Hearts Birth by Sleep",
+    "url": "https://www.youtube.com/watch?v=B0PCNHDjN8I",
+    "duration": 62,
+    "tags": {
+      "title": "It's a Small World",
+      "year": 2010,
+      "game": "KHBBS",
+      "arranger": "Yoko Shimomura"
+    },
+    "status": "unused",
+    "note": "An unused version from the original release that was only revealed in the files following the HD 2.5 port. Compared to the final version, it has different mixing and a faster tempo (132 bpm compared to 128 bpm).",
+    "wiki": "https://www.khwiki.com/It's_a_Small_World",
+    "daily": false
+  },
+  {
     "title": "Dearly Beloved",
     "media": "KH3D",
     "media-display": "Kingdom Hearts 3D: Dream Drop Distance",
