@@ -8,7 +8,7 @@ import settings from "@/settings/settings.json"
 import {SoundcloudPlayer} from "@/players/SoundcloudPlayer";
 import {YoutubeMusicPlayer} from "@/players/YoutubePlayer";
 
-import {currentGameState, SelectedMusic, StartTime, StartTimeFull, criticalEnabled, infiniteEnabled} from "@/main"
+import {currentGameState, SelectedMusic, StartTime, StartTimeFull, criticalEnabled, infiniteEnabled, volume} from "@/main"
 import {Player} from "@/players/PlayerBase";
 
 const isPlaying = ref(false);
@@ -105,9 +105,12 @@ onMounted(()=>{
   player.GetCurrentMusicLength((n: number)=>{
     lengthInSecond.value = Math.round(n/1000);
   })
+
+  setInitialVolume(volume.value);
 })
 
 onUnmounted(()=>{
+  sessionStorage.setItem('volume', JSON.stringify(volume.value));
   clearInterval(seekBarInterval);
   clearInterval(sepSelectInterval);
   Stop();
@@ -170,13 +173,26 @@ function changeVolume(e: InputEvent){
   if(e.target.value <= 0){
     muted.value = true;
   }
+
+  volume.value = e.target.value;
+}
+
+function setInitialVolume(targetVolume){
+  player.SetVolume(targetVolume);
+  muted.value = false;
+
+  if(targetVolume <= 0){
+    muted.value = true;
+  }
+
+  volume.value = targetVolume;
 }
 
 function mute(){
   if(muted.value){
     muted.value = false;
-    player.SetVolume(50);
-    document.getElementById("slider").value = 50;
+    player.SetVolume(volume.value);
+    document.getElementById("slider").value = volume.value;
   } else {
     muted.value = true;
     player.SetVolume(0);
@@ -213,7 +229,7 @@ function mute(){
               <IconVolume :muted="muted"/>
             </button>
             <div class="volume-control">
-              <input id="slider" type="range" min="0" max="100" name="volume" @input="changeVolume">
+              <input id="slider" type="range" min="0" max="100" :value="volume" name="volume" @input="changeVolume">
             </div>
           </div>
           <div class="item3">

@@ -144,6 +144,11 @@ if (urlSettingsRaw !== null) {
     localStorage.setItem('allowed-games', JSON.stringify(newAllowedGames));
 }
 
+
+const savedVolume = sessionStorage.getItem('volume');
+export const volume = ref(savedVolume !== null ? JSON.parse(savedVolume) : 50);
+
+
 const savedCritical = localStorage.getItem('critical');
 export const criticalEnabled = ref(savedCritical !== null ? savedCritical === 'true' : settings["defaults"]["critical"]);
 
