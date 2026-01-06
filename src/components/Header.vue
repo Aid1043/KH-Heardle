@@ -3,11 +3,15 @@ import IconInfo from "@/components/icons/IconInfo.vue"
 import IconSettings from "@/components/icons/IconSettings.vue";
 import IconStats from "@/components/icons/IconStats.vue";
 import IconAbout from "@/components/icons/IconAbout.vue";
+import IconMenu from "@/components/icons/IconMenu.vue";
+
 
 import AboutModal from "@/components/Modals/AboutModal.vue";
 import SupportModal from "@/components/Modals/SupportModal.vue";
 import TutorialModal from "@/components/Modals/TutorialModal.vue";
 import StatsModal from "@/components/Modals/StatsModal.vue";
+import MenuModal from "@/components/Modals/MenuModal.vue";
+
 
 import settings from "@/settings/settings.json"
 
@@ -24,8 +28,8 @@ const emit = defineEmits(['create-modal']);
           <button @click="emit('create-modal', AboutModal)">
             <IconInfo/>
           </button>
-          <button @click="emit('create-modal', SupportModal)">
-            <IconSettings/>
+          <button @click="emit('create-modal', TutorialModal)">
+            <IconAbout/>
           </button>
         </div>
         <img v-if="!sudokuMode" src="@/assets/images/kh-http-logo.png" alt="Kingdom Hearts Heed to the Pulse" class="logo-image"/>
@@ -35,8 +39,11 @@ const emit = defineEmits(['create-modal']);
           <button @click="emit('create-modal', StatsModal)">
             <IconStats/>
           </button>
-          <button @click="emit('create-modal', TutorialModal)">
-            <IconAbout/>
+          <button @click="emit('create-modal', SupportModal)">
+            <IconSettings/>
+          </button>
+          <button @click="emit('create-modal', MenuModal)">
+            <IconMenu/>
           </button>
         </div>
       </div>

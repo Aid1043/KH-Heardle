@@ -14,12 +14,10 @@ onMounted(()=>{
 
 <template>
   <div class="update-content">
-    <h1>Seeded Games</h1>
-    <p>A "Seeded Link" button has appeared in the options menu in both modes! Click it to generate a fixed batch of puzzles that you can play together with friends.</p>
-    <h1>Share Specific Puzzles</h1>
-    <p>Find a particularly cool puzzle in Infinite Mode? Now you can get a permanent link to share it!</p>
-    <h1>Sudoku Difficulty</h1>
-    <p class="last">Difficulty select has been added to Sudoku Mode! Play on Beginner to ensure plenty of possible answers or try the unbalanced Critical mode.</p>
+    <h1>New Menu Layout</h1>
+    <p>A much-requested navigation menu has been added to the top right! The settings and tutorial buttons have moved around to make the layout more intuitive.</p>
+    <h1>Sudoku Fixes</h1>
+    <p class="last">The database has been updated with a bunch of small tweaks for songs that didn't have all of the right categories.</p>
   </div>
 </template>
 

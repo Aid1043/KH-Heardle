@@ -104,26 +104,6 @@ function goToSudokuInfinite() {
           <p>You will have three attempts to submit a solution. Hover over a hint for details!</p>
         </div>
       </div>
-      <div class="button-container font-medium">
-        <div class="button-columns"> 
-          <button @click="goToSudoku" style="background: var(--color-sudoku);">Daily Sudoku</button>
-          <button @click="goToSudokuInfinite" style="background: var(--color-sudoku);">Infinite Sudoku</button>
-        </div>
-      </div>
-      <div class="info-end">
-        Return to Heed to the Pulse
-      </div>
-    </div>
-    <div class="button-container font-medium">
-      <div class="button-columns"> 
-        <button @click="goToDaily">Daily</button>
-        <button @click="goToInfinite" style="background: var(--color-button-highlight);">Infinite</button>
-      </div>
-    </div>
-    <div class="button-container font-medium" v-if="!sudokuMode">
-      <div class="button-columns"> 
-        <button @click="goToSudoku" style="background: var(--color-sudoku);">Sudoku Mode</button>
-      </div>
     </div>
   </div>
 </template>

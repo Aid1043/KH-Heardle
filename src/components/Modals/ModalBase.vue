@@ -6,6 +6,7 @@ const emit = defineEmits(['close']);
 const props = defineProps<{
   wide?: boolean
   update?: boolean
+  menu?: boolean
 }>();
 
 function handleKeydown(e: KeyboardEvent) {
@@ -25,7 +26,7 @@ onBeforeUnmount(() => {
 
 <template>
   <div id="modal-background" class="modal-background">
-    <div class="modal max-w-screen-xs mx-auto" :class="{ 'modal-wide': wide, 'modal-update': update }">
+    <div class="modal max-w-screen-xs mx-auto" :class="{ 'modal-wide': wide, 'modal-update': update, 'modal-menu': menu}">
       <div class="title">
         <div class="subtitle">
           <h2 id="modal-title">about</h2>

@@ -25,8 +25,8 @@
   },
   {
     "tag": "arr-orch",
-    "short-desc": "Orchestrated",
-    "long-desc": "A version of the track has a credited orchestrator (excluding ReMIX).",
+    "short-desc": "Orchestrated in-game",
+    "long-desc": "A version of the track has a credited orchestrator (excluding ReMIX) - in-game, not an orchestra concert.",
     "rarity": 7
   },
   {
@@ -603,7 +603,7 @@
     "tag": "type-oc",
     "short-desc": "Original character boss theme",
     "long-desc": "A version of the track plays for a boss battle against an original KH character.",
-    "rarity": 21
+    "rarity": 22
   },
   {
     "tag": "type-gummi",
