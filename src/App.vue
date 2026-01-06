@@ -63,7 +63,7 @@ onMounted(() => {
   }
   else if (window.localStorage.getItem('update-2026-01-06') !== "false") {
     openModal(UpdateModal);
-    window.localStorage.setItem('update-2025-01-06', 'false');
+    window.localStorage.setItem('update-2026-01-06', 'false');
   }
 
   document.title = settings["tab-title"]
