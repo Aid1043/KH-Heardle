@@ -90,6 +90,12 @@ else {
 var infiniteSeedSong = splitmix32(_urlSeed)();
 const infiniteSeedTime = splitmix32(_urlSeed * _urlSeed)();
 
+const arabianNightmareTestRaw = urlParams.get("arabiannightmaretest");
+var arabianNightmareTest = false;
+if (arabianNightmareTestRaw !== null && !isNaN(arabianNightmareTestRaw)) {
+    arabianNightmareTest = true;
+}
+
 const urlSudokuSettingsRaw = urlParams.get("d");
 var _urlSudokuSettings = 1;
 if (urlSudokuSettingsRaw !== null && !isNaN(urlSudokuSettingsRaw)) {
@@ -445,8 +451,7 @@ function generateBoard(iter = 1) {
 export const urlSeed = _urlSeed;
 export const seeded = _seeded;
 
-export const sudokuBoard = sudokuMode.value ? generateBoard() : null;
-
+export const sudokuBoard = sudokuMode.value ? (arabianNightmareTest ? [sudoku_tags[92], sudoku_tags[98], sudoku_tags[54], sudoku_tags[123], sudoku_tags[113], sudoku_tags[91]] : generateBoard()) : null;
 export const _sudokuGameState = ref({
     guess: 1,
     guessed: [],
