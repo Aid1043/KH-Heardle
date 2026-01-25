@@ -24,7 +24,7 @@ onMounted(()=>{
       </div>
       <div class="hint-item">
         <div class="label">Year: </div>
-        <div class="text">FM and Re Mind use their own release dates. Live service games use the initial launch date; KHUX is split pre-/post-rebranding.</div>
+        <div class="text">FM and Re Mind use their own release dates. Live service games use the initial launch date; KHX/KHUX years are split into browser, mobile, and UX rebranding.</div>
       </div>
     </div>
   </div>
@@ -42,11 +42,19 @@ onMounted(()=>{
     </div>
     <div class="hint-item">
       <div class="label">-</div>
-      <div class="text">All versions of one track are grouped under the base title. For instance, "Rage Awakened" and "Rage Awakened -The Origin-" are both considered when submitting "Rage Awakened".</div>
+      <div class="text">All versions of one track with the same base title are grouped together. For instance, "Rage Awakened" and "Rage Awakened -The Origin-" are both considered when submitting "Rage Awakened".</div>
+    </div>
+    <div class="hint-item">
+      <div class="label">-</div>
+      <div class="text">However, songs that share melodies but have different titles are not grouped. For instance, "Byte Bashing" and "Byte Striking" are not the same answer, nor are "Forza Finale" and any of the pieces that make up the medley.</div>
     </div>
     <div class="hint-item">
       <div class="label">-</div>
       <div class="text">Don't forget about those additional arrangements! They might check off categories that the original song wouldn't on its own.</div>
+    </div>
+        <div class="hint-item">
+      <div class="label">-</div>
+      <div class="text">For the "last heard in" hints, content of live service games are counted by when each individual chapter released, not grouped with the service's release date.</div>
     </div>
   </div>
   <p>Kingdom Hearts Heed to the Pulse is not affiliated with the Walt Disney Company, Square Enix, or their subsidiaries.</p>

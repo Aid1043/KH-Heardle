@@ -2,25 +2,25 @@
   {
     "tag": "arr-shimomura",
     "short-desc": "Arranged by Yoko Shimomura",
-    "long-desc": "A version of the track is arranged by Yoko Shimomura.",
+    "long-desc": "A version of the track is written or arranged by Yoko Shimomura.",
     "rarity": 23
   },
   {
     "tag": "arr-sekito",
     "short-desc": "Arranged by Tsuyoshi Sekito",
-    "long-desc": "A version of the track is arranged by Tsuyoshi Sekito.",
+    "long-desc": "A version of the track is written or arranged by Tsuyoshi Sekito.",
     "rarity": 21
   },
   {
     "tag": "arr-ishimoto",
     "short-desc": "Arranged by Takeharu Ishimoto",
-    "long-desc": "A version of the track is arranged by Takeharu Ishimoto.",
+    "long-desc": "A version of the track is written or arranged by Takeharu Ishimoto.",
     "rarity": 20
   },
   {
     "tag": "arr-guest",
-    "short-desc": "Arranged by a guest musician",
-    "long-desc": "A version of the track is arranged by a musician other than Shimomura, Sekito, or Ishimoto.",
+    "short-desc": "Arranged by an auxillary musician",
+    "long-desc": "A version of the track is written or arranged by a musician other than Shimomura, Sekito, or Ishimoto.",
     "rarity": 14
   },
   {
@@ -31,73 +31,73 @@
   },
   {
     "tag": "origin-kh",
-    "short-desc": "Originated in KH",
+    "short-desc": "Introduced in KH",
     "long-desc": "The original version of the track made its KH debut in Kingdom Hearts (or Final Mix).",
     "rarity": 23
   },
   {
     "tag": "origin-khcom",
-    "short-desc": "Originated in CoM",
+    "short-desc": "Introduced in CoM",
     "long-desc": "The original version of the track made its KH debut in Chain of Memories (or Re:CoM).",
     "rarity": 19
   },
   {
     "tag": "origin-khii",
-    "short-desc": "Originated in KHII",
+    "short-desc": "Introduced in KHII",
     "long-desc": "The original version of the track made its KH debut in Kingdom Hearts II (or Final Mix).",
     "rarity": 23
   },
   {
     "tag": "origin-khd",
-    "short-desc": "Originated in Days",
+    "short-desc": "Introduced in Days",
     "long-desc": "The original version of the track made its KH debut in 358/2 Days.",
     "rarity": 7
   },
   {
     "tag": "origin-khrec",
-    "short-desc": "Originated in Re:coded",
+    "short-desc": "Introduced in Re:coded",
     "long-desc": "The original version of the track made its KH debut in Re:coded (or coded).",
     "rarity": 5
   },
   {
     "tag": "origin-khbbs",
-    "short-desc": "Originated in BBS",
+    "short-desc": "Introduced in BBS",
     "long-desc": "The original version of the track made its KH debut in Birth by Sleep (or Final Mix).",
     "rarity": 22
   },
   {
     "tag": "origin-kh3d",
-    "short-desc": "Originated in DDD",
+    "short-desc": "Introduced in DDD",
     "long-desc": "The original version of the track made its KH debut in Dream Drop Distance.",
     "rarity": 21
   },
   {
     "tag": "origin-khux",
-    "short-desc": "Originated in KHUX",
+    "short-desc": "Introduced in KHUX",
     "long-desc": "The original version of the track made its KH debut in Union χ (or χ[chi]).",
     "rarity": 5
   },
   {
     "tag": "origin-khxbc",
-    "short-desc": "Originated in Back Cover",
+    "short-desc": "Introduced in Back Cover",
     "long-desc": "The original version of the track made its KH debut in Back Cover.",
     "rarity": 3
   },
   {
     "tag": "origin-kh02",
-    "short-desc": "Originated in KH0.2",
+    "short-desc": "Introduced in KH0.2",
     "long-desc": "The original version of the track made its KH debut in 0.2 Birth by Sleep -A fragmentary passage-.",
     "rarity": 3
   },
   {
     "tag": "origin-khiii",
-    "short-desc": "Originated in KHIII",
+    "short-desc": "Introduced in KHIII",
     "long-desc": "The original version of the track made its KH debut in Kingdom Hearts III (or Re Mind).",
     "rarity": 24
   },
   {
     "tag": "origin-khmom",
-    "short-desc": "Originated in MelMem",
+    "short-desc": "Introduced in MelMem",
     "long-desc": "The original version of the track made its KH debut in Melody of Memory.",
     "rarity": 3
   },
@@ -200,13 +200,13 @@
   {
     "tag": "appear-concert",
     "short-desc": "Appears in a KH concert",
-    "long-desc": "The track appears in one of the four KH concerts (medleys count).",
+    "long-desc": "A version or arrangement of the track appears in one of the four KH concerts (medleys count).",
     "rarity": 16
   },
   {
     "tag": "appear-piano",
     "short-desc": "Appears in Piano Collections",
-    "long-desc": "The track appears in one of the two Piano Collections albums (medleys count).",
+    "long-desc": "A version or arrangement of the track appears in one of the two Piano Collections albums (medleys count).",
     "rarity": 11
   },
   {
@@ -295,7 +295,7 @@
   },
   {
     "tag": "plays-dc-dt",
-    "short-desc": "Plays in Disney Castle / Town",
+    "short-desc": "Plays in Disney Castle / Town / Timeless River",
     "long-desc": "A version of the track plays in Disney Castle / Disney Town / Timeless River.",
     "rarity": 6
   },
@@ -560,7 +560,7 @@
   {
     "tag": "type-character",
     "short-desc": "Character theme",
-    "long-desc": "A version of the track is used as a character theme.",
+    "long-desc": "The track is used as a character theme.",
     "rarity": 11
   },
   {
@@ -656,7 +656,7 @@
   {
     "tag": "title-foreign",
     "short-desc": "Titled in another language",
-    "long-desc": "A version of the track has a title entirely in another language.",
+    "long-desc": "The track has a title entirely in a non-English language.",
     "rarity": 10
   },
   {
@@ -674,7 +674,7 @@
   {
     "tag": "title-dark",
     "short-desc": "Dark/darkness in original title",
-    "long-desc": "The original version of the track has some form of the word \"dark\" or \"darkness\" in the title.",
+    "long-desc": "The original version of the track has some form of the word \"dark\" or \"darkness\" in the title (in English or another language).",
     "rarity": 6
   },
   {
@@ -692,7 +692,7 @@
   {
     "tag": "misc-onetime",
     "short-desc": "Only plays once",
-    "long-desc": "The track only plays a single time, non-repeatable.",
+    "long-desc": "The track only plays a single time in the series. It has one version, which appears in one game, where it can be heard once.",
     "rarity": 9
   },
   {

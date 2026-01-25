@@ -268,7 +268,8 @@ function copySeed() {
     text-align: center;
   }
    .cell-label:hover {
-    font-size: 1.0rem;
+    font-size: 0.9rem;
+    line-height: 1rem;
     display: flex;
     justify-content: center;
     align-items: center;

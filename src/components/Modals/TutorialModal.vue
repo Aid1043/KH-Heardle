@@ -83,7 +83,7 @@ function goToSudokuInfinite() {
           <IconSpeaker/>
         </div>
         <div>
-          <p>In this mode, all arrangements of one song are grouped together under the base title.</p>
+          <p>In this mode, all versions of one track - i.e., tracks with the same base title - are grouped together.</p>
         </div>
       </div>
       <div class="info">
