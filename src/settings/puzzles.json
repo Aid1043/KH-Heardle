@@ -3,6 +3,7 @@
     "id": 0,
     "saveid": 0,
     "title": "March Caprice 6 Challenge",
+    "description": ["A special event for March Caprice 6! It starts off easy but gets harder as it goes.", "The challenge will be active until March 29. Good luck!"],
     "length": 15,
     "questions": [
       {
@@ -97,6 +98,9 @@
       {
         "type": "Submit"
       }
+    ],
+    "winners": [
+      { "name": "Perfect", "score": 99 }
     ]
   }
 }

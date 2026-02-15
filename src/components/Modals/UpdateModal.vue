@@ -14,10 +14,10 @@ onMounted(()=>{
 
 <template>
   <div class="update-content">
-    <h1>New Menu Layout</h1>
-    <p>A much-requested navigation menu has been added to the top right! The settings and tutorial buttons have moved around to make the layout more intuitive.</p>
-    <h1>Sudoku Fixes</h1>
-    <p class="last">The database has been updated with a bunch of small tweaks for songs that didn't have all of the right categories.</p>
+    <h1>Special Event</h1>
+    <p>A limited-time challenge mode has been added to celebrate <a href="https://www.marchcaprice.com/">March Caprice 6</a>!</p>
+    <p>Play a curated set of puzzles and compete for a high score! The top scorers will have their names shown here after the event is over.</p>
+    <p class="last">More information can be found by clicking the new <b>event icon</b> in the top left. Good luck!</p>
   </div>
 </template>
 

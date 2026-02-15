@@ -4,6 +4,7 @@ import IconSettings from "@/components/icons/IconSettings.vue";
 import IconStats from "@/components/icons/IconStats.vue";
 import IconAbout from "@/components/icons/IconAbout.vue";
 import IconMenu from "@/components/icons/IconMenu.vue";
+import IconEvent from "@/components/icons/IconEvent.vue";
 
 
 import AboutModal from "@/components/Modals/AboutModal.vue";
@@ -11,6 +12,7 @@ import SupportModal from "@/components/Modals/SupportModal.vue";
 import TutorialModal from "@/components/Modals/TutorialModal.vue";
 import StatsModal from "@/components/Modals/StatsModal.vue";
 import MenuModal from "@/components/Modals/MenuModal.vue";
+import EventModal from "@/components/Modals/EventModal.vue";
 
 
 import settings from "@/settings/settings.json"
@@ -31,6 +33,9 @@ const emit = defineEmits(['create-modal']);
           <button @click="emit('create-modal', TutorialModal)">
             <IconAbout/>
           </button>
+          <!-- <button @click="emit('create-modal', EventModal)">
+            <IconEvent/>
+          </button> -->
         </div>
         <img v-if="!sudokuMode" src="@/assets/images/kh-http-logo.png" alt="Kingdom Hearts Heed to the Pulse" class="logo-image"/>
         <img v-else src="@/assets/images/kh-https-logo.png" alt="Kingdom Hearts Heed to the Pulse: Sudoku" class="logo-image"/>
