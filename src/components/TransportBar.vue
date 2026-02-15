@@ -74,7 +74,7 @@ onMounted(()=>{
   if(SelectedMusic.url.indexOf("soundcloud.com") !== -1)
     player = new SoundcloudPlayer(SelectedMusic.url);
   else if (SelectedMusic.url.indexOf("youtube.com") !== -1)
-    player = new YoutubeMusicPlayer(SelectedMusic.url);
+    player = new YoutubeMusicPlayer(SelectedMusic.url, "video-player");
 
   isFinished.value = currentGameState.value.isFinished;
 

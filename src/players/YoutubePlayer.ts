@@ -7,16 +7,19 @@ export class YoutubeMusicPlayer extends Player {
     p: YouTubePlayer
     Playing: boolean
     Volume: number
+    playerId: string
 
-    constructor(url: string) {
+    constructor(url: string, playerId?: string) {
         super(url);
+
+        this.playerId = playerId || `video-player`;
 
         const main = document.getElementsByTagName("main")[0];
         const container = document.createElement("div");
         container.classList.add("hidden");
 
         const iframe = document.createElement("div");
-        iframe.id = "video-player";
+        iframe.id = playerId;
         iframe.className = "hidden";
         container.appendChild(iframe);
 
@@ -33,7 +36,7 @@ export class YoutubeMusicPlayer extends Player {
         var splitedAgain = splited[1].split("&");
         var videoId = splitedAgain[0]; 
 
-        this.p = PlayerFactory("video-player", {
+        this.p = PlayerFactory(this.playerId, {
             videoId: videoId
         });
         this.p.setSize(0, 0);

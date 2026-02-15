@@ -125,7 +125,7 @@
     "url": "https://www.youtube.com/watch?v=eog3rH86UCk",
     "duration": 62,
     "tags": {
-      "title": "Mickey Mouse Club March",
+      "title": "Mickey Mouse March",
       "year": 2002,
       "game": "KH",
       "arranger": "Yoko Shimomura"
@@ -1100,7 +1100,7 @@
       "arranger": "Yoko Shimomura"
     },
     "status": "ost",
-    "note": "An instrumental arrangement that plays when Kairi saves Sora.",
+    "note": "An instrumental arrangement that plays during Sora's sacrifice.",
     "wiki": "https://www.khwiki.com/Simple_and_Clean",
     "daily": true
   },
@@ -3310,7 +3310,7 @@
       "arranger": "Yoko Shimomura"
     },
     "status": "ost",
-    "note": "The battle theme of Sora's Twilight Town.",
+    "note": "The battle theme of Sora's Twilight Town. It includes a statement of \"Dearly Beloved\".",
     "wiki": "https://www.khwiki.com/Working_Together",
     "daily": true
   },
@@ -3831,7 +3831,7 @@
     "url": "https://www.youtube.com/watch?v=9i_-cxfFIGw",
     "duration": 127,
     "tags": {
-      "title": "Mickey Mouse Club March",
+      "title": "Mickey Mouse March",
       "year": 2005,
       "game": "KHII",
       "arranger": "Yoko Shimomura"
@@ -4778,7 +4778,7 @@
       "arranger": "Yoko Shimomura"
     },
     "status": "ost",
-    "note": "A reprise used in the Battle Report.",
+    "note": "A reprise used in the Battle Report. Piano solo by Shinko Ogata.",
     "wiki": "https://www.khwiki.com/Dearly_Beloved",
     "daily": true
   },
@@ -7232,7 +7232,7 @@
       "arranger": "Yoko Shimomura"
     },
     "status": "ost",
-    "note": "The main theme of Birth by Sleep and KH0.2. In includes the secondary melody, but only in part.",
+    "note": "The main theme of Birth by Sleep and KH0.2. In includes the secondary melody, but only in part. The piano sheet music of this arrangement was seen in-game in Symphony of Sorcery.",
     "wiki": "https://www.khwiki.com/Dearly_Beloved",
     "daily": true
   },
@@ -7521,7 +7521,7 @@
       "arranger": "Yoko Shimomura"
     },
     "status": "ost",
-    "note": "The field theme of the Mirage Arena.",
+    "note": "The field theme of the Mirage Arena. Its melody quotes \"Dearly Beloved\".",
     "wiki": "https://www.khwiki.com/Dearly_Dreams",
     "daily": true
   },
@@ -8308,7 +8308,7 @@
     "daily": false
   },
   {
-    "title": "Kairi",
+    "title": "Kairi I",
     "media": "KHBBS",
     "media-display": "Kingdom Hearts Birth by Sleep",
     "url": "https://www.youtube.com/watch?v=O2tdcXffbNI",
@@ -9408,7 +9408,7 @@
       "arranger": "Yoko Shimomura"
     },
     "status": "ost",
-    "note": "The main theme of Kingdom Hearts. This HD version doesn't include the sound of waves as the original recording did.",
+    "note": "The main theme of Kingdom Hearts.",
     "wiki": "https://www.khwiki.com/Dearly_Beloved",
     "daily": false
   },
@@ -10445,7 +10445,7 @@
       "arranger": "Yoko Shimomura"
     },
     "status": "ost",
-    "note": "An instrumental arrangement that plays when Kairi saves Sora.",
+    "note": "An instrumental arrangement that plays during Sora's sacrifice.",
     "wiki": "https://www.khwiki.com/Simple_and_Clean",
     "daily": false
   },
@@ -10921,7 +10921,7 @@
       "arranger": "Yoko Shimomura"
     },
     "status": "ost",
-    "note": "The battle theme of Sora's Twilight Town.",
+    "note": "The battle theme of Sora's Twilight Town. It includes a statement of \"Dearly Beloved\".",
     "wiki": "https://www.khwiki.com/Working_Together",
     "daily": false
   },
@@ -12574,7 +12574,7 @@
       "arranger": "Tsuyoshi Sekito"
     },
     "status": "ost",
-    "note": "The field theme of Cy-Bug Sector.",
+    "note": "The field theme of Cy-Bug Sector. It is a partial arrangement of Chocobo Chaser theme from Imaginary Range (2011), and it shares most of its material with \"Zero Hour -The Chase-\", also a Chocobo Chaser arrangement.",
     "wiki": "https://www.khwiki.com/A_Nameless_Planet",
     "daily": true
   },
@@ -13306,7 +13306,7 @@
       "arranger": "Natsumi Kameoka"
     },
     "status": "ost",
-    "note": "The battle theme of Twilight Town.",
+    "note": "The battle theme of Twilight Town. It includes a statement of \"Dearly Beloved\".",
     "wiki": "https://www.khwiki.com/Working_Together",
     "daily": true
   },
@@ -13918,7 +13918,7 @@
       "arranger": "Tsuyoshi Sekito"
     },
     "status": "ost",
-    "note": "An event theme for the first visit to the Door Vault. The B section is taken from the Chocobo Chaser theme from Imaginary Range (2011).",
+    "note": "An event theme for the first visit to the Door Vault. It is a partial arrangement of Chocobo Chaser theme from Imaginary Range (2011), and it shares most of its material with \"A Nameless Planet\", also a Chocobo Chaser arrangement.",
     "wiki": "https://www.khwiki.com/Zero_Hour",
     "daily": true
   },
@@ -18142,7 +18142,7 @@
       "arranger": "Jimanica"
     },
     "status": "ost",
-    "note": "An energetic electronic cove of \"Traverse Town\".",
+    "note": "An energetic electronic cover of \"Traverse Town\".",
     "wiki": "https://www.khwiki.com/Traverse_Town",
     "daily": false
   },
@@ -18982,7 +18982,7 @@
       "arranger": "Kaoru Wada"
     },
     "status": "ost",
-    "note": "The orchestral arrangement of the KH3 ending theme song.",
+    "note": "The orchestral arrangement of the KH3 opening theme song.",
     "wiki": "https://www.khwiki.com/Face_My_Fears_-KINGDOM_Orchestra_Instrumental_Version-",
     "daily": false
   },
