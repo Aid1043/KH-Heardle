@@ -6,7 +6,7 @@ import sudoku_music from "@/settings/sudoku_music.json";
 import SudokuGuessBar from "./SudokuGuessBar.vue";
 import IconShare from "@/components/icons/IconShare.vue";
 
-import { sudokuGameState, sudokuBoard, infiniteEnabled, ParseStringWithVariable, urlSeed, sudokuDifficulty, seeded, getISODay } from "@/main";
+import { sudokuGameState, sudokuBoard, infiniteEnabled, puzzleMode, puzzleSeed, ParseStringWithVariable, urlSeed, sudokuDifficulty, seeded, getISODay } from "@/main";
 const hover = reactive(Array(6).fill(false));
 
 function goToNext() {
@@ -16,6 +16,12 @@ function goToNext() {
     window.location.search = params.toString();
   }
   else { window.location.reload(); }
+}
+
+function goToNextPuzzle() {
+  const params = new URLSearchParams(window.location.search);
+  params.set("p", (puzzleSeed + 1).toString());
+  window.location.search = params.toString();
 }
 
 
@@ -144,7 +150,14 @@ function copySeed() {
   </span>
   <span v-else>
     <div class="results-container">
-      <span v-if="infiniteEnabled">
+      <span v-if="!infiniteEnabled">
+        <p class="share-text" v-if="copied">Copied results to clipboard!</p>
+        <button @click="copyShare">
+          {{ ParseStringWithVariable(settings["phrases"]["share-button"]) }}
+          <IconShare class="inline-block ml-2"/>
+        </button>
+      </span>
+      <div class="share" v-else-if="!puzzleMode">
         <div class="next-button-container">
           <button class="font-medium" @click="goToNext"> Next Puzzle </button>
         </div>
@@ -155,13 +168,11 @@ function copySeed() {
             <IconShare class="inline-block ml-2"/>
           </button>
         </div>
-      </span>
+      </div>
       <div class="share" v-else>
-        <p class="share-text" v-if="copied">Copied results to clipboard!</p>
-        <button @click="copyShare">
-          {{ ParseStringWithVariable(settings["phrases"]["share-button"]) }}
-          <IconShare class="inline-block ml-2"/>
-        </button>
+        <div class="next-button-container">
+          <button class="font-medium" @click="goToNextPuzzle"> Next Puzzle </button>
+        </div>
       </div>
       <div class="top-results">Possible Answers</div>
       <div class="answers-list">

@@ -3,7 +3,7 @@ import {onMounted, onBeforeUnmount, ref} from "vue";
 import settings from "@/settings/settings.json"
 import IconInfinite from "@/components/icons/IconInfinite.vue";
 import InfiniteButton from "@/components/InfiniteButton.vue";
-import { randomStartEnabled, infiniteEnabled, criticalEnabled, sudokuMode, urlSeed, sudokuDifficulty, seeded } from '@/main';
+import { randomStartEnabled, infiniteEnabled, criticalEnabled, sudokuMode, puzzleMode, urlSeed, sudokuDifficulty, seeded } from '@/main';
 
 // Load settings from localStorage or fall back to defaults
 const savedAllowed = localStorage.getItem('allowed-statuses');
@@ -133,7 +133,16 @@ onBeforeUnmount(() => {
 </script>
 
 <template>
-  <div v-if="!sudokuMode">
+  <div v-if="puzzleMode">
+    <div class="settings-container">
+      <div class="settings-content">
+        <div class="setting-item">
+          <strong>Settings are disabled in special challenge puzzles.</strong>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div v-else-if="!sudokuMode">
     <div v-if="infiniteEnabled">
       <div class="settings-container">
         <div class="settings-content">

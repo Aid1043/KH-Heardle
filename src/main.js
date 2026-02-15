@@ -5,10 +5,13 @@ import App from './App.vue'
 
 import settings from '@/settings/settings.json'
 import music from '@/settings/music.json'
+import puzzles from '@/settings/puzzles.json'
 
 import sudoku_music from '@/settings/sudoku_music.json'
 import sudoku_tags from '@/settings/sudoku_tags.json'
 
+export const PUZZLE_ACTIVE = false
+export const CURRENT_PUZZLE = "mc6";
 
 // Create audio players
 
@@ -90,6 +93,29 @@ else {
 var infiniteSeedSong = splitmix32(_urlSeed)();
 const infiniteSeedTime = splitmix32(_urlSeed * _urlSeed)();
 
+const puzzleSeedRaw = urlParams.get("p");
+var _puzzleSeed = -1
+var _puzzleQ = null
+if (PUZZLE_ACTIVE && puzzleSeedRaw !== null && !isNaN(puzzleSeedRaw)) {
+    _puzzleSeed = Number(puzzleSeedRaw);
+    infiniteEnabled.value = true;
+    
+    if (_puzzleSeed > puzzles[CURRENT_PUZZLE]['length'])
+        _puzzleSeed = 0
+}
+if (_puzzleSeed >= 0) {
+    _puzzleQ = puzzles[CURRENT_PUZZLE]['questions'][_puzzleSeed]
+
+    if (_puzzleQ.type == "HTTPS")
+        sessionStorage.setItem('sudoku-mode', JSON.stringify(true));
+    else 
+        sessionStorage.setItem('sudoku-mode', JSON.stringify(false));
+}
+export const puzzleQ = _puzzleQ
+export const puzzleMode = (puzzleQ != null)
+export const puzzleSeed = _puzzleSeed
+
+
 const arabianNightmareTestRaw = urlParams.get("arabiannightmaretest");
 var arabianNightmareTest = false;
 if (arabianNightmareTestRaw !== null && !isNaN(arabianNightmareTestRaw)) {
@@ -110,7 +136,10 @@ if (urlSudokuSettingsRaw !== null && !isNaN(urlSudokuSettingsRaw)) {
 }
 
 // Set settings from URL
-const urlSettingsRaw = urlParams.get("settings");
+var urlSettingsRaw = urlParams.get("settings");
+if (puzzleMode && puzzleQ.type == 'HTTP') {
+    urlSettingsRaw = puzzleQ.settings
+}
 if (urlSettingsRaw !== null) {
     const urlSettings = parseInt(urlSettingsRaw, 16).toString(2).padStart(28, '0');
 
@@ -179,7 +208,27 @@ let id = 0;
 // Make shuffledMusic mutable
 let shuffledMusic = music.slice();
 
-if (infiniteEnabled.value) {
+
+if (puzzleMode && puzzleQ.type == "HTTP") {
+    listIndex = puzzleQ.song
+    id = puzzles[CURRENT_PUZZLE].saveid + puzzleSeed
+
+    // Copy+pasted from daily logic, now that's good coding practice
+    const usString = localStorage.getItem("userStats");
+    if(usString !== null && usString !== ""){
+        let stats = JSON.parse(usString);
+        let item = stats.find((item)=>{
+            return item.id === id;
+        })
+
+        if(item !== undefined){
+            _currentGameState.value.guess = item.guess;
+            _currentGameState.value.guessed = item.guessed;
+            _currentGameState.value.isFinished = item.isFinished;
+        }
+    }
+}
+else if (infiniteEnabled.value) {
     // Load filters from localStorage (or use defaults)
     let allowedStatuses = [];
     let allowedGames = [];
@@ -261,16 +310,19 @@ else if(randomStartEnabled.value){
     startTime = Math.floor(infiniteSeedTime * (SelectedMusic.duration - settings["times"][settings["times"].length - 1]));
     startTime = Math.max(0, startTime);
 }
+else if (puzzleMode && puzzleQ.type == "HTTP") {
+    startTime = puzzleQ.start ? puzzleQ.start : 0;
+}
 
 export const StartTime = startTime + startTimeFull;
 export const StartTimeFull = startTimeFull;
 
 function save(){
-    if(!infiniteEnabled.value){
+    if(!infiniteEnabled.value || puzzleMode){
         const usString = localStorage.getItem("userStats");
         let stats;
 
-        console.log("Set used");
+        //console.log("Set used");
         if(usString === null || usString === ""){
             stats = [];
         } else {
@@ -303,7 +355,7 @@ function save(){
 }
 
 export function saveInfinite(won){
-    if(infiniteEnabled.value){
+    if(infiniteEnabled.value && !puzzleMode){
         const usString = localStorage.getItem("userStatsInfinite");
         let stats;
 
@@ -322,7 +374,17 @@ export function saveInfinite(won){
         stats.gamesPlayed += 1;
 
         localStorage.setItem("userStatsInfinite", JSON.stringify(stats));
-    }}
+    }
+}
+
+export function savePuzzle(newScore){
+    if (puzzleMode) {
+        var savedPuzzleScore = localStorage.getItem(`puzzleScore-${puzzles[CURRENT_PUZZLE].id}`)
+        var puzzleScore = savedPuzzleScore !== null ? JSON.parse(savedPuzzleScore) : 0;
+        puzzleScore += newScore;
+        localStorage.setItem(`puzzleScore-${puzzles[CURRENT_PUZZLE].id}`, JSON.stringify(puzzleScore))
+    }
+}
 
 export const currentGameState = new Proxy(_currentGameState, {
     get(target, prop, receiver) {
@@ -349,6 +411,10 @@ export const sudokuDifficulty = ref(savedSudokuDifficulty !== null ? savedSudoku
 
 let seed = 0.0;
 
+if (puzzleMode && puzzleQ.type == "HTTPS") {
+    seed = puzzles[CURRENT_PUZZLE].saveid + puzzleSeed
+}
+
 // Seeded random
 function splitmix32(a) {
     return function() {
@@ -365,7 +431,8 @@ function splitmix32(a) {
 function weightedShuffle(tags, seed) {
     const rand = splitmix32(seed);
 
-    const itemsWithKeys = tags.map(item => {
+    const itemsWithKeys = tags.filter((item) => item.rarity > 0)
+        .map(item => {
         const key = -Math.log(rand()) / item.rarity;
         return { item, key };
     });
@@ -451,7 +518,17 @@ function generateBoard(iter = 1) {
 export const urlSeed = _urlSeed;
 export const seeded = _seeded;
 
-export const sudokuBoard = sudokuMode.value ? (arabianNightmareTest ? [sudoku_tags[92], sudoku_tags[98], sudoku_tags[54], sudoku_tags[123], sudoku_tags[113], sudoku_tags[91]] : generateBoard()) : null;
+var _sudokuBoard = null
+if (sudokuMode.value) {
+    if (arabianNightmareTest)
+        _sudokuBoard = [sudoku_tags[92], sudoku_tags[98], sudoku_tags[54], sudoku_tags[123], sudoku_tags[113], sudoku_tags[91]]
+    else if (puzzleMode && puzzleQ.type == "HTTPS")
+        _sudokuBoard = [sudoku_tags[puzzleQ.columns[0]], sudoku_tags[puzzleQ.columns[1]], sudoku_tags[puzzleQ.columns[2]], sudoku_tags[puzzleQ.rows[0]], sudoku_tags[puzzleQ.rows[1]], sudoku_tags[puzzleQ.rows[2]]]
+    else
+        _sudokuBoard = generateBoard()
+}
+
+export const sudokuBoard = _sudokuBoard
 export const _sudokuGameState = ref({
     guess: 1,
     guessed: [],
@@ -526,7 +603,7 @@ if(ssString !== null && ssString !== ""){
         return item.seed === seed;
     })
 
-    if(item !== undefined && item.isDaily){
+    if(item !== undefined && (item.isDaily || puzzleMode)){
         _sudokuGameState.value.guess = item.guess;
         _sudokuGameState.value.guessed = item.guessed;
         _sudokuGameState.value.correct = item.correct;

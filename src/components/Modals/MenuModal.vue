@@ -1,13 +1,8 @@
 <script setup lang="ts">
 
-import IconMusicNote from "@/components/icons/iconMusicNote.vue";
-import IconSpeaker from "@/components/icons/IconSpeaker.vue";
-import IconHeart from "@/components/icons/IconHeart.vue";
 import {onMounted} from "vue";
-import { sudokuMode } from "@/main";
+import { PUZZLE_ACTIVE } from "@/main";
 
-import settings from "@/settings/settings.json"
-import IconThumbUp from "../icons/IconThumbUp.vue";
 
 onMounted(()=>{
   document.getElementById("modal-title").innerHTML = "Game Menu";
@@ -37,6 +32,12 @@ function goToSudokuInfinite() {
   window.location.reload();
 }
 
+function goToPuzzle() {
+  const params = new URLSearchParams(window.location.search);
+  params.set("p", (0).toString());
+  window.location.search = params.toString();
+}
+
 </script>
 
 <template>
@@ -57,6 +58,16 @@ function goToSudokuInfinite() {
         <button @click="goToSudokuInfinite" style="background: var(--color-sudoku);">Infinite Sudoku</button>
       </div>
     </div>
+    <span v-if="PUZZLE_ACTIVE">
+      <div class="next">
+        Limited-Time Challenge Event
+      </div>
+      <div class="button-container font-medium">
+        <div class="button-columns"> 
+          <button @click="goToPuzzle" style="background: var(--color-puzzle); color: black">Special Event</button>
+        </div>
+      </div>
+    </span>
   </div>
 </template>
 

@@ -5,6 +5,8 @@ import ModalBase from "@/components/Modals/ModalBase.vue";
 import {onMounted, onBeforeUnmount, ref, shallowRef} from "vue";
 import TutorialModal from "@/components/Modals/TutorialModal.vue";
 import UpdateModal from "@/components/Modals/UpdateModal.vue";
+import PuzzleHeader from "@/components/PuzzleHeader.vue";
+import PuzzleSubmit from "@/components/PuzzleSubmit.vue";
 
 // Vue Binding References
 const style = ref("height:" + window.innerHeight + "px;")
@@ -18,7 +20,7 @@ import MainGame from "@/components/MainGame.vue";
 import SudokuMainGame from "@/components/SudokuMainGame.vue";
 
 
-import { currentGameState, sudokuMode } from "@/main";
+import { currentGameState, sudokuMode, puzzleMode, puzzleQ } from "@/main";
 import EndGame from "@/components/EndGame.vue";
 
 // CSS Variables
@@ -83,7 +85,13 @@ onBeforeUnmount(() => {
     <div class="no-flex">
       <Header @create-modal="(modal)=>openModal(modal)"/>
     </div>
-    <span v-if="!sudokuMode">
+    <div v-if="puzzleMode">
+      <PuzzleHeader/>
+    </div>
+    <div v-if="puzzleMode && puzzleQ.type=='Submit'">
+      <PuzzleSubmit/>
+    </div>
+    <span v-else-if="!sudokuMode">
       <MainGame v-if="!currentGameState.isFinished"/>
       <EndGame v-else/>
     </span>

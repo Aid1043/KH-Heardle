@@ -29,7 +29,7 @@ function calculateAverageGuesses() {
 
   const parsedStats = JSON.parse(stats);
   for (const stat of parsedStats) {
-    if (stat.isFinished) statDistribution[stat.guess] += 1;
+    if (stat.isFinished && stat.id > 20000) statDistribution[stat.guess] += 1;
   }
   return statDistribution;
 }

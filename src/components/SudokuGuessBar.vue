@@ -8,7 +8,7 @@ import music from "@/settings/music.json"
 import sudoku_music from "@/settings/sudoku_music.json"
 import settings from "@/settings/settings.json"
 
-import { sudokuGameState, ParseStringWithVariable, sudokuBoard, getISOWeek} from "@/main";
+import { sudokuGameState, ParseStringWithVariable, sudokuBoard, getISOWeek, savePuzzle} from "@/main";
 import {onMounted} from "vue";
 import TransportBar from "./TransportBar.vue";
 
@@ -110,6 +110,7 @@ function Verify() {
     sudokuGameState.value.isFinished = true;
     sudokuGameState.value.isWon = true;
     incrementGameCount()
+    savePuzzleCalc()
   }
   else {
     sudokuGameState.value.guess += 1;
@@ -117,8 +118,18 @@ function Verify() {
       sudokuGameState.value.isFinished = true;
       sudokuGameState.value.isWon = false;
       incrementGameCount()
+      savePuzzleCalc()
     }
   }
+}
+
+function savePuzzleCalc() {
+  var newScore = 0;
+  for (var i = 1; i < 10; i++) {
+    if (sudokuGameState.value.correct[i])
+      newScore++
+  }
+  savePuzzle(newScore)
 }
 
 function incrementGameCount() {

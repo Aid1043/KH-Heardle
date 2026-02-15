@@ -1,0 +1,102 @@
+{
+  "mc6": {
+    "id": 0,
+    "saveid": 0,
+    "title": "March Caprice 6 Challenge",
+    "length": 15,
+    "questions": [
+      {
+        "type": "HTTP",
+        "song": 73,
+        "settings": "27fffe0",
+        "start": 2
+      },
+      {
+        "type": "HTTP",
+        "song": 191,
+        "settings": "27fffe0",
+        "start": 7
+      },
+      {
+        "type": "HTTP",
+        "song": 824,
+        "settings": "27fffe0"
+      },
+      {
+        "type": "HTTPS",
+        "rows": [5, 7, 15],
+        "columns": [90, 91, 94],
+        "message": "★ Easy as 1, 2, 3 ★"
+      },
+      {
+        "type": "HTTP",
+        "song": 300,
+        "settings": "27fffe0"
+      },
+      {
+        "type": "HTTP",
+        "song": 523,
+        "settings": "27fffe0",
+        "start": 55
+      },
+      {
+        "type": "HTTP",
+        "song": 481,
+        "settings": "27fffe0",
+        "start": 62
+      },
+      {
+        "type": "HTTPS",
+        "rows": [130, 133, 125],
+        "columns": [0, 33, 23],
+        "message": "★ Happy March Caprice! ★"
+      },
+      {
+        "type": "HTTP",
+        "song": 1083,
+        "settings": "27fffff",
+        "start": 1
+      },
+      {
+        "type": "HTTP",
+        "song": 1058,
+        "settings": "27fffff",
+        "start": 1
+      },
+      {
+        "type": "HTTP",
+        "song": 1069,
+        "settings": "27fffff",
+        "start": 4
+      },
+      {
+        "type": "HTTPS",
+        "rows": [115, 92, 44],
+        "columns": [110, 6, 59],
+        "message": "★ Almost There! ★"
+      },
+      {
+        "type": "HTTP",
+        "song": 684,
+        "settings": "7fffff",
+        "start": 53
+      },
+      {
+        "type": "HTTP",
+        "song": 824,
+        "settings": "27fffff",
+        "start": 129
+      },
+      {
+        "type": "HTTP",
+        "song": 388,
+        "settings": "27fffff",
+        "start": 116
+      },
+
+      {
+        "type": "Submit"
+      }
+    ]
+  }
+}

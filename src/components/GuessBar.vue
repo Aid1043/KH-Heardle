@@ -7,7 +7,7 @@ import FuzzySearch from "fuzzy-search";
 import music from "@/settings/music.json"
 import settings from "@/settings/settings.json"
 
-import { currentGameState, SelectedMusic, ParseStringWithVariable, infiniteEnabled, saveInfinite, getISOWeek } from "@/main";
+import { currentGameState, SelectedMusic, ParseStringWithVariable, infiniteEnabled, saveInfinite, getISOWeek, savePuzzle } from "@/main";
 import {onMounted} from "vue";
 import TransportBar from "./TransportBar.vue";
 
@@ -138,14 +138,25 @@ function Verify(){
     currentGameState.value.isFinished = true;
     incrementGameCount();
     saveInfinite(true);
+    savePuzzleCalc();
   } else {
     currentGameState.value.guess += 1;
     if(currentGameState.value.guess >= settings["guess-number"]){
       currentGameState.value.isFinished = true;
       incrementGameCount();
       saveInfinite(false);
+      savePuzzleCalc();
     }
   }
+}
+
+function savePuzzleCalc() {
+  var newScore = 0
+  for (var i = 0; i < currentGameState.value.guessed.length; i++) {
+      if (currentGameState.value.guessed[i].isCorrect)
+          newScore = 6 - i;
+  }
+  savePuzzle(newScore)
 }
 
 function incrementGameCount() {

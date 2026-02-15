@@ -3,7 +3,7 @@
 import MusicLink from "@/components/MusicLink.vue";
 import GuessSummary from "@/components/GuessSummary.vue";
 import InfiniteButton from "@/components/InfiniteButton.vue";
-import { criticalEnabled, randomStartEnabled, SelectedMusic, urlSeed } from '@/main';
+import { criticalEnabled, randomStartEnabled, SelectedMusic, urlSeed, puzzleMode, puzzleSeed } from '@/main';
 import IconShare from "@/components/icons/IconShare.vue";
 import { getSettingsURL } from "@/components/Modals/SupportModal.vue"
 
@@ -65,6 +65,12 @@ function goToNext() {
     window.location.search = params.toString();
   }
   else { window.location.reload(); }
+}
+
+function goToNextPuzzle() {
+  const params = new URLSearchParams(window.location.search);
+  params.set("p", (puzzleSeed + 1).toString());
+  window.location.search = params.toString();
 }
 
 const copied = ref(false);
@@ -147,7 +153,7 @@ function copySeed() {
           <IconShare class="inline-block ml-2"/>
         </button>
       </div>
-      <div class="share" v-else>
+      <div class="share" v-else-if="!puzzleMode">
         <p class="share-text" v-if="copied">Copied link to clipboard!</p>
         <button @click="copySeed" style="background-color: var(--color-line);">
           {{ ParseStringWithVariable(settings["phrases"]["seed-button"]) }}
@@ -168,6 +174,11 @@ function copySeed() {
             <button @click="goToSudoku" style="background: var(--color-sudoku); border-style: none; cursor: pointer;">Sudoku Mode</button>
           </div>
         </div> 
+      </div>
+    </div>
+    <div v-else-if="puzzleMode">
+      <div class="next-button-container">
+        <button class="font-medium" @click="goToNextPuzzle"> {{ ParseStringWithVariable(settings["phrases"]["next-button"]) }} </button>
       </div>
     </div>
     <div v-else>
