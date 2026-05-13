@@ -5548,23 +5548,6 @@
     "daily": false
   },
   {
-    "title": "Dance of the Daring",
-    "media": "KHD",
-    "media-display": "Kingdom Hearts 358/2 Days",
-    "url": "https://www.youtube.com/watch?v=vXSGmqZj1GQ",
-    "duration": 105,
-    "tags": {
-      "title": "Dance of the Daring",
-      "year": 2009,
-      "game": "KHD",
-      "arranger": "Yoko Shimomura"
-    },
-    "status": "unreleased",
-    "note": "The field theme of Beast's Castle.",
-    "wiki": "https://www.khwiki.com/Dance_of_the_Daring",
-    "daily": false
-  },
-  {
     "title": "Waltz of the Damned",
     "media": "KHD",
     "media-display": "Kingdom Hearts 358/2 Days",
@@ -5577,8 +5560,25 @@
       "arranger": "Yoko Shimomura"
     },
     "status": "unreleased",
-    "note": "The battle theme of Beast's Castle.",
+    "note": "The field theme of Beast's Castle.",
     "wiki": "https://www.khwiki.com/Waltz_of_the_Damned",
+    "daily": false
+  },
+  {
+    "title": "Dance of the Daring",
+    "media": "KHD",
+    "media-display": "Kingdom Hearts 358/2 Days",
+    "url": "https://www.youtube.com/watch?v=vXSGmqZj1GQ",
+    "duration": 105,
+    "tags": {
+      "title": "Dance of the Daring",
+      "year": 2009,
+      "game": "KHD",
+      "arranger": "Yoko Shimomura"
+    },
+    "status": "unreleased",
+    "note": "The battle theme of Beast's Castle.",
+    "wiki": "https://www.khwiki.com/Dance_of_the_Daring",
     "daily": false
   },
   {
@@ -12633,7 +12633,7 @@
     "title": "TWISTER -UNION χ MIX-",
     "media": "KHUX",
     "media-display": "Kingdom Hearts Union χ[Cross]",
-    "url": "https://www.youtube.com/watch?v=rDVELeWy-WY",
+    "url": "https://www.youtube.com/watch?v=DjI74YstToo",
     "duration": 260,
     "tags": {
       "title": "TWISTER",

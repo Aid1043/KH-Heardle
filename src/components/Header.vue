@@ -33,9 +33,9 @@ const emit = defineEmits(['create-modal']);
           <button @click="emit('create-modal', TutorialModal)">
             <IconAbout/>
           </button>
-          <!-- <button @click="emit('create-modal', EventModal)">
+          <button @click="emit('create-modal', EventModal)">
             <IconEvent/>
-          </button> -->
+          </button>
         </div>
         <img v-if="!sudokuMode" src="@/assets/images/kh-http-logo.png" alt="Kingdom Hearts Heed to the Pulse" class="logo-image"/>
         <img v-else src="@/assets/images/kh-https-logo.png" alt="Kingdom Hearts Heed to the Pulse: Sudoku" class="logo-image"/>

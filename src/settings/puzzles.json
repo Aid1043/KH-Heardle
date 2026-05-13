@@ -8,89 +8,89 @@
     "questions": [
       {
         "type": "HTTP",
-        "song": 73,
+        "song": ["March Caprice for Piano and Orchestra", "KH"],
         "settings": "27fffe0",
         "start": 2
       },
       {
         "type": "HTTP",
-        "song": 191,
+        "song": ["Roxas", "KHII"],
         "settings": "27fffe0",
         "start": 7
       },
       {
         "type": "HTTP",
-        "song": 824,
+        "song": ["Bounce-O-Rama -KINGDOM HEARTS III Version-", "KHIII"],
         "settings": "27fffe0"
       },
       {
         "type": "HTTPS",
-        "rows": [5, 7, 15],
-        "columns": [90, 91, 94],
+        "rows": ["origin-kh", "origin-khii", "origin-khiii"],
+        "columns": ["type-field", "type-battle", "type-heartless"],
         "message": "★ Easy as 1, 2, 3 ★"
       },
       {
         "type": "HTTP",
-        "song": 300,
+        "song": ["Crossing to Neverland", "KHD"],
         "settings": "27fffe0"
       },
       {
         "type": "HTTP",
-        "song": 523,
+        "song": ["Ice-hot Lobster", "KH3D"],
         "settings": "27fffe0",
         "start": 55
       },
       {
         "type": "HTTP",
-        "song": 481,
+        "song": ["Master, Tell Me the Truth", "KHBBSFM"],
         "settings": "27fffe0",
         "start": 62
       },
       {
         "type": "HTTPS",
-        "rows": [130, 133, 125],
-        "columns": [0, 33, 23],
+        "rows": ["letter-h", "letter-m", "letter-c"],
+        "columns": ["arr-shimomura", "appear-concert", "appear-khrec"],
         "message": "★ Happy March Caprice! ★"
       },
       {
         "type": "HTTP",
-        "song": 1083,
+        "song": ["March Caprice for Piano and Orchestra", "First Breath"],
         "settings": "27fffff",
         "start": 1
       },
       {
         "type": "HTTP",
-        "song": 1058,
+        "song": ["Dearly Beloved", "memória!"],
         "settings": "27fffff",
         "start": 1
       },
       {
         "type": "HTTP",
-        "song": 1069,
+        "song": ["March Caprice for Piano and Orchestra", "Tribute Album"],
         "settings": "27fffff",
         "start": 4
       },
       {
         "type": "HTTPS",
-        "rows": [115, 92, 44],
-        "columns": [110, 6, 59],
+        "rows": ["misc-onetime", "type-minigame", "last-khiii"],
+        "columns": ["title-character", "origin-khcom", "plays-haw"],
         "message": "★ Almost There! ★"
       },
       {
         "type": "HTTP",
-        "song": 684,
+        "song": ["Ursula's Revenge (Japanese)", "KHHD2.5"],
         "settings": "7fffff",
         "start": 53
       },
       {
         "type": "HTTP",
-        "song": 824,
+        "song": ["Bounce-O-Rama -KINGDOM HEARTS III Version-", "KHIII"],
         "settings": "27fffff",
         "start": 129
       },
       {
         "type": "HTTP",
-        "song": 388,
+        "song": ["March Caprice for Piano and Orchestra", "KHC"],
         "settings": "27fffff",
         "start": 116
       },
@@ -100,7 +100,31 @@
       }
     ],
     "winners": [
-      { "name": "Perfect", "score": 99 }
-    ]
+      { "name": "IKnowYouSeeHeeHooHeeHee", "score": 99 },
+      { "name": "Scherzodelcuore", "score": 98 },
+      { "name": "Laxirya", "score": 91 },
+      { "name": "colbstersnowman", "score": 89 },
+      { "name": "Timoram", "score": 86 },
+      { "name": "Otrew", "score": 85 },
+      { "name": "KBirch", "score": 83 },
+      { "name": "Titan", "score": 83 },
+      { "name": "vanitxsz", "score": 83 },
+      { "name": "JTD95", "score": 82 }
+    ],
+    "median": "71/99"
+  },
+  "rogues": {
+    "id": 1,
+    "saveid": 15,
+    "title": "March Caprice 6 Challenge",
+    "description": ["A special event for March Caprice 6! It starts off easy but gets harder as it goes.", "The challenge will be active until March 29. Good luck!"],
+    "length": 15,
+    "questions": [
+      
+    ],
+    "winners": [
+
+    ],
+    "median": "??/??"
   }
 }

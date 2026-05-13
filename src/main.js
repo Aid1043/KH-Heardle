@@ -10,7 +10,7 @@ import puzzles from '@/settings/puzzles.json'
 import sudoku_music from '@/settings/sudoku_music.json'
 import sudoku_tags from '@/settings/sudoku_tags.json'
 
-export const PUZZLE_ACTIVE = false
+export const PUZZLE_ACTIVE = true
 export const CURRENT_PUZZLE = "mc6";
 
 // Create audio players
@@ -210,7 +210,8 @@ let shuffledMusic = music.slice();
 
 
 if (puzzleMode && puzzleQ.type == "HTTP") {
-    listIndex = puzzleQ.song
+    shuffledMusic.forEach((x, index) => listIndex = ((x.title === puzzleQ.song[0] && x.media === puzzleQ.song[1]) ? index : listIndex));
+
     id = puzzles[CURRENT_PUZZLE].saveid + puzzleSeed
 
     // Copy+pasted from daily logic, now that's good coding practice
@@ -288,9 +289,8 @@ else if (infiniteEnabled.value) {
     }
 
     // Christmas Eve special ooheehee
-    if (id == 20446) {
-        listIndex = 223;
-    }
+    if (id == 20446) {listIndex = 223;}
+    else if (id == 20576) {listIndex = 37;}
     else {
         shuffle(shuffledMusic, Math.floor(id / filtered.length))
     }
@@ -522,8 +522,18 @@ var _sudokuBoard = null
 if (sudokuMode.value) {
     if (arabianNightmareTest)
         _sudokuBoard = [sudoku_tags[92], sudoku_tags[98], sudoku_tags[54], sudoku_tags[123], sudoku_tags[113], sudoku_tags[91]]
-    else if (puzzleMode && puzzleQ.type == "HTTPS")
-        _sudokuBoard = [sudoku_tags[puzzleQ.columns[0]], sudoku_tags[puzzleQ.columns[1]], sudoku_tags[puzzleQ.columns[2]], sudoku_tags[puzzleQ.rows[0]], sudoku_tags[puzzleQ.rows[1]], sudoku_tags[puzzleQ.rows[2]]]
+    else if (puzzleMode && puzzleQ.type == "HTTPS") {
+        let hints = [0, 0, 0, 0, 0, 0]
+        sudoku_tags.forEach((x, index) => {
+            hints[0] = (x.tag === puzzleQ.columns[0] ? index : hints[0])
+            hints[1] = (x.tag === puzzleQ.columns[1] ? index : hints[1])
+            hints[2] = (x.tag === puzzleQ.columns[2] ? index : hints[2])
+            hints[3] = (x.tag === puzzleQ.rows[0] ? index : hints[3])
+            hints[4] = (x.tag === puzzleQ.rows[1] ? index : hints[4])
+            hints[5] = (x.tag === puzzleQ.rows[2] ? index : hints[5])
+        });
+        _sudokuBoard = [sudoku_tags[hints[0]], sudoku_tags[hints[1]], sudoku_tags[hints[2]], sudoku_tags[hints[3]], sudoku_tags[hints[4]], sudoku_tags[hints[5]]]
+    }
     else
         _sudokuBoard = generateBoard()
 }

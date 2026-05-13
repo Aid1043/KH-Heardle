@@ -29,9 +29,10 @@ function stripDiacritics(str) {
 const normalizedMusic = music.map(item => ({
   ...item,
   title_normalized: stripDiacritics(item.title),
+  media_normalized: stripDiacritics(item.media),
 }));
 
-const searcher = new FuzzySearch(normalizedMusic, ['title_normalized', 'media'], {
+const searcher = new FuzzySearch(normalizedMusic, ['title_normalized', 'media_normalized'], {
   sort: false
 });
 

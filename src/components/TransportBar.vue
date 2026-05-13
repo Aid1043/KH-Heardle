@@ -329,12 +329,12 @@ function mute(){
 }
 
 .container.with-volume {
-  grid-template-columns: 3fr 4fr 7fr 7fr;
+  grid-template-columns: 3fr 4fr 5.5fr 8.5fr;
 }
 
 .container {
   display: grid;
-  grid-template-columns: 3fr 4fr 7fr 7fr;
+  grid-template-columns: 3fr 4fr 5.5fr 8.5fr;
   gap: 10px;
   align-items: center;
 }

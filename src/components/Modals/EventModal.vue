@@ -35,9 +35,10 @@ function goToPuzzle() {
   <div class="results-container" v-else>
     <div class="results-text">
       <p>There is no event in progress.</p>
-      <p>Check out the winners of the last event!</p>
+      <p>Check out the top 10 winners of the last event!</p>
     </div>
     <h2>{{ puzzles[CURRENT_PUZZLE].title }}</h2>
+    <p style="margin-top:1rem">Median score: {{ puzzles[CURRENT_PUZZLE].median }}</p>
     <div class="winners-list">
       <ul><li v-for="winner in puzzles[CURRENT_PUZZLE].winners" :key="winner.name">{{ winner.score }} points: {{ winner.name }}</li></ul>
     </div>

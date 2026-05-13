@@ -15,9 +15,8 @@ onMounted(()=>{
 <template>
   <div class="update-content">
     <h1>Special Event</h1>
-    <p>A limited-time challenge mode has been added to celebrate <a href="https://www.marchcaprice.com/">March Caprice 6</a>!</p>
-    <p>Play a curated set of puzzles and compete for a high score! The top scorers will have their names shown here after the event is over.</p>
-    <p class="last">More information can be found by clicking the new <b>event icon</b> in the top left. Good luck!</p>
+    <p>The first ever special event has now concluded! Thank you so much for playing.</p>
+    <p class="last">The winners can be found in the <b>event icon</b> in the top left. Stay tuned for future challenges!</p>
   </div>
 </template>
 

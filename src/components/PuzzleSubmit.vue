@@ -9,6 +9,7 @@ import { db } from "@/firebase";
 
 const score = getPuzzleScore();
 const submitted = refB(getPuzzleSubmitted());
+const nameTaken = refB(false)
 
 function getPuzzleScore() {
   const savedScore = localStorage.getItem(`puzzleScore-${puzzles[CURRENT_PUZZLE].id}`)
@@ -27,11 +28,19 @@ function OnSubmit() {
     }
 
     runTransaction(ref(db, `puzzleScores/${puzzles[CURRENT_PUZZLE].id}/user-${inputEl.value}`), (currentValue) => {
-      return Math.max((currentValue || 0), score);
+      if (currentValue !== null)
+        return undefined;
+      return score
+    }).then(({ committed, snapshot }) => {
+      if (!committed) {
+        nameTaken.value = true
+        console.log("Score already logged for username.")
+      }
+      else {
+        submitted.value = true;
+        localStorage.setItem(`puzzleSubmitted-${puzzles[CURRENT_PUZZLE].id}`, JSON.stringify(true))
+      }
     });
-
-    submitted.value = true;
-    localStorage.setItem(`puzzleSubmitted-${puzzles[CURRENT_PUZZLE].id}`, JSON.stringify(true))
   }
 }
 
@@ -51,15 +60,20 @@ function isValidUsername(str) {
         Submit your score here after completing every puzzle!<br/><br/>
         Once the special event is over, the names of the players with the highest scores will be announced. Good luck!
       </div>
-      <div class = "main-row-field" v-if="!submitted">
-        <input ref="searchinput" class="font-input" id="autoComplete" type="search" dir="ltr" spellcheck="false" autocorrect="off" autocomplete="off" autocapitalize="none"
-                  aria-controls="autoComplete_list_1" aria-autocomplete="both" placeholder="Username (no special characters)"
-                  role="combobox" aria-owns="autoComplete_list" aria-haspopup="true" aria-expanded="false"
-                  @keydown.enter="OnSubmit">
-        <button class="submit" @click="OnSubmit">
-          Submit Score
-        </button>
-      </div>
+      <span  v-if="!submitted">
+        <div class = "main-row-field">
+          <input ref="searchinput" class="font-input" id="autoComplete" type="search" dir="ltr" spellcheck="false" autocorrect="off" autocomplete="off" autocapitalize="none"
+                    aria-controls="autoComplete_list_1" aria-autocomplete="both" placeholder="Username (no special characters)"
+                    role="combobox" aria-owns="autoComplete_list" aria-haspopup="true" aria-expanded="false"
+                    @keydown.enter="OnSubmit">
+          <button class="submit" @click="OnSubmit">
+            Submit Score
+          </button>
+        </div>
+          <div class = "main-row-text" v-if="nameTaken">
+            Username already taken!
+          </div>
+      </span>
       <div class = "main-row-text" v-else>
         Your score has been sumbitted!
       </div>
