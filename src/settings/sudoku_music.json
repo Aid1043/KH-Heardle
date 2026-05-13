@@ -793,8 +793,8 @@
     "Hand in Hand",
     "Winnie the Pooh",
     "March Caprice for Piano and Orchestra",
-    "A Night on the Bare Mountain",
     "Destati",
+    "A Night on the Bare Mountain",
     "Memories in Pieces",
     "The 13th Struggle",
     "Lord of the Castle",
@@ -3143,6 +3143,15 @@
     "Toy Box Jam",
     "Monstropolis Now"
   ],
+  "special-darkside": [
+    "Dive into the Heart -Destati-",
+    "Destiny's Force",
+    "Shrouding Dark Cloud",
+    "The Deep End",
+    "Fragments of Sorrow",
+    "Struggle Away",
+    "Night of Tragedy"
+  ],
   "plays-di": [
     "Destiny Islands",
     "Bustin' Up on the Beach",
@@ -3360,10 +3369,10 @@
     "Terra",
     "Enter the Darkness",
     "Black Powder",
+    "Unbreakable Chains",
     "Aqua",
     "Dismiss",
     "The Key",
-    "Unbreakable Chains",
     "Enter the Void",
     "Dark Impetus",
     "Night of Tragedy",
@@ -4075,11 +4084,11 @@
     "Xehanort",
     "The Secret Whispers",
     "Risky Romp",
-    "Ventus",
     "Innocent Times",
     "Drops of Poison",
     "Peaceful Hearts",
     "Unforgettable",
+    "Ventus",
     "Destiny's Union",
     "Ever After",
     "True Darkness"
@@ -4451,6 +4460,14 @@
     "No Surrender!",
     "Nachtflügel"
   ],
+  "special-ursula": [
+    "Night of Fate",
+    "Squirming Evil",
+    "The Deep End",
+    "The Fight for my Friends",
+    "Face It!",
+    "Ursula's Revenge"
+  ],
   "plays-mo-pp": [
     "Destiny's Force",
     "Shrouding Dark Cloud",
@@ -4485,6 +4502,34 @@
     "Beyond the Door",
     "Always on My Mind",
     "A Night on the Bare Mountain"
+  ],
+  "special-jafar": [
+    "Destiny's Force",
+    "Shrouding Dark Cloud",
+    "Squirming Evil",
+    "The Fight for my Friends",
+    "Vim and Vigor",
+    "The Encounter",
+    "Fight and Away"
+  ],
+  "special-hades": [
+    "Destiny's Force",
+    "Shrouding Dark Cloud",
+    "Squirming Evil",
+    "The Fight for my Friends",
+    "Apprehension",
+    "Vim and Vigor",
+    "Beneath the Ground",
+    "Rowdy Rumble",
+    "The Encounter"
+  ],
+  "special-icetitan": [
+    "Destiny's Force",
+    "The Deep End",
+    "The Encounter",
+    "Fight and Away",
+    "Unforgettable",
+    "Titanic Clash"
   ],
   "letter-w": [
     "Where Is This?",
@@ -4605,6 +4650,43 @@
     "True Darkness",
     "Dark Domination",
     "Reality in the Dark"
+  ],
+  "special-maleficent": [
+    "Shrouding Dark Cloud",
+    "Squirming Evil",
+    "The Deep End",
+    "The Fight for my Friends",
+    "The Encounter"
+  ],
+  "special-trickmaster": [
+    "Shrouding Dark Cloud",
+    "The Deep End",
+    "Struggle Away",
+    "Tension Rising"
+  ],
+  "special-organization": [
+    "Shrouding Dark Cloud",
+    "Forze Del Male",
+    "Disappeared",
+    "Face It!",
+    "The 13th Struggle",
+    "Graceful Assassin",
+    "Scythe of Petals",
+    "Lord of the Castle",
+    "Tension Rising",
+    "Vim and Vigor",
+    "Rowdy Rumble",
+    "The Corrupted",
+    "The 13th Dilemma",
+    "The 13th Reflection",
+    "The Other Promise",
+    "Critical Drive",
+    "Fight and Away",
+    "Vector to the Heavens",
+    "Night of Tragedy",
+    "L'Oscurità dell'Ignoto",
+    "Hearts as One",
+    "Forza Finale"
   ],
   "last-khiii": [
     "Blast Away!",

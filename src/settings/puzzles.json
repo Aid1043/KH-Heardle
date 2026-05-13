@@ -116,15 +116,137 @@
   "rogues": {
     "id": 1,
     "saveid": 15,
-    "title": "March Caprice 6 Challenge",
-    "description": ["A special event for March Caprice 6! It starts off easy but gets harder as it goes.", "The challenge will be active until March 29. Good luck!"],
-    "length": 15,
+    "title": "Rogues' Gallery",
+    "description": ["20 rounds all about boss themes. There are some tricky ones, so do your best!", "The challenge will be active until the end of the month."],
+    "length": 20,
     "questions": [
-      
+      {
+        "type": "HTTP",
+        "song": ["Destiny's Force", "KH"],
+        "settings": "5cffe0",
+        "start": 0
+      },
+      {
+        "type": "HTTP",
+        "song": ["Tension Rising", "KHII"],
+        "settings": "5cffe0",
+        "start": 0
+      },
+      {
+        "type": "HTTP",
+        "song": ["Sinister Shadows", "KHII"],
+        "settings": "5cffe0",
+        "start": 0
+      },
+      {
+        "type": "HTTPS",
+        "rows": ["special-organization", "type-disney", "type-ff"],
+        "columns": ["type-heartless", "plays-hb-rg", "appears-khiii"],
+        "message": "★ Rogues' Gallery I ★"
+      },
+      {
+        "type": "HTTP",
+        "song": ["Squirming Evil", "KH"],
+        "settings": "5cffe0",
+        "start": 0
+      },
+      {
+        "type": "HTTP",
+        "song": ["Fight and Away", "KHD"],
+        "settings": "5cffe0",
+        "start": 1
+      },
+      {
+        "type": "HTTP",
+        "song": ["Struggle Away", "KHRECOM"],
+        "settings": "5cffe0",
+        "start": 0
+      },
+      {
+        "type": "HTTPS",
+        "rows": ["special-hades", "type-heartless", "special-maleficent"],
+        "columns": ["special-jafar", "plays-ag", "arr-shimomura"],
+        "message": "★ Rogues' Gallery II ★"
+      },
+      {
+        "type": "HTTP",
+        "song": ["The Fight for my Friends", "KHRECOM"],
+        "settings": "5cffe0",
+        "start": 45
+      },
+      {
+        "type": "HTTP",
+        "song": ["Skyward Striker", "KHIII"],
+        "settings": "5cffe0",
+        "start": 61
+      },
+      {
+        "type": "HTTP",
+        "song": ["The Deep End -Rock Titan's Rage-", "KHIII"],
+        "settings": "5cffe0",
+        "start": 134
+      },
+      {
+        "type": "HTTPS",
+        "rows": ["special-darkside", "special-organization", "plays-co"],
+        "columns": ["letter-d", "origin-khcom", "type-battle"],
+        "message": "★ Rogues' Gallery III ★"
+      },
+      {
+        "type": "HTTP",
+        "song": ["Hunter of the Dark", "KHBBSFM"],
+        "settings": "5cffe0",
+        "start": 24
+      },
+      {
+        "type": "HTTP",
+        "song": ["Extreme Encounters", "KHBBS"],
+        "settings": "5cffe0",
+        "start": 39
+      },
+      {
+        "type": "HTTP",
+        "song": ["Anger Unchained", "KHIII"],
+        "settings": "5cffe0",
+        "start": 85
+      },
+      {
+        "type": "HTTPS",
+        "rows": ["special-trickmaster", "special-icetitan", "special-ursula"],
+        "columns": ["plays-oc", "appear-khmom", "letter-t"],
+        "message": "★ Rogues' Gallery IV ★"
+      },
+      {
+        "type": "HTTP",
+        "song": ["Unforgettable -KINGDOM HEARTS III Version-", "KHIII"],
+        "settings": "5cffe0",
+        "start": 156
+      },
+      {
+        "type": "HTTP",
+        "song": ["UNTAMABLE", "KH3D"],
+        "settings": "5cffe0",
+        "start": 32
+      },
+      {
+        "type": "HTTP",
+        "song": ["No Surrender!", "KHIII"],
+        "settings": "5cffe0",
+        "start": 80
+      },
+      {
+        "type": "HTTPS",
+        "rows": ["special-ursula", "type-ff", "motif-destati"],
+        "columns": ["misc-lyrics", "plays-di", "origin-kh"],
+        "message": "★ Rogues' Gallery V ★"
+      },
+      {
+        "type": "Submit"
+      }
     ],
     "winners": [
 
     ],
-    "median": "??/??"
+    "median": "??/135"
   }
 }

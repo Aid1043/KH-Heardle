@@ -3,7 +3,7 @@
 import MusicLink from "@/components/MusicLink.vue";
 import GuessSummary from "@/components/GuessSummary.vue";
 import InfiniteButton from "@/components/InfiniteButton.vue";
-import { criticalEnabled, randomStartEnabled, SelectedMusic, urlSeed, puzzleMode, puzzleSeed } from '@/main';
+import { criticalEnabled, randomStartEnabled, SelectedMusic, urlSeed, puzzleMode, puzzleSeed, PUZZLE_ACTIVE } from '@/main';
 import IconShare from "@/components/icons/IconShare.vue";
 import { getSettingsURL } from "@/components/Modals/SupportModal.vue"
 
@@ -69,7 +69,10 @@ function goToNext() {
 
 function goToNextPuzzle() {
   const params = new URLSearchParams(window.location.search);
-  params.set("p", (puzzleSeed + 1).toString());
+  if (!puzzleMode)
+    params.set("p", "0");
+  else
+    params.set("p", (puzzleSeed + 1).toString());
   window.location.search = params.toString();
 }
 
@@ -170,6 +173,7 @@ function copySeed() {
         <div class="margin"></div>
           <div class="button-container">
            <div class="button-columns"> 
+            <button @click="goToNextPuzzle" style="background: var(--color-positive); border-style: none; cursor: pointer;" v-if="PUZZLE_ACTIVE"> Speical Event </button>
             <button @click="goToInfinite" style="background: var(--color-button-highlight); border-style: none; cursor: pointer;">Infinite Mode</button>
             <button @click="goToSudoku" style="background: var(--color-sudoku); border-style: none; cursor: pointer;">Sudoku Mode</button>
           </div>
@@ -335,7 +339,7 @@ function copySeed() {
 
 .button-columns {
   display: flex;
-  gap: 3rem;
+  gap: 2.5rem;
   border-style: none;
 }
 </style>

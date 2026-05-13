@@ -15,8 +15,7 @@ onMounted(()=>{
 <template>
   <div class="update-content">
     <h1>Special Event</h1>
-    <p>The first ever special event has now concluded! Thank you so much for playing.</p>
-    <p class="last">The winners can be found in the <b>event icon</b> in the top left. Stay tuned for future challenges!</p>
+    <p class="last">A new special event is active: <b>Rogues' Gallery</b>, all about boss themes!</p>
   </div>
 </template>
 

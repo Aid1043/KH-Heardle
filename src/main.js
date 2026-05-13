@@ -11,7 +11,7 @@ import sudoku_music from '@/settings/sudoku_music.json'
 import sudoku_tags from '@/settings/sudoku_tags.json'
 
 export const PUZZLE_ACTIVE = true
-export const CURRENT_PUZZLE = "mc6";
+export const CURRENT_PUZZLE = "rogues";
 
 // Create audio players
 
@@ -518,7 +518,7 @@ function generateBoard(iter = 1) {
 export const urlSeed = _urlSeed;
 export const seeded = _seeded;
 
-var _sudokuBoard = null
+var _sudokuBoard = null;
 if (sudokuMode.value) {
     if (arabianNightmareTest)
         _sudokuBoard = [sudoku_tags[92], sudoku_tags[98], sudoku_tags[54], sudoku_tags[123], sudoku_tags[113], sudoku_tags[91]]
