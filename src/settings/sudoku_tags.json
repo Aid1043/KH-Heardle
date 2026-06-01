@@ -380,7 +380,7 @@
   {
     "tag": "plays-co",
     "short-desc": "Plays in Castle Oblivion",
-    "long-desc": "A version of the track plays in Castle Oblivion.",
+    "long-desc": "A version of the track plays in Castle Oblivion (not counting other worlds within the castle).",
     "rarity": 7.0
   },
   {
@@ -901,7 +901,7 @@
   },
   {
     "tag": "special-organization",
-    "short-desc": "Organization XIII boss theme",
+    "short-desc": "Original Organization XIII boss theme",
     "long-desc": "A version of the track plays for a boss battle against a member of the original Organization XIII.",
     "rarity": 0.0
   }

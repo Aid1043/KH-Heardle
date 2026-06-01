@@ -10,7 +10,7 @@ import puzzles from '@/settings/puzzles.json'
 import sudoku_music from '@/settings/sudoku_music.json'
 import sudoku_tags from '@/settings/sudoku_tags.json'
 
-export const PUZZLE_ACTIVE = true
+export const PUZZLE_ACTIVE = false
 export const CURRENT_PUZZLE = "rogues";
 
 // Create audio players

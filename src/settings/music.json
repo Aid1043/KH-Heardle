@@ -14280,7 +14280,25 @@
     "daily": true
   },
   {
-    "title": "Let It Go",
+    "title": "Let It Go (Japanese)",
+    "media": "KHIII",
+    "media-display": "Kingdom Hearts III",
+    "url": "https://www.youtube.com/watch?v=84jjnI6M2UI",
+    "start": 3.0,
+    "duration": 223,
+    "tags": {
+      "title": "Let It Go",
+      "year": 2019,
+      "game": "KHIII",
+      "arranger": "Kristen Anderson-Lopez, Robert Lopez"
+    },
+    "status": "unreleased",
+    "note": "The original Disney song from Frozen.",
+    "wiki": "https://www.khwiki.com/Let_It_Go",
+    "daily": false
+  },
+  {
+    "title": "Let It Go (English)",
     "media": "KHIII",
     "media-display": "Kingdom Hearts III",
     "url": "https://www.youtube.com/watch?v=YVVTZgwYwVo",
@@ -17444,6 +17462,23 @@
     },
     "status": "unreleased",
     "note": "The mission victory theme. Like \"Mission Complete!\" before it, this arrangement quotes \"Dearly Beloved\". Likely composed by Tsuyoshi Sekito.",
+    "wiki": "https://www.khwiki.com/Kingdom_Hearts_Missing-Link",
+    "daily": false
+  },
+  {
+    "title": "Unnamed (Gacha)",
+    "media": "KHML",
+    "media-display": "Kingdom Hearts Missing-Link",
+    "url": "https://www.youtube.com/watch?v=C3fImIZQ34Y",
+    "duration": 75,
+    "tags": {
+      "title": "Unnamed",
+      "year": 2022,
+      "game": "KHML",
+      "arranger": "Unknown"
+    },
+    "status": "unreleased",
+    "note": "The gacha theme. Likely composed by Tsuyoshi Sekito.",
     "wiki": "https://www.khwiki.com/Kingdom_Hearts_Missing-Link",
     "daily": false
   },

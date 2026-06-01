@@ -245,8 +245,17 @@
       }
     ],
     "winners": [
-
+      { "name": "Scherzodelcuore", "score": 133 },
+      { "name": "ZRM", "score": 132 },
+      { "name": "ZtarZtorm", "score": 132 },
+      { "name": "awesomeinmyworld ", "score": 128 },
+      { "name": "TalysAlankil", "score": 125 },
+      { "name": "Troopage", "score": 122 },
+      { "name": "david", "score": 121 },
+      { "name": "kangabloo", "score": 121 },
+      { "name": "colbstersnowman", "score": 118 },
+      { "name": "WilyGryphon", "score": 117 }
     ],
-    "median": "??/135"
+    "median": "116/135"
   }
 }

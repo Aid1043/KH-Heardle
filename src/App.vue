@@ -63,10 +63,10 @@ onMounted(() => {
     openModal(TutorialModal);
     window.localStorage.setItem('sudokuFirstPlay', 'false');
   }
-  else if (window.localStorage.getItem('update-2026-05-15') !== "false") {
-    openModal(UpdateModal);
-    window.localStorage.setItem('update-2026-05-15', 'false');
-  }
+  // else if (window.localStorage.getItem('update-2026-05-15') !== "false") {
+  //   openModal(UpdateModal);
+  //   window.localStorage.setItem('update-2026-05-15', 'false');
+  // }
 
   document.title = settings["tab-title"]
 });

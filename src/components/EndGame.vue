@@ -3,9 +3,10 @@
 import MusicLink from "@/components/MusicLink.vue";
 import GuessSummary from "@/components/GuessSummary.vue";
 import InfiniteButton from "@/components/InfiniteButton.vue";
-import { criticalEnabled, randomStartEnabled, SelectedMusic, urlSeed, puzzleMode, puzzleSeed, PUZZLE_ACTIVE } from '@/main';
+import { criticalEnabled, randomStartEnabled, SelectedMusic, urlSeed, puzzleMode, puzzleSeed, PUZZLE_ACTIVE, CURRENT_PUZZLE } from '@/main';
 import IconShare from "@/components/icons/IconShare.vue";
 import { getSettingsURL } from "@/components/Modals/SupportModal.vue"
+import puzzles from '@/settings/puzzles.json'
 
 import settings from "@/settings/settings.json"
 
@@ -13,6 +14,9 @@ import { currentGameState, ParseStringWithVariable, infiniteEnabled, seeded, get
 import TransportBar from "@/components/TransportBar.vue";
 import { ref } from "vue";
 
+
+const _savedSubmitted = localStorage.getItem(`puzzleSubmitted-${puzzles[CURRENT_PUZZLE].id}`)
+const saveSubmitted = _savedSubmitted !== null ? JSON.parse(_savedSubmitted) : false;
 
 // calculate time
 setInterval(() => {
@@ -130,6 +134,7 @@ function copySeed() {
   navigator.clipboard.writeText(newUrl);
   copied.value = true;
 }
+
 </script>
 
 <template>
@@ -173,7 +178,7 @@ function copySeed() {
         <div class="margin"></div>
           <div class="button-container">
            <div class="button-columns"> 
-            <button @click="goToNextPuzzle" style="background: var(--color-positive); border-style: none; cursor: pointer;" v-if="PUZZLE_ACTIVE"> Speical Event </button>
+            <button @click="goToNextPuzzle" style="background: var(--color-puzzle); color: black; border-style: none; cursor: pointer;" v-if="PUZZLE_ACTIVE && !saveSubmitted"> Special Event </button>
             <button @click="goToInfinite" style="background: var(--color-button-highlight); border-style: none; cursor: pointer;">Infinite Mode</button>
             <button @click="goToSudoku" style="background: var(--color-sudoku); border-style: none; cursor: pointer;">Sudoku Mode</button>
           </div>
