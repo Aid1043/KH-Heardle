@@ -14,8 +14,11 @@ onMounted(()=>{
 
 <template>
   <div class="update-content">
-    <h1>Special Event</h1>
-    <p class="last">A new special event is active: <b>Rogues' Gallery</b>, all about boss themes!</p>
+    <h1>17 New Songs Added</h1>
+      <p>- 9 early arrangements of KH3 songs from the Premium Showcase demo</p>
+      <p>- 5 ringtones from Kingdom Hearts Mobile</p>
+      <p>- 3 unused versions of songs from KHBBS and KH2.5</p>
+    <p class="last">Be sure to check the "Include unused tracks" setting (and the appropriate games) to see these songs in Infinite Mode!</p>
   </div>
 </template>
 
