@@ -2720,6 +2720,23 @@
     "daily": true
   },
   {
+    "title": "Winnie the Pooh [In-game]",
+    "media": "KHRECOM",
+    "media-display": "Kingdom Hearts Re:Chain of Memories",
+    "url": "https://www.youtube.com/watch?v=PH5UEzO5oE0",
+    "duration": 144,
+    "tags": {
+      "title": "Winnie the Pooh",
+      "year": 2007,
+      "game": "KHRECOM",
+      "arranger": "Yoko Shimomura"
+    },
+    "status": "unreleased",
+    "note": "The field theme of 100 Acre Wood. Originally composed by Richard and Robert Sherman for the Winnie the Pooh franchise. The instrumentation (especially the bells) is harsher in the in-game version.",
+    "wiki": "https://www.khwiki.com/Winnie_the_Pooh_(track)",
+    "daily": false
+  },
+  {
     "title": "March-A-Long",
     "media": "KHRECOM",
     "media-display": "Kingdom Hearts Re:Chain of Memories",
@@ -4684,8 +4701,8 @@
     "title": "Sanctuary -after the battle-",
     "media": "KHII",
     "media-display": "Kingdom Hearts II",
-    "url": "https://www.youtube.com/watch?v=ILrb76PNGIk",
-    "duration": 358,
+    "url": "https://www.youtube.com/watch?v=o12mh9x4TFU",
+    "duration": 365,
     "tags": {
       "title": "Passion / Sanctuary",
       "year": 2005,
@@ -17636,7 +17653,7 @@
       "arranger": "Tomomichi Takeoka"
     },
     "status": "ost",
-    "note": "The trailer theme and main theme of Missing-Link. It is the first title \"Dearly Beloved\" not arranged by Yoko Shimomura.",
+    "note": "The trailer theme and main theme of Missing-Link. It is the first pieced (co-)arranged by Tomomichi Takeoka.",
     "wiki": "https://www.khwiki.com/Dearly_Beloved",
     "daily": true
   },

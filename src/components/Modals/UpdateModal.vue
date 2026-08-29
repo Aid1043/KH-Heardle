@@ -14,10 +14,11 @@ onMounted(()=>{
 
 <template>
   <div class="update-content">
-    <h1>17 New Songs Added</h1>
+    <h1>20 New Songs Added</h1>
       <p>- 9 early arrangements of KH3 songs from the Premium Showcase demo</p>
       <p>- 5 ringtones from Kingdom Hearts Mobile</p>
       <p>- 3 unused versions of songs from KHBBS and KH2.5</p>
+      <p>- 3 live recordings from the 2026 Music of Square Enix conerts</p>
     <p class="last">Be sure to check the "Include unused tracks" setting (and the appropriate games) to see these songs in Infinite Mode!</p>
   </div>
 </template>
